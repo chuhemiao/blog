@@ -3,8 +3,8 @@
 return [
     'Articles'    => '文章',
     'Article'    => '文章',
-    'Discussions' => '讨论',
-    'Discussion' => '讨论',
+    'Discussions' => '币讨论',
+    'Discussion' => '币讨论',
     'Follow'      => '关注',
     'Following'   => '关注中',
     'Comments'    => '评论数',
@@ -99,4 +99,6 @@ return [
     'Be Banned Comment'    => '评论已被禁止!',
     'Likes'                => '...',
     'Dislikes'             => '...',
+    'Coinmarkets'           => '交易市场',
+
 ];
