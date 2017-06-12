@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'Articles'    => 'Articles',
-    'Article'     => 'Article',
+    'Articles'    => 'Coin News',
+    'Article'     => 'Coin News',
     'Discussions' => 'Discussions',
     'Discussion'  => 'Discussion',
     'Follow'      => 'Follow',

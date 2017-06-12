@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'Articles'    => '文章',
-    'Article'    => '文章',
+    'Articles'    => '币咨询',
+    'Article'    => '币咨询',
     'Discussions' => '币讨论',
     'Discussion' => '币讨论',
     'Follow'      => '关注',
