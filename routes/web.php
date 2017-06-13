@@ -72,4 +72,4 @@ Route::get('/', 'ArticleController@index');
 Route::get('{slug}', 'ArticleController@show');
 
 // coinmarket
-Route::resource('coinmarkets', 'CoinmarketController@index');
+Route::get('coinmarket', 'CoinmarketController@index');

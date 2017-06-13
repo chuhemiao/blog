@@ -39,6 +39,9 @@ Route::group([
     Route::post('folder', 'UploadController@createFolder');
     Route::post('folder/delete', 'UploadController@deleteFolder');
     Route::post('file/delete', 'UploadController@deleteFile');
+    // coin
+    Route::get('coin', 'CoinController@btc');
+
 
     Route::get('system', 'SystemController@getSystemInfo');
 });
