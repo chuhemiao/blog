@@ -49,6 +49,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'setting'], function () {
 
 // Link
 Route::get('link', 'LinkController@index');
+//coinmarket
+
+Route::get('coinmarket', 'CoinmarketController@index');
+Route::get('coinmarket/coinmarketcap', 'CoinmarketController@coinmarketcap');
+Route::get('coinmarket/btc', 'CoinmarketController@btc');
 
 // Category
 Route::group(['prefix' => 'category'], function () {
@@ -70,6 +75,3 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 // Article
 Route::get('/', 'ArticleController@index');
 Route::get('{slug}', 'ArticleController@show');
-
-// coinmarket
-Route::get('coinmarket', 'CoinmarketController@index');

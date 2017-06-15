@@ -23,7 +23,7 @@ class LinkController extends Controller
     public function index()
     {
         $links = $this->link->page();
-
         return view('link.index', compact('links'));
     }
+
 }
