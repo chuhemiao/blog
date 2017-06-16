@@ -8,6 +8,11 @@
                             <i class="large ion-ios-home"></i>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ config('blog.footer.weibo.url') }}">
+                            <i class="large ion-transgender"></i>
+                        </a>
+                    </li>
                     @if(config('blog.footer.github.open'))
                     <li>
                         <a href="{{ config('blog.footer.github.url') }}" target="_blank">
@@ -23,9 +28,6 @@
                     </li>
                     @endif
                 </ul>
-                <div class="links">
-                    <a href="{{ url('link') }}">{{ lang('Links') }}</a>
-                </div>
             </div>
         </div>
     </div>
