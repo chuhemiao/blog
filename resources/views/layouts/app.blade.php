@@ -10,7 +10,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ config('blog.default_icon') }}">
 
     <title>@yield('title', config('app.name'))</title>
 

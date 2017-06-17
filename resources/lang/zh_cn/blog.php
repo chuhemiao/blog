@@ -99,6 +99,14 @@ return [
     'Be Banned Comment'    => '评论已被禁止!',
     'Likes'                => '...',
     'Dislikes'             => '...',
-    'Coinmarkets'           => '交易市场',
+    'Coinmarkets'          => '交易市场',
+    'Btc38'                => '比特时代',
+    'Quotes'               => '实时行情',
+    'High Price'           => '最高价格',
+    'Low Price'            => '最低价格',
+    'Now Price'            => '当前价格',
+    'Vols'                 => '成交量',
+    'Buys'                 => '买一',
+    'Sells'                => '卖一',
 
 ];

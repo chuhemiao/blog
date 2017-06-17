@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">{{ lang('Articles') }}</a></li>
                 <li><a href="{{ url('discussion') }}">{{ lang('Discussions') }}</a></li>
-                <li><a href="{{ url('link') }}">{{ lang('Coinmarkets') }}</a></li>
+                <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

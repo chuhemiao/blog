@@ -9,7 +9,7 @@ return [
     'default_avatar' => env('DEFAULT_AVATAR') ?: '/images/default.png',
 
     // Default Icon
-    'default_icon' => env('DEFAULT_ICON') ?: '/images/favicon.ico',
+    // 'default_icon' => env('DEFAULT_ICON') ?: '/images/favicon.ico',
 
     // Meta
     'meta' => [
@@ -22,14 +22,14 @@ return [
     'social_share' => [
         'article_share'    => env('ARTICLE_SHARE') ?: true,
         'discussion_share' => env('DISCUSSION_SHARE') ?: true,
-        'sites'            => env('SOCIAL_SHARE_SITES') ?: 'google,twitter,weibo',
-        'mobile_sites'     => env('SOCIAL_SHARE_MOBILE_SITES') ?: 'google,twitter,weibo,qq,wechat',
+        'sites'            => env('SOCIAL_SHARE_SITES') ?: 'google,twitter,weibo,facebook',
+        'mobile_sites'     => env('SOCIAL_SHARE_MOBILE_SITES') ?: 'google,twitter,weibo,qq,wechat,facebook',
     ],
 
     // Google Analytics
     'google' => [
-        'id'   => env('GOOGLE_ANALYTICS_ID', 'Google-Analytics-ID'),
-        'open' => env('GOOGLE_OPEN') ?: false
+        'id'   => env('GOOGLE_ANALYTICS_ID', 'UA-68661235-5'),
+        'open' => env('GOOGLE_OPEN') ?: true
     ],
 
     // Article Page

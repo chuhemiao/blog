@@ -101,4 +101,6 @@ return [
     'Dislikes'             => 'down voted your comment on',
     // 20170610
     'Coinmarkets'           => 'coinmarket',
+    'Quotes'                => 'quotes',
+
 ];

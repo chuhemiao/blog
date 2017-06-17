@@ -29,14 +29,17 @@ class CoinmarketController extends Controller
 
     public function btc()
     {
-      // header('Access-Control-Allow-Origin: *');
-    	$client = new Client([
-		    'base_uri' => self::BTC_LINK,
-		    'timeout'  => 2.0,
-  		]);
+      $params = [
+      'c'=>$this->api_market_all[0],
+      'mk_type'=>self::MK_TYPE.$this->mk_type[0],
+      ];
 
-  		$response = $client->request('GET', '?c='.$this->api_market_all[0].self::MK_TYPE.$this->mk_type[0]);
-      return $response;
+      $contents = $this->sendByCurl(self::BTC_LINK,'',$params);
+
+      $contents =  json_decode($contents);
+
+      return view('coinmarket.index', compact('contents'));
+
     }
 
     // coinmarketcap
@@ -53,4 +56,39 @@ class CoinmarketController extends Controller
       return $response;
 
     }
+
+    /*
+     * CURL请求数据
+     * @param sting $url 请求的url地址
+     * @param string $mode get|post 请求
+     * @param string $params 必须是字符串 json|xml|http_build_query过的
+     * @param int $timeout 请求超时时间 默认10秒
+    */
+
+    private static function sendByCurl($url, $mode, $params = '', $timeout = 10){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); //设置超时时间
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); //返回原生输出
+
+        if ($mode == 'post') {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+            curl_setopt($ch, CURLOPT_POST, true); //发送一个常规的POST请求
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params); //全部数据使用HTTP协议中的"POST"操作来发送
+        }else{
+            $url .= (strpos($url, '?') === false ? '?' : '&') . http_build_query($params); //如果是get,则会对url进行添加param参数
+        }
+        curl_setopt($ch, CURLOPT_URL, $url); // 需要获取的URL地址
+        $result = curl_exec($ch);
+
+        $errno = curl_errno($ch);
+        if ($errno) {
+            return array(
+                'errno' => $errno,
+                'error' => curl_error($ch),
+            );
+        }
+        curl_close($ch);
+        return $result;
+    }
+
 }
