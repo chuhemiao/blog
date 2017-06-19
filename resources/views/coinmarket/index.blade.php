@@ -4,42 +4,60 @@
     @component('particals.jumbotron')
         <h3>{{ lang('Quotes') }}</h3>
     @endcomponent
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <ul class="list-group">
-                    <li class="list-group-item">ss</li>
-                    <li class="list-group-item">xx</li>
-                    <li class="list-group-item">xxx</li>
-                    <li class="list-group-item">
-                    @forelse($contents as $content)
-                    <table class="table table-striped table-hover">
-                        <tr>
-                            <th class="width-5-percent text-center">{{ lang('Coinmarkets') }}</th>
-                            <th class="text-center">{{ lang('Now Price') }}</th>
-                            <th >{{ lang('High Price') }}</th>
-                            <th >{{ lang('Low Price') }}</th>
-                            <th >{{ lang('Buys') }}</th>
-                            <th >{{ lang('Sells') }}</th>
-                            <th>{{ lang('Vols') }}</th>
-                        </tr>
-                        <tr>
-                            <td class="text-center">{{   lang('Btc38')  }}</td>
-                            <td class="text-center">{{   $content->last }}</td>
-                            <td class="text-center">{{   $content->high  }}</td>
-                            <td class="text-center">{{   $content->low  }}</td>
-                            <td class="text-center">{{   $content->buy  }}</td>
-                            <td class="text-center">{{   $content->sell  }}</td>
-                            <td class="text-center">{{   $content->vol  }}</td>
-                        </tr>
-                    </table>
-                    @empty
-                        <li class="list-group-item">{{ lang('Nothing') }}</li>
-                    @endforelse
-                    </li>
-                </ul>
+<section class="app-main">
+    <div class="container is-fluid is-marginless app-content">
+        <div class="animated">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article class="tile is-child box">
+                    <div class="table-responsive">
+                        <table class="table is-bordered is-striped is-narrow">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">{{ lang('Coinmarkets') }}</th>
+                                    <th class="text-center">{{ lang('Coins') }}</th>
+                                    <th class="text-center">{{ lang('Now Price') }}</th>
+                                    <th class="text-center">{{ lang('High Price') }}</th>
+                                    <th class="text-center">{{ lang('Low Price') }}</th>
+                                    <th class="text-center">{{ lang('Buys') }}</th>
+                                    <th class="text-center">{{ lang('Sells') }}</th>
+                                    <th class="text-center">{{ lang('Vols') }}</th>
+                                </tr>
+                            </thead> 
+                            <tfoot>
+                                <tr>
+                                    <th></th> 
+                                    <th></th> 
+                                    <th></th> 
+                                    <th></th> 
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot> 
+                            <tbody>
+                                @forelse($contents as $content)
+                                <tr>
+                                    <td class="text-center">{{   lang('Btc38') }}</td>
+                                    <td class="text-center">{{   lang('Xems') }}</td>
+                                    <td class="text-center">{{   $content->last }}</td>
+                                    <td class="text-center">{{   $content->high  }}</td>
+                                    <td class="text-center">{{   $content->low  }}</td>
+                                    <td class="text-center">{{   $content->buy  }}</td>
+                                    <td class="text-center">{{   $content->sell  }}</td>
+                                    <td class="text-center">{{   $content->vol  }}</td>
+                                </tr> 
+                                @empty
+                                    <li class="list-group-item">{{ lang('Nothing') }}</li>
+                                @endforelse
+                            </tbody>
+                        </table>
+                </div>
+                </article>
             </div>
         </div>
+        </div>
     </div>
+    </section>
 @endsection

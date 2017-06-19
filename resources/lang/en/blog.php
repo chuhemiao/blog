@@ -100,7 +100,20 @@ return [
     'Likes'                => 'up voted your comment on',
     'Dislikes'             => 'down voted your comment on',
     // 20170610
-    'Coinmarkets'           => 'coinmarket',
-    'Quotes'                => 'quotes',
+    'Coinmarkets'          => 'coinmarket',
+    'Quotes'               => 'quotes',
+    'Coinmarkets'          => 'Coinmarkets',
+    'Coins'                => 'Coins',
+    'Market Money'         => 'Market Money',
+    'Btc38'                => 'Btc38',
+    'Quotes'               => 'Quotes',
+    'High Price'           => 'High Price（24h）',
+    'Low Price'            => 'Low Price（24h）',
+    'Now Price'            => 'Now Price',
+    'Vols'                 => 'Vols（24h）',
+    'Buys'                 => 'Buys',
+    'Sells'                => 'Sells',
+    'Xems'                 => 'Xems',
+
 
 ];

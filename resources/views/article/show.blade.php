@@ -6,7 +6,7 @@
     @component('particals.jumbotron')
         <h4>{{ $article->title }}</h4>
 
-        <h6>{{ $article->subtitle }}</h6>
+        <!-- <h6>{{ $article->subtitle }}</h6> -->
 
         <div class="header">
             <i class="ion-person"></i>{{ $article->user->name or 'null' }}，

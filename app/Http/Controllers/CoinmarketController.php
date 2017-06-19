@@ -9,12 +9,14 @@ use GuzzleHttp\Client;
 class CoinmarketController extends Controller
 {
     //	btc38平台接口地址
-    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'dog','4'=>'ltc'];
+    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'dog','4'=>'ltc','5'=>'all'];
     protected $mk_type = ['0'=>'cny','1'=>'btc'];
     const BTC_LINK = 'http://api.btc38.com/v1/ticker.php';
     const MK_TYPE =  '&mk_type=';
-    // coinmarketcap
+    // 定义各种币
+    protected $api_market_name = ['btc'=>'比特币','ltc'=>'莱特币','xem'=>'新经币','xrp'=>'瑞波币','xlm'=>'恒星币','bts'=>'比特股'];
 
+    // coinmarketcap
     const CAP_LINK = 'https://api.coinmarketcap.com/v1/ticker/';
     protected $cap_mk_type =['0'=>'CNY','1'=>'EUR','1'=>'JPY'];
     const CAP_TICKET = '?convert=';
@@ -35,9 +37,7 @@ class CoinmarketController extends Controller
       ];
 
       $contents = $this->sendByCurl(self::BTC_LINK,'',$params);
-
       $contents =  json_decode($contents);
-
       return view('coinmarket.index', compact('contents'));
 
     }
@@ -47,13 +47,18 @@ class CoinmarketController extends Controller
     public function coinmarketcap()
     {
 
-      $client = new Client([
-        'base_uri' => self::CAP_LINK,
-        'timeout'  => 2.0,
-      ]);
+      $params = [
+      'c'=>$this->cap_mk_type[0],
+      'mk_type'=>self::CAP_TICKET.$this->cap_mk_type[0],
+      'limit'=>self::CAP_LIMIT,
+      ];
 
-      $response = $client->request('GET', self::CAP_TICKET.$this->cap_mk_type[0].self::CAP_LIMIT);
-      return $response;
+      $contents = $this->sendByCurl(self::CAP_LINK,'',$params);
+      // return $contents;exit;
+      $contents =  json_decode($contents);
+      // var_dump($contents);exit;
+
+      return view('coinmarket.market', compact('contents'));
 
     }
 

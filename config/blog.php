@@ -35,7 +35,7 @@ return [
     // Article Page
     'article' => [
         'title'       => '比特币小白-专注对数字币新闻与ICO消息咨询',
-        'description' => 'http://bitecoin.idiot6.com',
+        'description' => '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。',
         'number'      => 15,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
