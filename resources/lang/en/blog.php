@@ -105,6 +105,7 @@ return [
     'Coinmarkets'          => 'Coinmarkets',
     'Coins'                => 'Coins',
     'Market Money'         => 'Market Money',
+    'Market Price'         => 'Market Price',
     'Btc38'                => 'Btc38',
     'Quotes'               => 'Quotes',
     'High Price'           => 'High Price（24h）',

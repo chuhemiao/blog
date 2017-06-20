@@ -102,6 +102,7 @@ return [
     'Coinmarkets'          => '交易市场',
     'Coins'                => '币种',
     'Market Money'         => '全球数字币市值排行',
+    'Market Price'         => '币排行',
     'Btc38'                => '比特时代',
     'Quotes'               => '实时行情',
     'High Price'           => '最高价格（24h）',
@@ -111,5 +112,6 @@ return [
     'Buys'                 => '买一',
     'Sells'                => '卖一',
     'Xems'                 => '新经币',
+    'Waring Notices'       => '以上价格仅供参考，买币有风险，入坑须谨慎',
 
 ];

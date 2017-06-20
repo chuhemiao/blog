@@ -18,8 +18,8 @@
                                     <th>币种</th> 
                                     <th>总市值</th> 
                                     <th>当前价格</th> 
-                                    <th>Circulating  Supply</th> 
-                                    <th>24H VOL</th>
+                                    <th>发行量</th> 
+                                    <th>24H成交量</th>
                                     <th>24H涨幅</th>
                                 </tr>
                             </thead> 
@@ -35,12 +35,12 @@
                                 @forelse($contents as $content)
                                 <tr>
                                     <td>{{   $content->rank }}</td> 
-                                    <td>{{   $content->name }}</td> 
+                                    <td>{{   $content->symbol }}</td> 
                                     <td>{{   $content->market_cap_usd }}</td> 
                                     <td>{{   $content->price_usd }}</td> 
                                     <td>{{   $content->total_supply }}</td> 
-                                    <td>{{   $content->24h_volume_usd }}</td>
-                                    <td>{{   $content->percent_change_24h }}%</td>
+                                    <td>{{   $content->vol_usd }}</td>
+                                    <td>{{   $content->percent_change }}%</td>
                                 </tr> 
                                 @empty
                                     <li class="list-group-item">{{ lang('Nothing') }}</li>

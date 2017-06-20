@@ -33,20 +33,20 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th></th>
+                                    <th>{{ lang('Waring Notices') }}</th>
                                 </tr>
                             </tfoot> 
                             <tbody>
-                                @forelse($contents as $content)
+                                @forelse($cont_arr as $cont_arr)
                                 <tr>
-                                    <td class="text-center">{{   lang('Btc38') }}</td>
-                                    <td class="text-center">{{   lang('Xems') }}</td>
-                                    <td class="text-center">{{   $content->last }}</td>
-                                    <td class="text-center">{{   $content->high  }}</td>
-                                    <td class="text-center">{{   $content->low  }}</td>
-                                    <td class="text-center">{{   $content->buy  }}</td>
-                                    <td class="text-center">{{   $content->sell  }}</td>
-                                    <td class="text-center">{{   $content->vol  }}</td>
+                                    <td class="text-center"><a href="{{   $cont_arr->ticker->market_url }}" target="_blank">{{   $cont_arr->ticker->market }}</a></td>
+                                    <td class="text-center"><a href="{{   $cont_arr->ticker->url }}" target="_blank">{{   $cont_arr->ticker->symbol }}</a></td>
+                                    <td class="text-center">{{   $cont_arr->ticker->last }}</td>
+                                    <td class="text-center">{{   $cont_arr->ticker->high  }}</td>
+                                    <td class="text-center">{{   $cont_arr->ticker->low  }}</td>
+                                    <td class="text-center">{{   $cont_arr->ticker->buy  }}</td>
+                                    <td class="text-center">{{   $cont_arr->ticker->sell  }}</td>
+                                    <td class="text-center">{{   $cont_arr->ticker->vol  }}</td>
                                 </tr> 
                                 @empty
                                     <li class="list-group-item">{{ lang('Nothing') }}</li>
