@@ -24,7 +24,7 @@ class LinkRepository
      * @param  string $sortColumn
      * @return Paginate
      */
-    public function page($number = 10, $sort = 'desc', $sortColumn = 'created_at')
+    public function page($number = 50, $sort = 'desc', $sortColumn = 'created_at')
     {
         $this->model = $this->checkAuthScope();
 

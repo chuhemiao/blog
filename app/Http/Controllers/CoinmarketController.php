@@ -137,6 +137,12 @@ class CoinmarketController extends Controller
 
     }
 
+    // ico
+    public function ico()
+    {
+        return view('coinmarket.ico');
+    }
+
     /*
      * CURL请求数据
      * @param sting $url 请求的url地址
