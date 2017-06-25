@@ -15,7 +15,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">{{ lang('Coinmarkets') }}</th>
-                                    <th class="text-center">{{ lang('Coins') }}</th>
+                                    <th class="text-center">{{ lang('Coins K') }}</th>
                                     <th class="text-center">{{ lang('Now Price') }}</th>
                                     <th class="text-center">{{ lang('High Price') }}</th>
                                     <th class="text-center">{{ lang('Low Price') }}</th>

@@ -27,6 +27,9 @@
                         </a>
                     </li>
                     @endif
+                     <li>
+                        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=f9232bb88ae3158ea9e5d919011ca397b11699d3f0bda65f009ecc6d289587c4"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="比特币小白" title="比特币小白"></a>
+                    </li>
                 </ul>
             </div>
         </div>

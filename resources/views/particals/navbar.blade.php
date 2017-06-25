@@ -22,7 +22,7 @@
                 <li><a href="{{ url('/') }}">{{ lang('Articles') }}</a></li>
                 <li><a href="{{ url('discussion') }}">{{ lang('Discussions') }}</a></li>
                 <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
-                <li><a href="{{ url('/coinmarket/btc') }}" target="_blank">{{ lang('Quotes') }}</a></li>
+                <li><a href="{{ url('/coinmarket/marketall') }}" target="_blank">{{ lang('Quotes') }}</a></li>
                 <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
             </ul>
 

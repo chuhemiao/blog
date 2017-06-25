@@ -32,5 +32,8 @@
     "emojione": "^2.2.7",
     "fine-uploader": "^5.14.2-rc1",
     "v-textcomplete": "^0.1.2"
+  },
+  "dependencies": {
+    "vue-bulma-tabs": "^1.1.2"
   }
 }

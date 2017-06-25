@@ -100,7 +100,7 @@ return [
     'Likes'                => '...',
     'Dislikes'             => '...',
     'Coinmarkets'          => '交易市场',
-    'Coins'                => '币种',
+    'Coins K'                => 'K线',
     'Market Money'         => '全球数字币市值排行',
     'Market Price'         => '币排行',
     'Btc38'                => '比特时代',

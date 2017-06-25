@@ -103,7 +103,7 @@ return [
     'Coinmarkets'          => 'coinmarket',
     'Quotes'               => 'quotes',
     'Coinmarkets'          => 'Coinmarkets',
-    'Coins'                => 'Coins',
+    'Coins K'                => 'K 线',
     'Market Money'         => 'Market Money',
     'Market Price'         => 'Market Price',
     'Btc38'                => 'Btc38',

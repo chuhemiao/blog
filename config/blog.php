@@ -63,7 +63,7 @@ return [
             'open' => true,
             'url'  => 'http://www.weibo.com/baqiye'
         ],
-        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-6',
+        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-6 ',
     ],
 
     'license' => '比特币小白.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',

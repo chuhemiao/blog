@@ -55,6 +55,7 @@ Route::get('coinmarket', 'CoinmarketController@index');
 Route::get('coinmarket/coinmarketcap', 'CoinmarketController@coinmarketcap');
 Route::get('coinmarket/btc', 'CoinmarketController@btc');
 Route::get('coinmarket/ico', 'CoinmarketController@ico');
+Route::get('coinmarket/marketall', 'CoinmarketController@marketall');
 
 // Category
 Route::group(['prefix' => 'category'], function () {
