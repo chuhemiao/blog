@@ -21,13 +21,13 @@
                               <li><a href="#tab3default" data-toggle="tab">ETH</a></li>
                               <li><a href="#tab4default" data-toggle="tab">ETC</a></li>
                               <li><a href="#tab5default" data-toggle="tab">IOTA</a></li>
-                              <li><a href="#tab6default" data-toggle="tab">比特时代</a></li>
-                              <li><a href="#tab7default" data-toggle="tab">云币网</a></li>
-                              <li><a href="#tab8default" data-toggle="tab">聚币网</a></li>
-                              <li><a href="#tab9default" data-toggle="tab">海枫藤</a></li>
-                              <li><a href="#tab10default" data-toggle="tab">币盈网</a></li>
-                              <li><a href="#tab11default" data-toggle="tab">P网</a></li>
-                              <li><a href="#tab12default" data-toggle="tab">B网</a></li>
+                              <li><a href="#tab6default" data-toggle="tab">新经币</a></li>
+                              <li><a href="#tab7default" data-toggle="tab">狗狗币</a></li>
+                              <li><a href="#tab8default" data-toggle="tab">黑币</a></li>
+                              <li><a href="#tab9default" data-toggle="tab">瑞波币</a></li>
+                              <li><a href="#tab10default" data-toggle="tab">达世币</a></li>
+                              <li><a href="#tab11default" data-toggle="tab">招财币</a></li>
+                              <li><a href="#tab12default" data-toggle="tab">零币</a></li>
                           </ul>
                   </div>
                   <div class="panel-body">
@@ -127,13 +127,139 @@
                                   </tbody>
                               </table>
                           </div>
-                          <div class="tab-pane fade" id="tab6default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab7default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab8default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab9default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab10default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab11default">程序员正在努力开发中</div>
-                          <div class="tab-pane fade" id="tab12default">程序员正在努力开发中</div>
+                          <div class="tab-pane fade" id="tab6default">
+                            @include('particals.market')
+                              @forelse($xem_data as $xem_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $xem_data->xem->ticker->market_url }}" target="_blank">{{   $xem_data->xem->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $xem_data->xem->ticker->url }}" target="_blank">{{   $xem_data->xem->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->last }}</td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->high  }}</td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->low  }}</td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $xem_data->xem->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab7default">
+                            @include('particals.market')
+                              @forelse($dog_data as $dog_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $dog_data->dog->ticker->market_url }}" target="_blank">{{   $dog_data->dog->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $dog_data->dog->ticker->url }}" target="_blank">{{   $dog_data->dog->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->last }}</td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->high  }}</td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->low  }}</td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $dog_data->dog->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab8default">
+                            @include('particals.market')
+                              @forelse($blk_data as $blk_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $blk_data->blk->ticker->market_url }}" target="_blank">{{   $blk_data->blk->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $blk_data->blk->ticker->url }}" target="_blank">{{   $blk_data->blk->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->last }}</td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->high  }}</td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->low  }}</td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $blk_data->blk->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab9default">
+                            @include('particals.market')
+                              @forelse($xrp_data as $xrp_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $xrp_data->xrp->ticker->market_url }}" target="_blank">{{   $xrp_data->xrp->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $xrp_data->xrp->ticker->url }}" target="_blank">{{   $xrp_data->xrp->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->last }}</td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->high  }}</td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->low  }}</td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $xrp_data->xrp->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab10default">
+                            @include('particals.market')
+                              @forelse($dash_data as $dash_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $dash_data->dash->ticker->market_url }}" target="_blank">{{   $dash_data->dash->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $dash_data->dash->ticker->url }}" target="_blank">{{   $dash_data->dash->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->last }}</td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->high  }}</td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->low  }}</td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $dash_data->dash->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab11default">
+                            @include('particals.market')
+                              @forelse($zcc_data as $zcc_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $zcc_data->zcc->ticker->market_url }}" target="_blank">{{   $zcc_data->zcc->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $zcc_data->zcc->ticker->url }}" target="_blank">{{   $zcc_data->zcc->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->last }}</td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->high  }}</td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->low  }}</td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $zcc_data->zcc->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="tab-pane fade" id="tab12default">
+                            @include('particals.market')
+                              @forelse($xzc_data as $xzc_data)
+                                    <tr>
+                                        <td class="text-center"><a href="{{   $xzc_data->xzc->ticker->market_url }}" target="_blank">{{   $xzc_data->xzc->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $xzc_data->xzc->ticker->url }}" target="_blank">{{   $xzc_data->xzc->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->last }}</td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->high  }}</td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->low  }}</td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $xzc_data->xzc->ticker->vol  }}</td>
+                                    </tr>
+                                    @empty
+                                        <li class="list-group-item">{{ lang('Nothing') }}</li>
+                              @endforelse
+                                  </tbody>
+                              </table>
+                          </div>
                       </div>
                   </div>
               </div>

@@ -9,19 +9,24 @@ use GuzzleHttp\Client;
 class CoinmarketController extends Controller
 {
     //	btc38平台接口地址
-    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'dog','4'=>'ltc','5'=>'all','6'=>'eth','7'=>'etc','8'=>'iot'];
+    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'dog','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc'];
     protected $mk_type = ['0'=>'cny','1'=>'btc','2'=>'usd'];
     const BTC_LINK = 'http://api.btc38.com/v1/ticker.php';
     const MK_TYPE =  '&mk_type=';
     protected $btcera_info = ['0'=>'比特时代','1'=>'https://www.btc123.com/market/btc38?symbol=btc38','2'=>'http://www.btc38.com'];//交易市场、k线、网站首页
-    protected $btcera_market_diff = ['0'=>'btcera_btc','1'=>'btcera_ltc','2'=>'btcera_xem'];
+    protected $btcera_market_diff = ['0'=>'btcera_btc','1'=>'btcera_ltc','2'=>'btcera_xem','3'=>'btcera_dog'];
 
 
     // coinmarketcap
     const CAP_LINK = 'https://api.coinmarketcap.com/v1/ticker/';
     protected $cap_mk_type =['0'=>'CNY','1'=>'EUR','1'=>'JPY'];
+
     // 火币网
-    const HUO_BI_LINK = 'http://api.huobi.com/staticmarket/ticker_btc_json.js';
+    const HUO_BI_LINK = 'http://api.huobi.com/staticmarket/ticker_';
+    protected $huobi_info = ['0'=>'火币网','1'=>'https://www.huobi.com/market/','2'=>'https://www.huobi.com'];//交易市场、k线、网站首页
+    protected $huobi_market = ['0'=>'cny_btc','1'=>'cny_ltc','2'=>'cny_eth'];
+    protected $huobi_market_diff = ['0'=>'huobi_btc','1'=>'huobi_ltc','2'=>'huobi_eth'];
+
     //okcoin
     const OKCOIN_LINK = 'https://www.okcoin.cn/api/v1/ticker.do';
     protected $okcoin_info = ['0'=>'oKCoin','1'=>'https://www.okcoin.com/market-','2'=>'https://www.okcoin.com'];//交易市场、k线、网站首页
@@ -52,99 +57,9 @@ class CoinmarketController extends Controller
 
 
 
-
     public function index()
     {
         return view('coinmarket.index');
-    }
-
-    public function btc()
-    {
-      $params = [
-      'c'=>$this->api_market_all[5],
-      'mk_type'=>self::MK_TYPE.$this->mk_type[0],
-      ];
-      $coin_all = ['btc','xem','doge','ltc','bts','zcc','xrp','mec','dash','ppc'];
-
-      $contents = $this->sendByCurl(self::BTC_LINK,'get',$params);
-      $cont_arr = json_decode($contents,true);
-      foreach ($cont_arr as $key => $value) {
-          if(in_array($key, $coin_all)){
-              switch ($key) {
-                case 'btc':
-                  $cont_arr[$key]['ticker']['symbol'] = '比特币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38btccny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'xem':
-                  $cont_arr[$key]['ticker']['symbol'] = '新经币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38xemcny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'doge':
-                  $cont_arr[$key]['ticker']['symbol'] = '狗狗币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38dogecny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'ltc':
-                  $cont_arr[$key]['ticker']['symbol'] = '莱特币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38ltccny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'bts':
-                  $cont_arr[$key]['ticker']['symbol'] = '比特股';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38btscny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'zcc':
-                  $cont_arr[$key]['ticker']['symbol'] = '招财币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38zcccny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'xrp':
-                  $cont_arr[$key]['ticker']['symbol'] = '瑞波币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38xrpcny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'mec':
-                  $cont_arr[$key]['ticker']['symbol'] = '美卡币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38meccny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'dash':
-                  $cont_arr[$key]['ticker']['symbol'] = '达世币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38dashcny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                case 'ppc':
-                  $cont_arr[$key]['ticker']['symbol'] = '点点币';
-                  $cont_arr[$key]['ticker']['market'] = '比特时代';
-                  $cont_arr[$key]['ticker']['url'] = 'https://www.btc123.com/market/btc38?symbol=btc38ppccny';
-                  $cont_arr[$key]['ticker']['market_url'] = 'http://www.btc38.com';
-                  break;
-                default:
-                  break;
-              }
-          }else{
-            unset($cont_arr[$key]);
-          }
-          
-      }
-      $cont_arr =  json_decode(json_encode($cont_arr))  ;
-      
-      // var_dump($cont_arr);exit;
-
-      return view('coinmarket.index', compact('cont_arr'));
-
     }
 
     // coinmarketcap
@@ -184,58 +99,81 @@ class CoinmarketController extends Controller
       $data_btc = [];
       //okcoin  btc
       $data_btc = $this->okcoinALl($data_btc,$this->okcoin_market[0],$this->api_market_all[1],$this->okcoin_market_diff[0]);
-      // // 比特时代
+      // 比特时代
       $data_btc = $this->btceraAll($data_btc,$this->api_market_all[1],$this->btcera_market_diff[0]);
-      // // 比特币中国  
+      // 比特币中国  
       $data_btc = $this->btchinaAll($data_btc,$this->btcchina_market[0],$this->btcchina_market_diff[0],$this->api_market_all[1]);
-      // // 中国比特币
+      // 中国比特币
       $data_btc = $this->chinabtcAll($data_btc,$this->chinabtc_market[0],$this->chinabtc_market_diff[2],$this->api_market_all[1]);
+      // 火币网  
+      $data_btc = $this->huobiAll($data_btc,$this->huobi_market[0],$this->huobi_market_diff[0],$this->api_market_all[1]);
       $data_btc = json_decode(json_encode($data_btc));
+      // 比特币交易价格  end
 
-      // // 比特币交易价格  end
 
-
-      // // 莱特币交易价格
+      // 莱特币交易价格
       $ltc_data = [];
-      // // okcoin
+      // okcoin
       $ltc_data = $this->okcoinALl($ltc_data,$this->okcoin_market[1],$this->api_market_all[4],$this->okcoin_market_diff[1]);
-      // // 比特时代
+      // 比特时代
       $ltc_data = $this->btceraAll($ltc_data,$this->api_market_all[4],$this->btcera_market_diff[1]);
-      // // 比特币中国
+      // 比特币中国
       $ltc_data = $this->btchinaAll($ltc_data,$this->btcchina_market[0],$this->btcchina_market_diff[0],$this->api_market_all[4]);
-      // // 中国比特币
+      // 中国比特币
       $ltc_data = $this->chinabtcAll($ltc_data,$this->chinabtc_market[1],$this->chinabtc_market_diff[1],$this->api_market_all[4]);
-      
-
-
-
+      // 火币网
+      $ltc_data = $this->huobiAll($ltc_data,$this->huobi_market[1],$this->huobi_market_diff[1],$this->api_market_all[4]);
       $ltc_data = json_decode(json_encode($ltc_data));
-      // // 莱特币交易价格 end
+      // 莱特币交易价格 end
 
-      // // eth交易价格
+      // eth交易价格
       $eth_data = [];
-      // // 中国比特币
+      // 中国比特币
       $eth_data = $this->chinabtcAll($eth_data,$this->chinabtc_market[2],$this->chinabtc_market_diff[2],$this->api_market_all[6]);
       
       $eth_data = json_decode(json_encode($eth_data));
-      // // eth交易价格end
+      // eth交易价格end
 
-      // // etc价格
+      // etc价格
       $etc_data = [];
-      // // 中国比特币
+      // 中国比特币
       $etc_data = $this->chinabtcAll($etc_data,$this->chinabtc_market[3],$this->chinabtc_market_diff[3],$this->api_market_all[7]);
       
       $etc_data = json_decode(json_encode($etc_data));
       // etc价格 end
 
-
-
       // iota价格
       $iota_data = [];
       // 中国比特币
       $iota_data = $this->bitfinexAll($iota_data,$this->mk_type[2],$this->bitfinex_market_diff[4],$this->api_market_all[8]);
-      
       $iota_data = json_decode(json_encode($iota_data));
+      // 新经币
+      $xem_data = [];
+      $xem_data = $this->btceraAll($xem_data,$this->api_market_all[0],$this->btcera_market_diff[2]);
+
+      // 狗狗币
+      $dog_data = [];
+      $dog_data = $this->btceraAll($dog_data,$this->api_market_all[2],$this->btcera_market_diff[3]);
+
+      // 黑币
+      $blk_data = [];
+      $blk_data = $this->btceraAll($dog_data,$this->api_market_all[5],$this->btcera_market_diff[3]);
+
+      // 瑞波币
+      $xrp_data = [];
+      $xrp_data = $this->btceraAll($xrp_data,$this->api_market_all[9],$this->btcera_market_diff[3]);
+
+      // 达世币
+      $dash_data = [];
+      $dash_data = $this->btceraAll($dash_data,$this->api_market_all[10],$this->btcera_market_diff[3]);
+
+      // 招财币
+      $zcc_data = [];
+      $zcc_data = $this->btceraAll($zcc_data,$this->api_market_all[11],$this->btcera_market_diff[3]);
+
+      // 零币
+      $xzc_data = [];
+      $xzc_data = $this->btceraAll($xzc_data,$this->api_market_all[12],$this->btcera_market_diff[3]);
 
       // var_dump($data_btc);
       // var_dump($etc_data);
@@ -247,9 +185,9 @@ class CoinmarketController extends Controller
       // echo "<pre>";
       // print_r($iota_data);die;
       // echo "<pre>";
-      // print_r($ltc_data);die;
+      // print_r($btcEra_data);die;
 
-      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','iota_data'));
+      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','iota_data','xem_data','dog_data','blk_data','xzc_data','xrp_data','dash_data','zcc_data'));
     }
 
     /* 
@@ -264,6 +202,20 @@ class CoinmarketController extends Controller
       $bitfinex = $this->bitfinex($bitfinex_url,$bitfinex_params,$this->bitfinex_info[0],$this->bitfinex_info[1],$this->bitfinex_info[2],$chinabtc_market_diff,$api_market_all);
       $bitfinex_data[$chinabtc_market_diff] = $bitfinex;
       return $bitfinex_data;
+    }
+
+    /*
+    *火币网
+    *请求方式/
+    */
+    public function huobiAll($huobi_data,$market,$huobi_market_diff,$api_market_all)
+    {
+      $huobi_params = [];
+      $huobi_url = self::HUO_BI_LINK.$api_market_all.'_json.js';
+      $huobi = $this->huobiGetAll($huobi_url,$huobi_params,$this->huobi_info[0],$this->huobi_info[1].$this->huobi_market[2],$this->huobi_info[2],$api_market_all);
+      $huobi_data[$huobi_market_diff] = $huobi;
+
+      return $huobi_data;
     }
 
     /*
@@ -370,6 +322,24 @@ class CoinmarketController extends Controller
         $data[$api_market_all]['k'] = '市场深度';
         $data[$api_market_all]['url'] = $btc_link;
         $data[$api_market_all]['market_url'] = $market_url;
+      }
+      $data =  json_decode(json_encode($data))  ;
+      return $data;
+    }
+
+    // 火币网  /形式请求
+    public function huobiGetAll($url,$params,$market_name,$btc_link,$market_url,$market)
+    {
+      $data = [];
+      $okCoin = $this->sendByIotaCurl($url,'',$params,$timeout='300');
+      $okCoin = json_decode($okCoin,true);
+      $data[$market] = $okCoin;
+      foreach ($data as $key => $value)
+      {
+        $data[$market]['ticker']['market'] = $market_name;
+        $data[$market]['ticker']['k'] = '市场深度';
+        $data[$market]['ticker']['url'] = $btc_link;
+        $data[$market]['ticker']['market_url'] = $market_url;
       }
       $data =  json_decode(json_encode($data))  ;
       return $data;
