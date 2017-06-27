@@ -115,6 +115,6 @@ return [
     'Buys'                 => 'Buys',
     'Sells'                => 'Sells',
     'Xems'                 => 'Xems',
-
+    'IOTA'                 => 'IOTA'
 
 ];

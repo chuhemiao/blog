@@ -112,6 +112,7 @@ return [
     'Buys'                 => '买一',
     'Sells'                => '卖一',
     'Xems'                 => '新经币',
+    'IOTA'                 => 'IOTA',
     'Waring Notices'       => '以上价格仅供参考，买币有风险，入坑须谨慎',
 
 ];

@@ -150,14 +150,14 @@
                             @include('particals.market')
                               @forelse($dog_data as $dog_data)
                                     <tr>
-                                        <td class="text-center"><a href="{{   $dog_data->dog->ticker->market_url }}" target="_blank">{{   $dog_data->dog->ticker->market }}</a></td>
-                                        <td class="text-center"><a href="{{   $dog_data->dog->ticker->url }}" target="_blank">{{   $dog_data->dog->ticker->k }}</a></td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->last }}</td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->high  }}</td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->low  }}</td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->buy  }}</td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->sell  }}</td>
-                                        <td class="text-center">{{   $dog_data->dog->ticker->vol  }}</td>
+                                        <td class="text-center"><a href="{{   $dog_data->doge->ticker->market_url }}" target="_blank">{{   $dog_data->doge->ticker->market }}</a></td>
+                                        <td class="text-center"><a href="{{   $dog_data->doge->ticker->url }}" target="_blank">{{   $dog_data->doge->ticker->k }}</a></td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->last }}</td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->high  }}</td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->low  }}</td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->buy  }}</td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->sell  }}</td>
+                                        <td class="text-center">{{   $dog_data->doge->ticker->vol  }}</td>
                                     </tr>
                                     @empty
                                         <li class="list-group-item">{{ lang('Nothing') }}</li>

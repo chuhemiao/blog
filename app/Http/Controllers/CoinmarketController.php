@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 class CoinmarketController extends Controller
 {
     //	btc38平台接口地址
-    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'dog','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc'];
+    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'doge','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc'];
     protected $mk_type = ['0'=>'cny','1'=>'btc','2'=>'usd'];
     const BTC_LINK = 'http://api.btc38.com/v1/ticker.php';
     const MK_TYPE =  '&mk_type=';
@@ -54,6 +54,14 @@ class CoinmarketController extends Controller
     const BITFINEX_LINK = 'https://api.bitfinex.com/v1/pubticker/';
     protected $bitfinex_info = ['0'=>'B网','1'=>'https://bitfinex.com','2'=>'https://bitfinex.com'];//交易市场、k线、网站首页
     protected $bitfinex_market_diff = ['0'=>'bitfinex_btc','1'=>'bitfinex_ltc','2'=>'bitfinex_eth','3'=>'bitfinex_eth','4'=>'bitfinex_iota'];
+
+
+    // 元宝网2cny
+    const YUANBAO_LINK = 'https://www.yuanbao.com/api_market/getinfo_cny/coin/';
+
+    protected $yuanbao_info = ['0'=>'元宝网','1'=>'https://www.yuanbao.com/trade/doge','2'=>'https://www.yuanbao.com/'];//交易市场、k线、网站首页
+    protected $yuanbao_market_diff = ['0'=>'yuanbao_btc','1'=>'yuanbao_ltc','2'=>'yuanbao_eth','3'=>'yuanbao_doge'];
+    protected $yuanbao_market = ['0'=>'doge'];
 
 
 
@@ -118,7 +126,7 @@ class CoinmarketController extends Controller
       // 比特时代
       $ltc_data = $this->btceraAll($ltc_data,$this->api_market_all[4],$this->btcera_market_diff[1]);
       // 比特币中国
-      $ltc_data = $this->btchinaAll($ltc_data,$this->btcchina_market[0],$this->btcchina_market_diff[0],$this->api_market_all[4]);
+      $ltc_data = $this->btchinaAll($ltc_data,$this->btcchina_market[1],$this->btcchina_market_diff[1],$this->api_market_all[4]);
       // 中国比特币
       $ltc_data = $this->chinabtcAll($ltc_data,$this->chinabtc_market[1],$this->chinabtc_market_diff[1],$this->api_market_all[4]);
       // 火币网
@@ -153,11 +161,15 @@ class CoinmarketController extends Controller
 
       // 狗狗币
       $dog_data = [];
+      // 比特时代
       $dog_data = $this->btceraAll($dog_data,$this->api_market_all[2],$this->btcera_market_diff[3]);
+      // 元宝
+      $dog_data = $this->yuanbaoAll($dog_data,$this->yuanbao_market[0],$this->yuanbao_market_diff[3]);
+
 
       // 黑币
       $blk_data = [];
-      $blk_data = $this->btceraAll($dog_data,$this->api_market_all[5],$this->btcera_market_diff[3]);
+      $blk_data = $this->btceraAll($blk_data,$this->api_market_all[5],$this->btcera_market_diff[3]);
 
       // 瑞波币
       $xrp_data = [];
@@ -185,7 +197,7 @@ class CoinmarketController extends Controller
       // echo "<pre>";
       // print_r($iota_data);die;
       // echo "<pre>";
-      // print_r($btcEra_data);die;
+      // print_r($dog_data);die;
 
       return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','iota_data','xem_data','dog_data','blk_data','xzc_data','xrp_data','dash_data','zcc_data'));
     }
@@ -244,6 +256,20 @@ class CoinmarketController extends Controller
       $btcchina = $this->okCoin($btcchina_url,$btcchina_params,$this->btcchina_info[0],$this->btcchina_info[1],$this->btcchina_info[2],$api_market_all);
       $btcchina_data[$btcchina_market_diff] = $btcchina;
       return $btcchina_data;
+    }
+
+    /*
+    *元宝网所有币种价格  $dog_data,$this->chinabtc_market[0],$this->yuanbao_market_diff[3]
+    *$btc_data   接受数据数组
+    *$api_market_all  当前取出币的种类，并当当前的分类
+    */
+    public function yuanbaoAll($yuanbao_data,$market,$yuanbao_market_diff)
+    {
+      $yuanbao_params = [];
+      $yuanbao_url = self::YUANBAO_LINK.$market;
+      $yuanbao = $this->yuanbaoTicker($yuanbao_url,$yuanbao_params,$this->yuanbao_info[0],$this->yuanbao_info[1].'2cny',$this->yuanbao_info[2],$yuanbao_market_diff,$market);
+      $yuanbao_data[$yuanbao_market_diff] = $yuanbao;
+      return $yuanbao_data;
     }
 
     /*
@@ -322,6 +348,31 @@ class CoinmarketController extends Controller
         $data[$api_market_all]['k'] = '市场深度';
         $data[$api_market_all]['url'] = $btc_link;
         $data[$api_market_all]['market_url'] = $market_url;
+      }
+      $data =  json_decode(json_encode($data))  ;
+      return $data;
+    }
+
+    // 元宝
+    public function yuanbaoTicker($url,$params,$market_name,$btc_link,$market_url,$market,$api_market_all)
+    {
+      $data = [];
+      $okCoin = $this->sendByIotaCurl($url,'',$params,$timeout='300');
+      $okCoin = json_decode($okCoin,true);
+      $data[$api_market_all] = $okCoin;
+      // var_dump($data);die;
+      foreach ($data as $key => $value)
+      {
+        $data[$api_market_all]['ticker']['last'] = $value['price'];
+        $data[$api_market_all]['ticker']['high'] = $value['max'];
+        $data[$api_market_all]['ticker']['low'] = $value['min'];
+        $data[$api_market_all]['ticker']['buy'] = $value['buy'];
+        $data[$api_market_all]['ticker']['sell'] = $value['sale'];
+        $data[$api_market_all]['ticker']['vol'] = $value['volume_24h'];
+        $data[$api_market_all]['ticker']['market'] = $market_name;
+        $data[$api_market_all]['ticker']['k'] = '市场深度';
+        $data[$api_market_all]['ticker']['url'] = $btc_link;
+        $data[$api_market_all]['ticker']['market_url'] = $market_url;
       }
       $data =  json_decode(json_encode($data))  ;
       return $data;
