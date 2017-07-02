@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }} Dashboard</title>
+    <title>{{ config('app.title') }} Dashboard</title>
 
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
