@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APPLICATION_NAME') ?: '比特币小白',
+    'name' => env('APPLICATION_NAME') ?: '比特币小白-专注对数字币新闻与ICO消息咨询',
 
     /*
     |--------------------------------------------------------------------------
