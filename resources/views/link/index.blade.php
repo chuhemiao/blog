@@ -4,7 +4,7 @@
     <meta name="description" content="比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="{{ URL::asset('//source.shengxuezixun.com/btxiaobai/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('//btxiaobai.com/storage/article/style.css') }}" rel="stylesheet" type="text/css">
 
     <div id="wrapper-container">
     
@@ -37,8 +37,8 @@
          
   
     </div>
-    <script src="//source.shengxuezixun.com/btxiaobai/css/jquery.min.js"></script>
-    <script type="text/javascript" src="//source.shengxuezixun.com/btxiaobai/css/jquery.localScroll.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-localScroll/1.4.0/jquery.localScroll.min.js"></script>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
