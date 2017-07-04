@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://bitecoin.idiot6.com'),
+    'url' => env('APP_URL', 'https://btxiaobai.com'),
 
     /*
     |--------------------------------------------------------------------------
