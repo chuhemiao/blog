@@ -59,6 +59,11 @@ Route::get('coinmarket/marketall', 'CoinmarketController@marketall');
 //iota
 Route::get('iota', 'IotaController@index');
 
+// SiteMap
+Route::get('generated/sitemap', 'GeneratedController@siteMap');
+Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
+
+
 // Category
 Route::group(['prefix' => 'category'], function () {
     Route::get('{category}', 'CategoryController@show');
