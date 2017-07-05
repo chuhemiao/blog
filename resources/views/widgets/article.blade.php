@@ -14,9 +14,9 @@
                             {{ $article->title }}
                         </a>
                     </h6>
-                    <div class="meta">
+                    <!-- <div class="meta">
                         <span class="cinema">{{ $article->subtitle }}</span>
-                    </div>
+                    </div> -->
                     <div class="description">
                         {{ $article->meta_description }}
                     </div>

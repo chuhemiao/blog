@@ -59,7 +59,6 @@ Route::get('coinmarket/marketall', 'CoinmarketController@marketall');
 //iota
 Route::get('iota', 'IotaController@index');
 
-
 // Category
 Route::group(['prefix' => 'category'], function () {
     Route::get('{category}', 'CategoryController@show');
