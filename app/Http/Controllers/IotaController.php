@@ -22,7 +22,7 @@ class IotaController extends Controller
      */
     public function index()
     {
-        $articles = $this->article->page(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),2);
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),2);
         return view('article.iotm', compact('articles'));
     }
 }
