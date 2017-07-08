@@ -26,13 +26,14 @@ class ArticleRepository
      * @param  integer $number
      * @param  string  $sort
      * @param  string  $sortColumn
+     * @param  string  $category_id
      * @return collection
      */
-    public function page($number = 10, $sort = 'desc', $sortColumn = 'created_at')
+    public function page($number = 10, $sort = 'desc', $sortColumn = 'created_at',$category_id)
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->orderBy($sortColumn, $sort)->paginate($number);
+        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate($number);
     }
 
     /**

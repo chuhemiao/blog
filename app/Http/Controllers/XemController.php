@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Repositories\ArticleRepository;
 
-class IotaController extends Controller
+class XemController extends Controller
 {
     protected $article;
 
@@ -22,7 +22,7 @@ class IotaController extends Controller
      */
     public function index()
     {
-        $articles = $this->article->page(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),2);
+        $articles = $this->article->page(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),3);
         return view('article.iotm', compact('articles'));
     }
 }

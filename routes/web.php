@@ -63,6 +63,10 @@ Route::get('iota', 'IotaController@index');
 Route::get('generated/sitemap', 'GeneratedController@siteMap');
 Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 
+// xem
+Route::get('xem', 'XemController@index');
+
+
 
 // Category
 Route::group(['prefix' => 'category'], function () {
