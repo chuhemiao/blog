@@ -13,7 +13,7 @@ return [
 
     // Meta
     'meta' => [
-        'keywords' => '梦遥奇缘,比特币,莱特币,狗狗币,比特股,瑞波币,比特小白,比特币小白,央行数字币,ICO,挖矿,IOTA,CoinMarketCap,Blockchain,zcash,dash,rangle',
+        'keywords' => '梦遥奇缘,比特币,莱特币,狗狗币,比特股,瑞波币,比特小白,比特币小白,比特币新闻,央行数字币,ICO,挖矿,IOTA,CoinMarketCap,Blockchain,zcash,dash,rangle',
         'description' => '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。'
     ],
 

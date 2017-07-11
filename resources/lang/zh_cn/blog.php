@@ -99,12 +99,12 @@ return [
     'Be Banned Comment'    => '评论已被禁止!',
     'Likes'                => '...',
     'Dislikes'             => '...',
-    'Coinmarkets'          => '交易市场',
+    'Coinmarkets'          => '币市场',
     'Coins K'                => 'K线',
     'Market Money'         => '全球数字币市值排行',
     'Market Price'         => '币排行',
     'Btc38'                => '比特时代',
-    'Quotes'               => '实时行情',
+    'Quotes'               => '币行情',
     'High Price'           => '最高价格（24h）',
     'Low Price'            => '最低价格（24h）',
     'Now Price'            => '当前价格',
@@ -113,6 +113,7 @@ return [
     'Sells'                => '卖一',
     'Xems'                 => '新经币',
     'IOTA'                 => 'IOTA',
+    'ICO'                  => 'ICO',
     'Waring Notices'       => '以上价格仅供参考，买币有风险，入坑须谨慎',
 
 ];

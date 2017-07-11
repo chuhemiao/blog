@@ -65,6 +65,8 @@ Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 
 // xem
 Route::get('xem', 'XemController@index');
+// ico
+Route::get('ico', 'IcoController@index');
 
 
 

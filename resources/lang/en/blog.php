@@ -116,5 +116,6 @@ return [
     'Sells'                => 'Sells',
     'Xems'                 => 'Xems',
     'IOTA'                 => 'IOTA'
+    'ICO'                  => 'ICO',
 
 ];
