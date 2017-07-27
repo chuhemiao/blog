@@ -16,7 +16,7 @@
                         @forelse($articles as $article)
                             <li class="list-group-item">
                                 <span class="badge">{{ $article->comments->count() }}</span>
-                                <a href="{{ url($article->slug) }}">{{ $article->title }}</a>
+                                <a href="{{ url($article->slug) }}.html">{{ $article->title }}</a>
                             </li>
                         @empty
                             <li class="nothing">{{ lang('Nothing') }}</li>

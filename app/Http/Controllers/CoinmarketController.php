@@ -9,12 +9,12 @@ use GuzzleHttp\Client;
 class CoinmarketController extends Controller
 {
     //	btc38平台接口地址
-    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'doge','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc'];
+    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'doge','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc','13'=>'etc'];
     protected $mk_type = ['0'=>'cny','1'=>'btc','2'=>'usd'];
     const BTC_LINK = 'http://api.btc38.com/v1/ticker.php';
     const MK_TYPE =  '&mk_type=';
     protected $btcera_info = ['0'=>'比特时代','1'=>'https://www.btc123.com/market/btc38?symbol=btc38','2'=>'http://www.btc38.com'];//交易市场、k线、网站首页
-    protected $btcera_market_diff = ['0'=>'btcera_btc','1'=>'btcera_ltc','2'=>'btcera_xem','3'=>'btcera_dog'];
+    protected $btcera_market_diff = ['0'=>'btcera_btc','1'=>'btcera_ltc','2'=>'btcera_xem','3'=>'btcera_dog','4'=>'btcera_eth','5'=>'btcera_etc'];
 
 
     // coinmarketcap
@@ -138,6 +138,9 @@ class CoinmarketController extends Controller
       $eth_data = [];
       // 中国比特币
       $eth_data = $this->chinabtcAll($eth_data,$this->chinabtc_market[2],$this->chinabtc_market_diff[2],$this->api_market_all[6]);
+
+      // 比特时代
+      $eth_data = $this->btceraAll($eth_data,$this->api_market_all[6],$this->btcera_market_diff[4]);
       
       $eth_data = json_decode(json_encode($eth_data));
       // eth交易价格end
@@ -146,6 +149,8 @@ class CoinmarketController extends Controller
       $etc_data = [];
       // 中国比特币
       $etc_data = $this->chinabtcAll($etc_data,$this->chinabtc_market[3],$this->chinabtc_market_diff[3],$this->api_market_all[7]);
+      // 比特时代
+      $etc_data = $this->btceraAll($etc_data,$this->api_market_all[13],$this->btcera_market_diff[5]);
       
       $etc_data = json_decode(json_encode($etc_data));
       // etc价格 end

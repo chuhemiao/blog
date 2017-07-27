@@ -89,4 +89,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 
 // Article
 Route::get('/', 'ArticleController@index');
+Route::get('{slug}.html', 'ArticleController@show');
 Route::get('{slug}', 'ArticleController@show');

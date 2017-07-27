@@ -4,13 +4,13 @@
             @forelse($articles as $article)
             <div class="media">
                 @if($article->page_image)
-                <a class="media-left" href="{{ url($article->slug) }}">
+                <a class="media-left" href="{{ url($article->slug) }}.html">
                     <img alt="{{ $article->slug }}" src="{{ $article->page_image }}" data-holder-rendered="true">
                 </a>
                 @endif
                 <div class="media-body">
                     <h6 class="media-heading">
-                        <a href="{{ url($article->slug) }}">
+                        <a href="{{ url($article->slug) }}.html">
                             {{ $article->title }}
                         </a>
                     </h6>
@@ -31,7 +31,7 @@
                             <i class="ion-person"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
                             <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
                             <i class="ion-ios-eye"></i>{{ $article->view_count }}
-                            <a href="{{ url($article->slug) }}" class="pull-right">
+                            <a href="{{ url($article->slug) }}.html" class="pull-right">
                                 Read More <i class="ion-ios-arrow-forward"></i>
                             </a>
                         </div>

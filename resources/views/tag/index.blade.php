@@ -14,7 +14,7 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>
+                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}.html">{{ $tag->tag }}</a>
                             </h3>
                         </div>
                         <div class="panel-body" style="font-size: 12px">
