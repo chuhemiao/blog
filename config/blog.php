@@ -13,7 +13,7 @@ return [
 
     // Meta
     'meta' => [
-        'keywords' => '梦遥奇缘,比特币,莱特币,狗狗币,比特股,瑞波币,比特小白,比特币小白,比特币新闻,央行数字币,ICO,挖矿,IOTA,CoinMarketCap,Blockchain,zcash,dash,rangle',
+        'keywords' => '梦遥奇缘,比特币,天天比特币,莱特币,狗狗币,比特股,瑞波币,比特小白,比特币小白,比特币新闻,央行数字币,ICO,挖矿,IOTA,CoinMarketCap,Blockchain,zcash,dash,tangle,nem,xem,新经币',
         'description' => '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。'
     ],
 
@@ -36,7 +36,7 @@ return [
     'article' => [
         'title'       => '比特币小白-专注对数字币新闻与ICO消息咨询',
         'description' => '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。',
-        'number'      => 6,
+        'number'      => 12,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
     ],
