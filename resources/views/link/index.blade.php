@@ -15,7 +15,7 @@
                     <section class="work">
                         @forelse($links as $link)
                         <figure class="white">
-                            <a href="{{ $link->link }}">
+                            <a href="{{ $link->link }}" target="_blank">
                                 <img src="{{ $link->image }}" alt="">
                                 <dl>
                                     <dt>{{ $link->name }}</dt>
