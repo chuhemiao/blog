@@ -55,7 +55,7 @@ class IotaController extends Controller
      */
     public function bitebasic()
     {
-        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),6);
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),7);
         return view('article.iotm', compact('articles'));
     }
 }
