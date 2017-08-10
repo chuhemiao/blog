@@ -117,5 +117,9 @@ return [
     'Xems'                 => 'Xems',
     'IOTA'                 => 'IOTA'
     'ICO'                  => 'ICO',
+    'Every Week Day'       => 'Every Week Look',
+    'Bite Tech'            => 'Bite Tech',
+    'Bite Basic'           => 'Bite Basic',
+    'Bite Point'           => 'Bite Point',
 
 ];

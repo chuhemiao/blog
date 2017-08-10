@@ -25,5 +25,38 @@ class IotaController extends Controller
         $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),2);
         return view('article.iotm', compact('articles'));
     }
+
+    /**
+     * everyweek articles resource.
+     * 
+     * @return mixed
+     */
+    public function everyweek()
+    {
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),5);
+        return view('article.iotm', compact('articles'));
+    }
+
+    /**
+     * bitetech articles resource.
+     * 
+     * @return mixed
+     */
+    public function bitetech()
+    {
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),6);
+        return view('article.iotm', compact('articles'));
+    }
+
+    /**
+     * Bite Basic articles resource.
+     * 
+     * @return mixed
+     */
+    public function bitebasic()
+    {
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),6);
+        return view('article.iotm', compact('articles'));
+    }
 }
 

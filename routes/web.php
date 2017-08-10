@@ -58,6 +58,9 @@ Route::get('coinmarket/ico', 'CoinmarketController@ico');
 Route::get('coinmarket/marketall', 'CoinmarketController@marketall');
 //iota
 Route::get('iota', 'IotaController@index');
+Route::get('iota/everyweek', 'IotaController@everyweek');
+Route::get('iota/bitetech', 'IotaController@bitetech');
+Route::get('iota/bitebasic', 'IotaController@bitebasic');
 
 // SiteMap
 Route::get('generated/sitemap', 'GeneratedController@siteMap');

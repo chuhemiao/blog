@@ -114,6 +114,10 @@ return [
     'Xems'                 => '新经币',
     'IOTA'                 => 'IOTA',
     'ICO'                  => 'ICO',
+    'Every Week Day'       => '每周币看',
+    'Bite Point'           => '币看点',
+    'Bite Tech'            => '币技术',
+    'Bite Basic'           => '币基础',
     'Waring Notices'       => '以上价格仅供参考，买币有风险，入坑须谨慎',
 
 ];
