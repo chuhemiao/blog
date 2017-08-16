@@ -59,30 +59,19 @@
         ga('send', 'pageview');
     </script>
     @endif
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?caab43b2dd9eae94737bf70ffce6aa0f";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
+   <script type="text/javascript">
+        window._pt_lt = new Date().getTime();
+        window._pt_sp_2 = [];
+        _pt_sp_2.push('setAccount,1c850326');
+        var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        (function() {
+            var atag = document.createElement('script'); atag.type = 'text/javascript'; atag.async = true;
+            atag.src = _protocol + 'js.ptengine.cn/1c850326.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(atag, s);
+        })();
     </script>
-    <script>
-    (function(){
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-        }
-        else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-    </script>
-
+                        
 
 </body>
 </html>
