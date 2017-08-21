@@ -71,6 +71,8 @@ Route::get('xem', 'XemController@index');
 // ico
 Route::get('ico', 'IcoController@index');
 
+//truncate
+Route::get('truncate', 'TruncateController@index');
 
 
 // Category
