@@ -19,7 +19,7 @@
 						
 						  <a href="{{ url($article->slug) }}.html"><img src="{{ $article->page_image }}" class="img-responsive"  alt="{{ $article->slug }}"></a>
 						  <div class="carousel-caption">
-						    <a href="{{ url($article->slug) }}.html"><h3>{{ $article->title }}</h3></a>
+						    <a href="{{ url($article->slug) }}.html"><h3>{{ str_limit($article->title,25) }} }}</h3></a>
 						  </div>
 						</div>
 					@empty
@@ -37,22 +37,64 @@
 				</div>
             </div>
             <div class="col-md-4">
-            	<h3>技术头条<br/>
-					@forelse($tech_articles as $article)
-				  	<a href="{{ url($article->slug) }}.html"><small class="text-muted">{{ str_limit($article->title,25) }}</small></a><br/>
-				  	@empty
-		                <h3 class="text-center">{{ lang('Nothing') }}</h3>
-		            @endforelse
+					
+	           <div class="tabbable tabs-left">
+	              <ul class="nav nav-tabs">
+	                <li class="active"><a href="#lA" data-toggle="tab">小白头条</a></li>
+	                <li class=""><a href="#lB" data-toggle="tab">技术头条</a></li>
+	                <li class=""><a href="#lC" data-toggle="tab">热门头条</a></li>
+	              </ul>
+	              <div class="tab-content">
+	                <div class="tab-pane active" id="lA">
+	                	@forelse($basic_articles as $article)
+					    <div class="thumbnail">
+					      <img src="{{ $article->page_image }}" alt="{{ $article->title }}">
+					      <div class="caption">
+					        <h3>{{ str_limit($article->title,25) }}</h3>
+					        <p><a href="{{ url($article->slug) }}.html" class="btn btn-primary" role="button">Read Me</a> </p>
+					      </div>
+					    </div>
+					    @empty
+			                <h3 class="text-center">{{ lang('Nothing') }}</h3>
+			            @endforelse
+	                </div>
+	                <div class="tab-pane" id="lB">
+	                  	@forelse($tech_articles as $article)
+					    <div class="thumbnail">
+					      <img src="{{ $article->page_image }}" alt="{{ $article->title }}">
+					      <div class="caption">
+					        <h3>{{ str_limit($article->title,25) }}</h3>
+					        <p><a href="{{ url($article->slug) }}.html" class="btn btn-primary" role="button">Read Me</a> </p>
+					      </div>
+					    </div>
+					    @empty
+			                <h3 class="text-center">{{ lang('Nothing') }}</h3>
+			            @endforelse
+	                </div>
+	                <div class="tab-pane " id="lC">
+	                  	@forelse($hot_articles as $article)
+					    <div class="thumbnail">
+					      <img src="{{ $article->page_image }}" alt="{{ $article->title }}">
+					      <div class="caption">
+					        <h3>{{ str_limit($article->title,25) }}</h3>
+					        <p><a href="{{ url($article->slug) }}.html" class="btn btn-primary" role="button">Read Me</a> </p>
+					      </div>
+					    </div>
+					    @empty
+			                <h3 class="text-center">{{ lang('Nothing') }}</h3>
+			            @endforelse
+	                </div>
+	              </div>
+	            </div>
 
-				</h3>
-				<h3>热门头条<br/>
-					@forelse($hot_articles as $article)
-				  	<a href="{{ url($article->slug) }}.html"><small class="text-muted">{{ str_limit($article->title,25) }}</small></a><br/>
-				  	@empty
-		                <h3 class="text-center">{{ lang('Nothing') }}</h3>
-		            @endforelse
+				
 
-				</h3>
+				
+				  	
+				  	
+					
+
+				
             </div>
            
         </div>

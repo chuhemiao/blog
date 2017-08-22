@@ -55,11 +55,19 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->orderBy('view_count','desc')->skip(0)->take(3)->get();
+        return $this->model->orderBy('view_count','desc')->skip(0)->take(1)->get();
     }
 
     //技术头条
     public function getHotTechArticle($category_id,$offset,$limit)
+    {
+        $this->model = $this->checkAuthScope();
+
+        return $this->model->orderBy('view_count','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
+    }
+
+    // 币基础
+    public function getHotBasicArticle($category_id,$offset,$limit)
     {
         $this->model = $this->checkAuthScope();
 
