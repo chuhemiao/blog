@@ -3,8 +3,8 @@
 return [
     'Articles'    => '币咨询',
     'Article'    => '币咨询',
-    'Discussions' => '币讨论',
-    'Discussion' => '币讨论',
+    'Discussions' => '币安利',
+    'Discussion' => '币安利',
     'Follow'      => '关注',
     'Following'   => '关注中',
     'Comments'    => '评论数',

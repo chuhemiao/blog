@@ -61,7 +61,7 @@ return [
         ],
         'weibo' => [
             'open' => true,
-            'url'  => 'http://www.weibo.com/baqiye'
+            'url'  => 'http://www.weibo.com/chuhemiao'
         ],
         'telegram' => [
             'open' => true,

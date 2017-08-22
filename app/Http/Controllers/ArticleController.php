@@ -23,8 +23,17 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = $this->article->page(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'));
+        //最新
+        $new_articles = $this->article->getNewArticle();
+        //最热
+        $hot_articles = $this->article->getHotArticle();
+        //技术头条
+        $tech_articles = $this->article->getHotTechArticle(6,0,3);
 
-        return view('article.index', compact('articles'));
+
+
+
+        return view('article.index', compact('articles','hot_articles','new_articles','tech_articles'));
     }
 
     /**

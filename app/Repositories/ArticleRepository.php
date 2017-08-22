@@ -43,6 +43,29 @@ class ArticleRepository
         return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate($number);
     }
 
+    // 获取最新文章
+    public function getNewArticle()
+    {
+        $this->model = $this->checkAuthScope();
+
+        return $this->model->offset(0)->limit(5)->orderBy('created_at','desc')->get();
+    }
+    // 获取最热文章
+    public function getHotArticle()
+    {
+        $this->model = $this->checkAuthScope();
+
+        return $this->model->orderBy('view_count','desc')->skip(0)->take(3)->get();
+    }
+
+    //技术头条
+    public function getHotTechArticle($category_id,$offset,$limit)
+    {
+        $this->model = $this->checkAuthScope();
+
+        return $this->model->orderBy('view_count','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
+    }
+
 
     /**
      * Get the article record without draft scope.
