@@ -19,7 +19,7 @@
 						
 						  <a href="{{ url($article->slug) }}.html"><img src="{{ $article->page_image }}" class="img-responsive"  alt="{{ $article->slug }}"></a>
 						  <div class="carousel-caption">
-						    <a href="{{ url($article->slug) }}.html"><h3>{{ str_limit($article->title,25) }} }}</h3></a>
+						    <a href="{{ url($article->slug) }}.html"><h3>{{ str_limit($article->title,25) }} </h3></a>
 						  </div>
 						</div>
 					@empty
