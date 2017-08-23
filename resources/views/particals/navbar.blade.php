@@ -96,3 +96,21 @@
         </div>
     </div>
 </nav>
+<div class="sns  hidden-xs" >
+    <div class="wrapper">
+        <div class="wx-box">
+            <p><i></i>微信公众号</p>
+            <p>公众号：梦遥奇缘</p>
+            <img src="https://cdn.btxiaobai.com/article/2017/08/24/ndC7F7C1UzydCztXPlzWOBEXJJ0jRtwJmTWoRPF6.png">
+            <p>扫一扫关注微信</p>
+        </div>
+        <div class="sina-box">
+            <p><i></i>新浪微博</p>
+            <p><a href="http://www.weibo.com/chuhemiao">比特币小白</a></p>
+        </div>
+        <div class="qq-box">
+            <p><i></i>官方QQ群</p>
+            <a href="http://shang.qq.com/wpa/qunwpa?idkey=f9232bb88ae3158ea9e5d919011ca397b11699d3f0bda65f009ecc6d289587c4"><p>比特币小白官方群<em>83729696</em></p></a>
+        </div>
+    </div>
+</div>
