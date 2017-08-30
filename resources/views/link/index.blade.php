@@ -3,6 +3,7 @@
     <meta name="keywords" content="梦遥奇缘,比特币,莱特币,狗狗币,比特股,瑞波币,比特小白,比特币小白,央行数字币,ICO,挖矿">
     <meta name="description" content="比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="shenma-site-verification" content="b6bf0c5adf9274583e18b39b355ecb80_1504109397"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="{{ URL::asset('//btxiaobai.com/storage/article/style.css') }}" rel="stylesheet" type="text/css">
 
