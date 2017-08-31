@@ -20,6 +20,8 @@
         "league/html-to-markdown": "^4.2",
         "overtrue/wechat": "~3.1",
         "predis/predis": "^1.1",
+        "roumen/feed": "^2.10",
+        "roumen/sitemap": "^2.6",
         "yzalis/identicon": "^1.1"
     },
     "require-dev": {
@@ -64,5 +66,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
 }

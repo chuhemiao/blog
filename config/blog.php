@@ -36,7 +36,7 @@ return [
     'article' => [
         'title'       => '比特币小白-专注对数字币新闻与ICO消息咨询',
         'description' => '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。',
-        'number'      => 12,
+        'number'      => 15,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
     ],
@@ -67,7 +67,7 @@ return [
             'open' => true,
             'url'  => 'https://t.me/joinchat/FlB-8A7mrjWqjV3s00bprA'
         ],
-        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-5',
+        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-5 <a rel="sitemap.xml" href="/sitemap">币站地图</a>&nbsp;&nbsp;<a rel="RSS" href="/rss.xml"><i class="ion-social-rss"></i></a>',
     ],
 
     'license' => '比特币小白.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',

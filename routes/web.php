@@ -63,9 +63,26 @@ Route::get('iota/bitetech', 'IotaController@bitetech');
 Route::get('iota/bitebasic', 'IotaController@bitebasic');
 
 // SiteMap
-Route::get('generated/sitemap', 'GeneratedController@siteMap');
-Route::get('generated/sitemap.xml', 'GeneratedController@siteMap');
 
+Route::get('sitemap.xml', function()
+{
+    // create sitemap
+    $sitemap_posts = App::make("sitemap");
+
+    // set cache
+    $sitemap_posts->setCache('laravel.sitemap-posts', 3600);
+
+    // add items
+    $posts = DB::table('articles')->orderBy('created_at', 'desc')->get();
+
+    foreach ($posts as $post)
+    {
+        $sitemap_posts->add($post->slug, $post->updated_at,'1','weekly');
+    }
+
+    // show sitemap
+    return $sitemap_posts->render('xml');
+});
 // xem
 Route::get('xem', 'XemController@index');
 // ico
@@ -73,6 +90,36 @@ Route::get('ico', 'IcoController@index');
 
 //truncate
 Route::get('truncate', 'TruncateController@index');
+
+// rss
+
+Route::get('rss.xml', function () {
+
+   /* create new feed */
+   $feed = App::make("feed");
+
+   /* creating rss feed with our most recent 20 posts */
+   $posts = \DB::table('articles')->orderBy('created_at', 'desc')->take(20)->get();
+
+   /* set your feed's title, description, link, pubdate and language */
+   $feed->title = "比特币小白";
+   $feed->description = '比特币小白，专注对数字币新闻与ICO消息传播，让更多的人了解到区块链、认识数字币。';
+   $feed->logo = 'https://cdn.btxiaobai.com/article/2017/08/24/ndC7F7C1UzydCztXPlzWOBEXJJ0jRtwJmTWoRPF6.png';
+   $feed->link = url('feed');
+   $feed->setDateFormat('datetime');
+   $feed->pubdate = $posts[0]->created_at;
+   $feed->lang = 'en';
+   $feed->setShortening(true);
+   $feed->setTextLimit(100);
+
+   foreach ($posts as $post)
+   {
+       $feed->add($post->title, 'chuhemiao', URL::to($post->slug), $post->created_at, $post->meta_description, $post->meta_description);
+   }
+
+   return $feed->render('atom');
+
+});
 
 
 // Category

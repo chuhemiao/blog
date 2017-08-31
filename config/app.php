@@ -176,6 +176,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Jcc\LaravelVote\VoteServiceProvider::class,
         JellyBool\Flysystem\Upyun\UpyunServiceProvider::class,
+        Roumen\Feed\FeedServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -237,6 +239,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Translug' => JellyBool\Translug\TranslugFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Feed' => Roumen\Feed\Feed::class,
     ],
 
 ];
