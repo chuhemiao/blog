@@ -43,8 +43,8 @@
                     <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="http://www.bit97.com/" target="_blank">汇联矿业</a> 
                     <a href="http://btc38.com/" target="_blank">比特时代</a> 
-                    <a href="https://huobi.com/" target="_blank">火币网</a>
-                    <a href="https://szzc.com/" target="_blank">海枫藤</a>
+                    <a href="https://www.huobi.com/" target="_blank">火币网</a>
+                    <a href="https://www.800bitbank.com/" target="_blank">巴比网</a>
                     <a href="https://zaif.jp/" target="_blank">zaif</a> 
                 </div>
                 <div class="sponsors">
