@@ -77,9 +77,9 @@ Route::get('sitemap.xml', function()
 
     foreach ($posts as $post)
     {
+        $post->slug = 'https://www.btxiaobai.com/'.$post->slug.'.html';
         $sitemap_posts->add($post->slug, $post->updated_at,'1','weekly');
     }
-
     // show sitemap
     return $sitemap_posts->render('xml');
 });
