@@ -119,6 +119,7 @@ return [
     'Bite Tech'            => '币技术',
     'Bite Basic'           => '币基础',
     'Wallet'               => '钱包推荐',
+    'Wallet Ore'           => '钱包&挖矿',
     'Ore'                  => '挖矿',
     'Waring Notices'       => '以上价格仅供参考，买币有风险，入坑须谨慎',
 

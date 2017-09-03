@@ -39,8 +39,17 @@
                 <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
                 <li><a href="{{ url('/iota/') }}" target="_blank">{{ lang('IOTA') }}</a></li>
                 <li><a href="{{ url('/xem/') }}" target="_blank">{{ lang('Xems') }}</a></li>
-                <li><a href="{{ url('/iota/wallet') }}" target="_blank">{{ lang('Wallet') }}</a></li>
-                <li><a href="{{ url('/iota/ore') }}" target="_blank">{{ lang('Ore') }}</a></li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style='min-width:100%'>{{ lang('Wallet Ore') }}
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" style='min-width:100%'>
+                        <li><a href="{{ url('/iota/wallet') }}" target="_blank">{{ lang('Wallet') }}</a></li>
+                        <li><a href="{{ url('/iota/ore') }}" target="_blank">{{ lang('Ore') }}</a></li>
+                    </ul>
+                </li>
+                
             </ul>
 
             <!-- Right Side Of Navbar -->

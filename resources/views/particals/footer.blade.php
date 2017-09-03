@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="height:auto">
     <div class="container text-center">
         <div class="row content">
             <div class="col-md-4 col-md-offset-4">
@@ -54,6 +54,13 @@
                     <a href="https://www.btcchina.com/" target="_blank">BtcChina</a> 
                     <a href="https://www.okcoin.cn/" target="_blank">okcoin</a> 
                     <a href="https://www.bitfinex.com/" target="_blank">bitfinex</a>
+                </div>
+                <div class="sponsors">
+                    <a href="https://toubi.com/" target="_blank">投币网</a> 
+                    <a href="http://www.nemchina.com/" target="_blank">NEM中文社区</a> 
+                    <a href="https://coinmarketcap.com/" target="_blank">币市宝典</a> 
+                    <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
+                    <a href="http://www.8btc.com/" target="_blank">巴比特</a>
                 </div>
             </div>
         </div>
