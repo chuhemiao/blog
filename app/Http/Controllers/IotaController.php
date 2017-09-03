@@ -58,5 +58,26 @@ class IotaController extends Controller
         $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),7);
         return view('article.iotm', compact('articles'));
     }
+
+    /**
+     * Bite wallet articles resource.
+     * 
+     * @return mixed
+     */
+    public function wallet()
+    {
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),8);
+        return view('article.iotm', compact('articles'));
+    }
+    /**
+     * Bite ore articles resource.
+     * 
+     * @return mixed
+     */
+    public function ore()
+    {
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),9);
+        return view('article.iotm', compact('articles'));
+    }
 }
 

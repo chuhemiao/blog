@@ -61,6 +61,8 @@ Route::get('iota', 'IotaController@index');
 Route::get('iota/everyweek', 'IotaController@everyweek');
 Route::get('iota/bitetech', 'IotaController@bitetech');
 Route::get('iota/bitebasic', 'IotaController@bitebasic');
+Route::get('iota/wallet', 'IotaController@wallet');
+Route::get('iota/ore', 'IotaController@ore');
 
 // SiteMap
 
