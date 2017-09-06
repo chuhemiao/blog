@@ -67,7 +67,7 @@ return [
             'open' => true,
             'url'  => 'https://t.me/joinchat/FlB-8A7mrjWqjV3s00bprA'
         ],
-        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-5 <a rel="sitemap" href="/sitemap.xml">币站地图</a>&nbsp;&nbsp;<a rel="RSS" href="/rss.xml"><i class="ion-social-rss"></i></a>',
+        'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-5 <a rel="sitemap" href="/sitemap.xml">币站地图</a>&nbsp;&nbsp;<a rel="RSS" href="/rss.xml"><i class="ion-social-rss"></i></a> <br/>捐赠地址（XEM）：NC5TBM-27SX6X-I3AF46-XLTMMZ-7AXDBT-HKBVPC-RUJE',
     ],
 
     'license' => '比特币小白.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',

@@ -48,19 +48,21 @@
                     <a href="https://zaif.jp/" target="_blank">zaif</a> 
                 </div>
                 <div class="sponsors">
-                    <a href="https://btc.com/" target="_blank">区块浏览器</a> 
+                    <a href="https://toubi.com/" target="_blank">投币网</a>
                     <a href="https://www.yuanbao.com/coins" target="_blank">元宝网</a>
-                    <a href="https://cn.bter.com/" target="_blank">比特儿</a>
                     <a href="https://www.btcchina.com/" target="_blank">BtcChina</a> 
                     <a href="https://www.okcoin.cn/" target="_blank">okcoin</a> 
                     <a href="https://www.bitfinex.com/" target="_blank">bitfinex</a>
+                    <a href="https://www.btc123.com/" target="_blank">BTC123</a>
+                    <a href="http://www.nemchina.com/" target="_blank">XEM</a> 
                 </div>
                 <div class="sponsors">
-                    <a href="https://toubi.com/" target="_blank">投币网</a> 
-                    <a href="http://www.nemchina.com/" target="_blank">NEM中文社区</a> 
+                    <a href="https://btc.com/" target="_blank">区块浏览器</a> 
+                    <a href="https://cn.bter.com/" target="_blank">比特儿</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币市宝典</a> 
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="http://www.8btc.com/" target="_blank">巴比特</a>
+                    <a href="http://chainb.com" target="_blank">铅笔</a>
                 </div>
             </div>
         </div>
