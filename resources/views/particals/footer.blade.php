@@ -1,4 +1,4 @@
-<footer id="footer" class="footer" style="height:auto">
+<footer id="footer" class="footer">
     <div class="container text-center">
         <div class="row content">
             <div class="col-md-4 col-md-offset-4">
