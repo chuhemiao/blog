@@ -48,8 +48,6 @@
         <div class="main">
             @yield('content')
         </div>
-        <script>cambrian.render('tail')</script>
-
 
         @include('particals.footer')
     </div>

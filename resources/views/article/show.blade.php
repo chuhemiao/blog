@@ -70,7 +70,7 @@
         "https://cdn.btxiaobai.com/article/2017/09/20/mPUtYXFtBOz3N9M9bcGO1TIztbzJmDtHOSKqnchL.png"
         ],
     "description":"{{  $article->subtitle  }}",
-    "pubDate":"{{  date('y-m-d',strtotime($article->published_at)).'T'.date('H:i:s',strtotime($article->published_at))  }}"
+    "pubDate":"{{  date('Y-m-d',strtotime($article->published_at)).'T'.date('H:i:s',strtotime($article->published_at))  }}"
 }
 </script>
 
