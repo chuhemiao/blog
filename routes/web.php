@@ -63,6 +63,7 @@ Route::get('iota/bitetech', 'IotaController@bitetech');
 Route::get('iota/bitebasic', 'IotaController@bitebasic');
 Route::get('iota/wallet', 'IotaController@wallet');
 Route::get('iota/ore', 'IotaController@ore');
+Route::get('iota/pushbai', 'IotaController@pushbai');
 
 // SiteMap
 

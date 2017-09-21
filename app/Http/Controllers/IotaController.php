@@ -79,5 +79,25 @@ class IotaController extends Controller
         $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),9);
         return view('article.iotm', compact('articles'));
     }
+
+    public function pushbai()
+    {
+        $urls = array(
+            'https://www.btxiaobai.com/eroscoin.html',
+            'https://www.btxiaobai.com/j-japan-bitecoin.html',
+        );
+        $api = 'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&token=veiJlvUY2TjvVdHc&type=realtime';
+        $ch = curl_init();
+        $options =  array(
+            CURLOPT_URL => $api,
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => implode("\n", $urls),
+            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+        );
+        curl_setopt_array($ch, $options);
+        $result = curl_exec($ch);
+        echo $result;
+    }
 }
 
