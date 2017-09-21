@@ -2,6 +2,7 @@
 
 @section('title', $article->title)
 
+
 @section('content')
     @component('particals.jumbotron')
         <h4>{{ $article->title }}</h4>
@@ -58,11 +59,29 @@
                  commentable-id="{{ $article->id }}"
                  can-comment></comment>
     @endif
+    <script type="application/ld+json">
+    {
+        "@context": "https://zhanzhang.baidu.com/contexts/cambrian.jsonld",
+        "@id": {{ url($article->slug) }}.html,
+        "title": {{ $article->title }},
+        "images": [
+            "https://cdn.btxiaobai.com/article/2017/09/21/3FjRPCI635TFPHViuAaGa8kqzr0RTWTgjdTClOiN.png",
+            "https://cdn.btxiaobai.com/article/2017/09/21/TZpJXC0I7rV9YkG8gkrw0T4LL3XysM87y6KB5ifs.png",
+            "https://cdn.btxiaobai.com/article/2017/09/20/mPUtYXFtBOz3N9M9bcGO1TIztbzJmDtHOSKqnchL.png"
+            ],
+        "description":{{  $article->subtitle  }},
+        "pubDate": {{  $article->published_at  }}
+    }
+    </script>
 
 @endsection
+
+    
 
 @section('scripts')
     <script>
         hljs.initHighlightingOnLoad();
     </script>
 @endsection
+
+

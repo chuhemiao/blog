@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="{{ config('blog.meta.keywords') }}">
     <meta name="description" content="{{ config('blog.meta.description') }}">
+    <link rel="canonical" href="https://btxiaobai.com"/>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,6 +15,7 @@
     <title>@yield('title', config('app.title'))</title>
 
     <link rel="stylesheet" href="{{ mix('css/home.css') }}">
+
 
     <!-- Scripts -->
     <script>
