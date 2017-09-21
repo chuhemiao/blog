@@ -7,6 +7,7 @@
     <meta name="keywords" content="{{ config('blog.meta.keywords') }}">
     <meta name="description" content="{{ config('blog.meta.description') }}">
     <link rel="canonical" href="https://btxiaobai.com"/>
+    <script src="//msite.baidu.com/sdk/c.js?appid=1571073467972034"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -40,11 +41,15 @@
     @yield('styles')
 </head>
 <body>
+    <script>cambrian.render('head')</script>
+
     <div id="app">
         @include('particals.navbar')
         <div class="main">
             @yield('content')
         </div>
+        <script>cambrian.render('tail')</script>
+
 
         @include('particals.footer')
     </div>
