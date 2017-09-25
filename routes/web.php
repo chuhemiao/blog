@@ -67,14 +67,21 @@ Route::get('iota/ore', 'IotaController@ore');
 Route::get('iota/pushbai', function()
 {
     // slug num
-    $slug_arr = DB::table('articles')->orderBy('created_at', 'desc')->get();
+    // $slug_arr = DB::table('articles')->orderBy('created_at', 'desc')->get();
 
-    $urls = [];
-
-    foreach ($slug_arr as $value_slug)
-    {
-        $urls[] = 'https://www.btxiaobai.com/'.$value_slug->slug.'.html';
-    }
+    // $urls = [];
+    // $i = 0;
+    // if($i<=2){
+    //   foreach ($slug_arr as $value_slug)
+    //   {
+    //       $urls[] = 'https://www.btxiaobai.com/'.$value_slug->slug.'.html';
+    //       $i++;
+    //   }
+    // }
+    $urls = array(
+        'https://www.btxiaobai.com/3job-openings-double-in-last.html',
+        'https://www.btxiaobai.com/bip.html',
+    );
 
     $api = 'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&token=veiJlvUY2TjvVdHc&type=realtime';
     $ch = curl_init();
