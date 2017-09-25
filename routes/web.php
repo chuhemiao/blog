@@ -63,7 +63,33 @@ Route::get('iota/bitetech', 'IotaController@bitetech');
 Route::get('iota/bitebasic', 'IotaController@bitebasic');
 Route::get('iota/wallet', 'IotaController@wallet');
 Route::get('iota/ore', 'IotaController@ore');
-Route::get('iota/pushbai', 'IotaController@pushbai');
+
+Route::get('iota/pushbai', function()
+{
+    // slug num
+    $slug_arr = DB::table('articles')->orderBy('created_at', 'desc')->get();
+
+    $urls = [];
+
+    foreach ($slug_arr as $value_slug)
+    {
+        $urls[] = 'https://www.btxiaobai.com/'.$value_slug->slug.'.html';
+    }
+
+    $api = 'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&token=veiJlvUY2TjvVdHc&type=realtime';
+    $ch = curl_init();
+    $options =  array(
+        CURLOPT_URL => $api,
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POSTFIELDS => implode("\n", $urls),
+        CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+    );
+    curl_setopt_array($ch, $options);
+    $result = curl_exec($ch);
+    echo $result;
+
+});
 
 // SiteMap
 

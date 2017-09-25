@@ -83,8 +83,14 @@ class IotaController extends Controller
     public function pushbai()
     {
         $urls = array(
-            'https://www.btxiaobai.com/eroscoin.html',
-            'https://www.btxiaobai.com/j-japan-bitecoin.html',
+            'https://www.btxiaobai.com/laboratory-established.html',
+            'https://www.btxiaobai.com/mexico-seeks-fintech-regulation.html',
+            'https://www.btxiaobai.com/btc-ltc.html',
+            'https://www.btxiaobai.com/67blockchain-finextra.html',
+            'https://www.btxiaobai.com/mining-drugs.html',
+            'https://www.btxiaobai.com/etfevolve.html',
+            'https://www.btxiaobai.com/global-brain.html',
+            'https://www.btxiaobai.com/nikkei-asian-review.html',
         );
         $api = 'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com/&token=veiJlvUY2TjvVdHc&type=realtime';
         $ch = curl_init();
