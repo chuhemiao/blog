@@ -105,39 +105,21 @@ class CoinmarketController extends Controller
     {
       // 比特币交易价格
       $data_btc = [];
-      //okcoin  btc
-      $data_btc = $this->okcoinALl($data_btc,$this->okcoin_market[0],$this->api_market_all[1],$this->okcoin_market_diff[0]);
       // 比特时代
       $data_btc = $this->btceraAll($data_btc,$this->api_market_all[1],$this->btcera_market_diff[0]);
-      // 比特币中国  
-      $data_btc = $this->btchinaAll($data_btc,$this->btcchina_market[0],$this->btcchina_market_diff[0],$this->api_market_all[1]);
-      // 中国比特币
-      $data_btc = $this->chinabtcAll($data_btc,$this->chinabtc_market[0],$this->chinabtc_market_diff[2],$this->api_market_all[1]);
-      // 火币网  
-      $data_btc = $this->huobiAll($data_btc,$this->huobi_market[0],$this->huobi_market_diff[0],$this->api_market_all[1]);
       $data_btc = json_decode(json_encode($data_btc));
       // 比特币交易价格  end
 
 
       // 莱特币交易价格
       $ltc_data = [];
-      // okcoin
-      $ltc_data = $this->okcoinALl($ltc_data,$this->okcoin_market[1],$this->api_market_all[4],$this->okcoin_market_diff[1]);
       // 比特时代
       $ltc_data = $this->btceraAll($ltc_data,$this->api_market_all[4],$this->btcera_market_diff[1]);
-      // 比特币中国
-      $ltc_data = $this->btchinaAll($ltc_data,$this->btcchina_market[1],$this->btcchina_market_diff[1],$this->api_market_all[4]);
-      // 中国比特币
-      $ltc_data = $this->chinabtcAll($ltc_data,$this->chinabtc_market[1],$this->chinabtc_market_diff[1],$this->api_market_all[4]);
-      // 火币网
-      $ltc_data = $this->huobiAll($ltc_data,$this->huobi_market[1],$this->huobi_market_diff[1],$this->api_market_all[4]);
       $ltc_data = json_decode(json_encode($ltc_data));
       // 莱特币交易价格 end
 
       // eth交易价格
       $eth_data = [];
-      // 中国比特币
-      $eth_data = $this->chinabtcAll($eth_data,$this->chinabtc_market[2],$this->chinabtc_market_diff[2],$this->api_market_all[6]);
 
       // 比特时代
       $eth_data = $this->btceraAll($eth_data,$this->api_market_all[6],$this->btcera_market_diff[4]);
@@ -147,64 +129,20 @@ class CoinmarketController extends Controller
 
       // etc价格
       $etc_data = [];
-      // 中国比特币
-      $etc_data = $this->chinabtcAll($etc_data,$this->chinabtc_market[3],$this->chinabtc_market_diff[3],$this->api_market_all[7]);
       // 比特时代
       $etc_data = $this->btceraAll($etc_data,$this->api_market_all[13],$this->btcera_market_diff[5]);
       
       $etc_data = json_decode(json_encode($etc_data));
       // etc价格 end
 
-      // iota价格
-      $iota_data = [];
-      // 中国比特币
-      $iota_data = $this->bitfinexAll($iota_data,$this->mk_type[2],$this->bitfinex_market_diff[4],$this->api_market_all[8]);
-      $iota_data = json_decode(json_encode($iota_data));
       // 新经币
       $xem_data = [];
       $xem_data = $this->btceraAll($xem_data,$this->api_market_all[0],$this->btcera_market_diff[2]);
-
-      // 狗狗币
-      $dog_data = [];
-      // 比特时代
-      $dog_data = $this->btceraAll($dog_data,$this->api_market_all[2],$this->btcera_market_diff[3]);
-      // 元宝
-      $dog_data = $this->yuanbaoAll($dog_data,$this->yuanbao_market[0],$this->yuanbao_market_diff[3]);
-
-
-      // 黑币
-      $blk_data = [];
-      $blk_data = $this->btceraAll($blk_data,$this->api_market_all[5],$this->btcera_market_diff[3]);
-
-      // 瑞波币
-      $xrp_data = [];
-      $xrp_data = $this->btceraAll($xrp_data,$this->api_market_all[9],$this->btcera_market_diff[3]);
-
-      // 达世币
-      $dash_data = [];
-      $dash_data = $this->btceraAll($dash_data,$this->api_market_all[10],$this->btcera_market_diff[3]);
-
-      // 招财币
-      $zcc_data = [];
-      $zcc_data = $this->btceraAll($zcc_data,$this->api_market_all[11],$this->btcera_market_diff[3]);
-
-      // 零币
-      $xzc_data = [];
-      $xzc_data = $this->btceraAll($xzc_data,$this->api_market_all[12],$this->btcera_market_diff[3]);
-
-      // var_dump($data_btc);
       // var_dump($etc_data);
       // var_dump($iota_data);
       // var_dump($ltc_data);die;
 
-      // iota价格 end
-
-      // echo "<pre>";
-      // print_r($iota_data);die;
-      // echo "<pre>";
-      // print_r($dog_data);die;
-
-      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','iota_data','xem_data','dog_data','blk_data','xzc_data','xrp_data','dash_data','zcc_data'));
+      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','xem_data'));
     }
 
     /* 

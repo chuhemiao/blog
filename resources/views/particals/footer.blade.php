@@ -43,22 +43,17 @@
                     <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="http://www.bit97.com/" target="_blank">汇联矿业</a> 
                     <a href="http://btc38.com/" target="_blank">比特时代</a> 
-                    <a href="https://www.huobi.com/" target="_blank">火币网</a>
-                    <a href="https://www.800bitbank.com/" target="_blank">巴比网</a>
-                    <a href="https://zaif.jp/" target="_blank">zaif</a> 
+                    <a href="https://www.huobi.pro/" target="_blank">火币网</a>
                 </div>
                 <div class="sponsors">
-                    <a href="https://toubi.com/" target="_blank">投币网</a>
-                    <a href="https://www.yuanbao.com/coins" target="_blank">元宝网</a>
-                    <a href="https://www.btcchina.com/" target="_blank">BtcChina</a> 
-                    <a href="https://www.okcoin.cn/" target="_blank">okcoin</a> 
+                    <a href="https://zaif.jp/" target="_blank">zaif</a> 
+                    <a href="https://www.okcoin.com/" target="_blank">okcoin</a> 
                     <a href="https://www.bitfinex.com/" target="_blank">bitfinex</a>
                     <a href="https://www.btc123.com/" target="_blank">BTC123</a>
                     <a href="http://www.nemchina.com/" target="_blank">XEM</a> 
                 </div>
                 <div class="sponsors">
                     <a href="https://btc.com/" target="_blank">区块浏览器</a> 
-                    <a href="https://cn.bter.com/" target="_blank">比特儿</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币市宝典</a> 
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="http://www.8btc.com/" target="_blank">巴比特</a>
