@@ -58,6 +58,7 @@
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="http://www.8btc.com/" target="_blank">巴比特</a>
                     <a href="http://chainb.com" target="_blank">铅笔</a>
+                    <a href="http://chainknow.com/" target="_blank">知链</a>
                 </div>
             </div>
         </div>
