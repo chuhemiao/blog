@@ -12,6 +12,7 @@
         "jcc/laravel-vote": "dev-master",
         "jellybool/flysystem-upyun": "dev-master",
         "jellybool/translug": "~1.0",
+        "jonathantorres/medium-sdk": "^0.3.0",
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/socialite": "^3.0",

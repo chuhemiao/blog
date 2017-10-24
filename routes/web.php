@@ -111,6 +111,8 @@ Route::get('sitemap.xml', function()
 Route::get('xem', 'XemController@index');
 // ico
 Route::get('ico', 'IcoController@index');
+// medium
+Route::get('callback/medium', 'CallbackController@medium');
 
 //truncate
 Route::get('truncate', 'TruncateController@index');
