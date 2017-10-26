@@ -99,6 +99,25 @@
         s.parentNode.insertBefore(bp, s);
     })();
     </script>
+    <script>
+    $(function() {
+        showNotice();
+    });
+
+    function showNotice() {   
+        Notification.requestPermission(function (perm) {  
+            if (perm == "granted") {  
+                var notification = new Notification("这是一个通知撒:", {  
+                    dir: "auto",  
+                    lang: "hi",  
+                    tag: "比特币小白",  
+                    icon: "https://cdn.btxiaobai.com/article/2017/10/26/Zx3KZvYitDPa17J7dMlhPuGY3cniOa9XYL75toZf.png",  
+                    body: "您可以第一时间收取到相关更新!"  
+                });  
+            }  
+        })  
+    }  
+    </script>
                         
 
 </body>

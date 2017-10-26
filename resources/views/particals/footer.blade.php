@@ -48,7 +48,7 @@
                 <div class="sponsors">
                     <a href="https://zaif.jp/" target="_blank">zaif</a> 
                     <a href="https://www.okcoin.com/" target="_blank">okcoin</a> 
-                    <a href="http://www.bit2100.com/" target="_blank">bit2100</a> 
+                    <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
                     <a href="https://www.bitfinex.com/" target="_blank">bitfinex</a>
                     <a href="https://www.btc123.com/" target="_blank">BTC123</a>
                     <a href="http://www.nemchina.com/" target="_blank">XEM</a> 
