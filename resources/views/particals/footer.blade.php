@@ -39,17 +39,18 @@
                     </li>
                 </ul>
                 <div class="sponsors">
-                    <a href="http://idiot6.com/" target="_blank">梦遥奇缘</a>
+                    <a href="http://www.jinse.com/member/23200" target="_blank">金色财经</a>
                     <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="http://www.bit97.com/" target="_blank">汇联矿业</a> 
                     <a href="http://btc38.com/" target="_blank">比特时代</a> 
                     <a href="https://www.huobi.pro/" target="_blank">火币网</a>
                 </div>
                 <div class="sponsors">
-                    <a href="https://zaif.jp/" target="_blank">zaif</a> 
-                    <a href="https://www.okcoin.com/" target="_blank">okcoin</a> 
+                    <a href="https://zaif.jp/" target="_blank">Zaif</a> 
+                    <a href="https://www.bihang.com/" target="_blank">OKCoin</a> 
                     <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
-                    <a href="https://www.bitfinex.com/" target="_blank">bitfinex</a>
+                    <a href="https://www.bitfinex.com/" target="_blank">Bitfinex</a>
+                    <a href="https://www.binance.com/" target="_blank">Binance</a>
                     <a href="https://www.btc123.com/" target="_blank">BTC123</a>
                     <a href="http://www.nemchina.com/" target="_blank">XEM</a> 
                 </div>
