@@ -37,7 +37,16 @@ class CallbackController extends Controller
     public function medium()
     {
         $user = $this->medium->getAuthenticatedUser();
-        echo 'Authenticated user name is: ' . $user->data->name;
+            $data = [
+            'title' => 'Post title',
+            'contentFormat' => 'html',
+            'content' => 'This is my post content.',
+            'publishStatus' => 'draft',
+        ];
+
+        $post = $medium->createPost($user->data->id, $data);
+
+        echo 'Created post: ' . $post->data->title;
        
     }
 }

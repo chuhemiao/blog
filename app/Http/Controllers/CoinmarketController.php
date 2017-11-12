@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 class CoinmarketController extends Controller
 {
     //	btc38平台接口地址
-    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'doge','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'zcc','12'=>'xzc','13'=>'etc'];
+    protected $api_market_all = ['0'=>'xem','1'=>'btc','2'=>'doge','4'=>'ltc','5'=>'blk','6'=>'eth','7'=>'etc','8'=>'iot','9'=>'xrp','10'=>'dash','11'=>'bch'];
     protected $mk_type = ['0'=>'cny','1'=>'btc','2'=>'usd'];
     const BTC_LINK = 'http://api.btc38.com/v1/ticker.php';
     const MK_TYPE =  '&mk_type=';
@@ -33,35 +33,11 @@ class CoinmarketController extends Controller
     protected $okcoin_market = ['0'=>'btc_cny','1'=>'ltc_cny','2'=>'eth_cny'];
     protected $okcoin_market_diff = ['0'=>'okCoin_btc','1'=>'okCoin_ltc','2'=>'okCoin_eth'];
 
-    // 比特币中国https://data.btcchina.com/data/ticker
-    const BTCCHINA_LINK = 'https://data.btcchina.com/data/ticker';
-    protected $btcchina_info = ['0'=>'比特币中国','1'=>'https://www.btcchina.com/exc/','2'=>'https://www.btcchina.com/'];//交易市场、k线、网站首页
-    protected $btcchina_market_diff = ['0'=>'btcchina_btc','1'=>'btcchina_ltc','2'=>'btcchina_eth'];
-    protected $btcchina_market = ['0'=>'btccny','1'=>'ltccny','2'=>'ethcny'];
-
-
-    // 中国比特币  http://api.chbtc.com/data/v1/ticker?currency=eth_cny
-    const CHINABTC_LINK = 'http://api.chbtc.com/data/v1/ticker';
-    protected $chinabtc_info = ['0'=>'中国比特币','1'=>'https://trans.chbtc.com/markets/','2'=>'https://www.chbtc.com/'];//交易市场、k线、网站首页
-    protected $chinabtc_market_diff = ['0'=>'chinabtc_btc','1'=>'chinabtc_ltc','2'=>'chinabtc_eth','3'=>'chinabtc_eth'];
-    protected $chinabtc_market = ['0'=>'btc_cny','1'=>'ltc_cny','2'=>'eth_cny','3'=>'etc_cny'];
-
-
-    // 比特儿 
-    const BTER_LINK = 'http://data.bter.com/api2/1/ticker/btc_cny';
-
     // bitfinex 
     const BITFINEX_LINK = 'https://api.bitfinex.com/v1/pubticker/';
     protected $bitfinex_info = ['0'=>'B网','1'=>'https://bitfinex.com','2'=>'https://bitfinex.com'];//交易市场、k线、网站首页
-    protected $bitfinex_market_diff = ['0'=>'bitfinex_btc','1'=>'bitfinex_ltc','2'=>'bitfinex_eth','3'=>'bitfinex_eth','4'=>'bitfinex_iota'];
+    protected $bitfinex_market_diff = ['0'=>'bitfinex_btc','1'=>'bitfinex_ltc','2'=>'bitfinex_etc','3'=>'bitfinex_eth','4'=>'bitfinex_iota','5'=>'bitfinex_bch'];
 
-
-    // 元宝网2cny
-    const YUANBAO_LINK = 'https://www.yuanbao.com/api_market/getinfo_cny/coin/';
-
-    protected $yuanbao_info = ['0'=>'元宝网','1'=>'https://www.yuanbao.com/trade/doge','2'=>'https://www.yuanbao.com/'];//交易市场、k线、网站首页
-    protected $yuanbao_market_diff = ['0'=>'yuanbao_btc','1'=>'yuanbao_ltc','2'=>'yuanbao_eth','3'=>'yuanbao_doge'];
-    protected $yuanbao_market = ['0'=>'doge'];
 
 
 
@@ -105,44 +81,49 @@ class CoinmarketController extends Controller
     {
       // 比特币交易价格
       $data_btc = [];
-      // 比特时代
-      $data_btc = $this->btceraAll($data_btc,$this->api_market_all[1],$this->btcera_market_diff[0]);
+      // bitfinex
+      $data_btc = $this->bitfinexAll($data_btc,$this->mk_type[2],$this->bitfinex_market_diff[0],$this->api_market_all[1]);
+
       $data_btc = json_decode(json_encode($data_btc));
+
       // 比特币交易价格  end
 
 
       // 莱特币交易价格
       $ltc_data = [];
-      // 比特时代
-      $ltc_data = $this->btceraAll($ltc_data,$this->api_market_all[4],$this->btcera_market_diff[1]);
+      // bitfinex
+      $ltc_data = $this->bitfinexAll($ltc_data,$this->mk_type[2],$this->bitfinex_market_diff[1],$this->api_market_all[4]);
       $ltc_data = json_decode(json_encode($ltc_data));
       // 莱特币交易价格 end
 
       // eth交易价格
       $eth_data = [];
 
-      // 比特时代
-      $eth_data = $this->btceraAll($eth_data,$this->api_market_all[6],$this->btcera_market_diff[4]);
+      // bitfinex
+      $eth_data = $this->bitfinexAll($eth_data,$this->mk_type[2],$this->bitfinex_market_diff[3],$this->api_market_all[6]);
       
       $eth_data = json_decode(json_encode($eth_data));
+
+      
       // eth交易价格end
 
       // etc价格
       $etc_data = [];
-      // 比特时代
-      $etc_data = $this->btceraAll($etc_data,$this->api_market_all[13],$this->btcera_market_diff[5]);
+      // bitfinex
+      $etc_data = $this->bitfinexAll($etc_data,$this->mk_type[2],$this->bitfinex_market_diff[2],$this->api_market_all[7]);
       
       $etc_data = json_decode(json_encode($etc_data));
       // etc价格 end
 
-      // 新经币
-      $xem_data = [];
-      $xem_data = $this->btceraAll($xem_data,$this->api_market_all[0],$this->btcera_market_diff[2]);
-      // var_dump($etc_data);
-      // var_dump($iota_data);
-      // var_dump($ltc_data);die;
+      // bch
+      $bch_data = [];
+      $bch_data = $this->bitfinexAll($bch_data,$this->mk_type[2],$this->bitfinex_market_diff[5],$this->api_market_all[11]);
 
-      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','xem_data'));
+      //iota
+      $iota_data = [];
+      $iota_data = $this->bitfinexAll($iota_data,$this->mk_type[2],$this->bitfinex_market_diff[4],$this->api_market_all[8]);
+
+      return view('coinmarket.marketall', compact('data_btc','ltc_data','eth_data','etc_data','bch_data','iota_data'));
     }
 
     /* 
