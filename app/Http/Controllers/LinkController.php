@@ -26,4 +26,9 @@ class LinkController extends Controller
         return view('link.index', compact('links'));
     }
 
+    public function about()
+    {
+        return view('link.about');
+    }
+
 }

@@ -113,7 +113,7 @@ return [
     'Sells'                => '卖一',
     'Xems'                 => '新经币',
     'IOTA'                 => 'IOTA',
-    'ICO'                  => 'ICO',
+    'ICO'                  => '每日热点',
     'Every Week Day'       => '每周币看',
     'Bite Point'           => '币看点',
     'Bite Tech'            => '币技术',

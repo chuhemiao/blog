@@ -27,13 +27,14 @@ class ArticleController extends Controller
         $new_articles = $this->article->getNewArticle();
         //最热
         $hot_articles = $this->article->getHotArticle();
-        //技术头条
-        $tech_articles = $this->article->getHotTechArticle(6,0,1);
-        $basic_articles = $this->article->getHotBasicArticle(7,0,1);
-        $wallet_articles = $this->article->getHotBasicArticle(8,0,1);
-        $ore_articles = $this->article->getHotBasicArticle(9,0,1);
+        //每日热点
+        $everyday_articles = $this->article->getHotBasicArticle(5,0,5);
+        // 评测
+        $bitcoin_pingce = $this->article->getHotBasicArticle(4,0,5);
+        // 轮播
+        $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 
-        return view('article.index', compact('articles','hot_articles','new_articles','tech_articles','basic_articles','wallet_articles','ore_articles'));
+        return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list'));
     }
 
     /**

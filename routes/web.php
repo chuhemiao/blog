@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'setting'], function () {
 
 // Link
 Route::get('link', 'LinkController@index');
+Route::get('link/about', 'LinkController@about');
 //coinmarket
 
 Route::get('coinmarket', 'CoinmarketController@index');

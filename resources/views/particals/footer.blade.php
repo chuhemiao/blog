@@ -13,13 +13,6 @@
                             <i class="large ion-at"></i>
                         </a>
                     </li>
-                    @if(config('blog.footer.github.open'))
-                    <li>
-                        <a href="{{ config('blog.footer.github.url') }}" target="_blank">
-                            <i class="large ion-social-github icon"></i>
-                        </a>
-                    </li>
-                    @endif
                     @if(config('blog.footer.twitter.open'))
                     <li>
                         <a href="{{ config('blog.footer.twitter.url') }}" target="_blank">
@@ -34,9 +27,6 @@
                         </a>
                     </li>
                     @endif
-                    <li>
-                        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=f9232bb88ae3158ea9e5d919011ca397b11699d3f0bda65f009ecc6d289587c4"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="比特币小白" title="比特币小白"></a>
-                    </li>
                 </ul>
                 <div class="sponsors">
                     <a href="http://www.jinse.com/member/23200" target="_blank">金色财经</a>
@@ -52,7 +42,6 @@
                     <a href="https://www.bitfinex.com/" target="_blank">Bitfinex</a>
                     <a href="https://www.binance.com/" target="_blank">Binance</a>
                     <a href="https://www.btc123.com/" target="_blank">BTC123</a>
-                    <a href="http://www.nemchina.com/" target="_blank">XEM</a> 
                 </div>
                 <div class="sponsors">
                     <a href="https://btc.com/" target="_blank">区块浏览器</a> 
