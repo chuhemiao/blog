@@ -17,18 +17,8 @@
                                     {{ $article->title }}
                                 </a>
                             </h6>
-                            <div class="description">
-                                {{ $article->meta_description }}
-                            </div>
                             <div class="extra">
-                                @foreach($article->tags as $tag)
-                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}">
-                                    <div class="label"><i class="ion-pricetag"></i>{{ $tag->tag }}</div>
-                                </a>
-                                @endforeach
-
                                 <div class="info">
-                                    <i class="ion-person"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
                                     <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
                                     <i class="ion-ios-eye"></i>{{ $article->view_count }}
                                     <a href="{{ url($article->slug) }}.html" class="pull-right">
@@ -56,9 +46,6 @@
                                     {{ $article->title }}
                                 </a>
                             </h6>
-                            <div class="description">
-                                {{ $article->meta_description }}
-                            </div>
                             <div class="extra">
                                 <div class="info">
                                     <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
@@ -89,9 +76,6 @@
                                     {{ $article->title }}
                                 </a>
                             </h6>
-                            <div class="description">
-                                {{ $article->meta_description }}
-                            </div>
                             <div class="extra">
                                 <div class="info">
                                     <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;

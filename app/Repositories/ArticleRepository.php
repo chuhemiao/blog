@@ -55,7 +55,7 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->orderBy('view_count','desc')->skip(0)->take(1)->get();
+        return $this->model->orderBy('view_count','desc')->skip(0)->take(5)->get();
     }
 
     //技术头条
