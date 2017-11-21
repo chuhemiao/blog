@@ -63,7 +63,7 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->orderBy('view_count','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
+        return $this->model->orderBy('created_at','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
     }
 
     // 币基础
@@ -71,7 +71,7 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->orderBy('view_count','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
+        return $this->model->orderBy('created_at','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
     }
 
 
