@@ -36,7 +36,7 @@ return [
     'article' => [
         'title'       => '比特币小白-专注对数字币新闻与区块链技术咨询',
         'description' => '比特币小白，专注对数字币新闻与区块链技术传播，让更多的人了解到区块链、认识数字币。',
-        'number'      => 15,
+        'number'      => 18,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
     ],

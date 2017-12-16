@@ -111,18 +111,10 @@
 <div class="sns  hidden-xs" >
     <div class="wrapper">
         <div class="wx-box">
-            <p><i></i>微信公众号</p>
-            <p>公众号：比特小白</p>
-            <img src="https://cdn.btxiaobai.com/article/2017/10/31/nNeMRDvsSmPtuH1qKufBAJCVGXrU5RMzUQCejn1t.png">
-            <p>扫一扫关注微信</p>
+            <p><i></i>小秘圈</p>
+            <img src="https://cdn.btxiaobai.com/2017/12/16/15134416543540.jpg">
+            <p>扫一扫加入</p>
         </div>
-        <div class="sina-box">
-            <a href="http://www.weibo.com/chuhemiao"><p><i></i>新浪微博</p></a>
-            <p><a href="http://www.weibo.com/chuhemiao">梦遥奇缘</a></p>
-        </div>
-        <div class="qq-box">
-            <a href="http://shang.qq.com/wpa/qunwpa?idkey=f9232bb88ae3158ea9e5d919011ca397b11699d3f0bda65f009ecc6d289587c4"><p><i></i>官方QQ群</p></a>
-            <a href="http://shang.qq.com/wpa/qunwpa?idkey=f9232bb88ae3158ea9e5d919011ca397b11699d3f0bda65f009ecc6d289587c4"><p>比特币小白官方群<em>83729696</em></p></a>
-        </div>
+
     </div>
 </div>

@@ -17,9 +17,9 @@
                                     {{ $article->title }}
                                 </a>
                             </h6>
-                            <div class="description">
-                                {{ $article->meta_description }}
-                            </div>
+                            {{--<div class="description">--}}
+                                {{--{{ $article->meta_description }}--}}
+                            {{--</div>--}}
                             <div class="extra">
                                 @foreach($article->tags as $tag)
                                 <a href="{{ url('tag', ['tag' => $tag->tag]) }}">
@@ -53,6 +53,9 @@
                     </a>
                     <a href="https://bihu.com/" class="thumbnail" target="_blank">
                       <img src="http://cdn.btxiaobai.com/article/2017/11/22/OOaxnuhv3EkdOJ1mzfcmL46yBQWcIqQ1lwEAQTJ8.png" alt="币乎社区" width="144" height="100%">
+                    </a>
+                    <a href="http://www.ctpmall.com/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.btxiaobai.com/2017/12/16/WechatIMG58.jpeg" alt="ctpmall" width="144" height="100%">
                     </a>
                 </div>
             </div>
