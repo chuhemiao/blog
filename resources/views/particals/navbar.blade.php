@@ -108,13 +108,3 @@
         </div>
     </div>
 </nav>
-<div class="sns  hidden-xs" >
-    <div class="wrapper">
-        <div class="wx-box">
-            <p><i></i>小秘圈</p>
-            <img src="https://cdn.btxiaobai.com/2017/12/16/15134416543540.jpg">
-            <p>扫一扫加入</p>
-        </div>
-
-    </div>
-</div>

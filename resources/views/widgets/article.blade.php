@@ -55,7 +55,16 @@
                       <img src="http://cdn.btxiaobai.com/article/2017/11/22/OOaxnuhv3EkdOJ1mzfcmL46yBQWcIqQ1lwEAQTJ8.png" alt="币乎社区" width="144" height="100%">
                     </a>
                     <a href="http://www.ctpmall.com/" class="thumbnail" target="_blank">
-                        <img src="https://cdn.btxiaobai.com/2017/12/16/WechatIMG58.jpeg" alt="ctpmall" width="144" height="100%">
+                        <img src="https://cdn.btxiaobai.com/2017/12/16/WechatIMG58.jpeg" alt="ctpmall" width="250px" height="100%">
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">小秘圈</div>
+                <div class="panel-body">
+                    <a href="http://www.nemchina.com/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.btxiaobai.com/2017/12/16/15134416543540.jpg" alt="nemchina" width="115px" height="100%">
                     </a>
                 </div>
             </div>
