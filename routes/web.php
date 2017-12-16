@@ -118,6 +118,8 @@ Route::get('callback/medium', 'CallbackController@medium');
 //truncate
 Route::get('truncate', 'TruncateController@index');
 
+Route::get('ada', 'AdaController@index');
+
 // rss
 
 Route::get('rss.xml', function () {

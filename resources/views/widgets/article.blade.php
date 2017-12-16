@@ -61,9 +61,9 @@
             </div>
 
             <div class="panel panel-info">
-                <div class="panel-heading">小秘圈</div>
+                <div class="panel-heading">币圈小白小秘圈：微信扫码加入</div>
                 <div class="panel-body">
-                    <a href="http://www.nemchina.com/" class="thumbnail" target="_blank">
+                    <a href="javascript:;" class="thumbnail" target="_blank">
                         <img src="https://cdn.btxiaobai.com/2017/12/16/15134416543540.jpg" alt="nemchina" width="115px" height="100%">
                     </a>
                 </div>
