@@ -30,14 +30,16 @@
                 </ul>
                 <div class="sponsors">
                     <a href="http://www.jinse.com/member/23200" target="_blank">金色财经</a>
-                    <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="http://www.gongxiangcj.com/" target="_blank">共享财经</a>
-                    <a href="https://bite.ceo/" target="_blank">CEO</a>
+                    <a href="http://www.weilaicaijing.com/" target="_blank">未来财经</a>
+                    <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="https://www.huobi.pro/" target="_blank">火币网</a>
+                    <a href="http://k.quintar.com" target="_blank">金塔</a>
                 </div>
                 <div class="sponsors">
                     <a href="https://zaif.jp/" target="_blank">Zaif</a> 
                     <a href="https://www.okex.com/" target="_blank">Okex</a>
+                    <a href="https://bite.ceo/" target="_blank">CEO</a>
                     <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
                     <a href="https://www.bitfinex.com/" target="_blank">Bitfinex</a>
                     <a href="https://www.binance.com/" target="_blank">Binance</a>
