@@ -54,9 +54,6 @@
                     <a href="https://bihu.com/" class="thumbnail" target="_blank">
                       <img src="http://cdn.btxiaobai.com/article/2017/11/22/OOaxnuhv3EkdOJ1mzfcmL46yBQWcIqQ1lwEAQTJ8.png" alt="币乎社区" width="144" height="100%">
                     </a>
-                    <a href="http://www.ctpmall.com/" class="thumbnail" target="_blank">
-                        <img src="https://cdn.btxiaobai.com/2017/12/16/WechatIMG58.jpeg" alt="ctpmall" width="250px" height="100%">
-                    </a>
                     <a href="https://www.bitpoolex.com" class="thumbnail" target="_blank">
                         <img src="https://cdn.btxiaobai.com/article/2017/12/18/EM2zopv4GRUQAFSVE5dxSul3B5iKpN0fz9075NA2.png" alt="ctpmall" width="250px" height="100%">
                     </a>

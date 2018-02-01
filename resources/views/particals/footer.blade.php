@@ -31,6 +31,7 @@
                 <div class="sponsors">
                     <a href="http://www.jinse.com/member/23200" target="_blank">金色财经</a>
                     <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
+                    <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="https://www.huobi.pro/" target="_blank">火币网</a>
                     <a href="http://k.quintar.com" target="_blank">金塔</a>
                 </div>
