@@ -48,7 +48,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">24小时快讯</div>
                 <div class="panel-body">
-                     <iframe id="weibo" style="width:360px; height:544px;" frameborder="0" scrolling="no" src="http://v.t.sina.com.cn/widget/widget_blog.php?uid=3292942135"></iframe>  
+                     <iframe id="weibo" style="width:360px; height:544px;" frameborder="0" scrolling="no" src="//service.weibo.com/widget/widget_blog.php?uid=3292942135"></iframe>  
                 </div>
             </div>
 
