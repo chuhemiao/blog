@@ -48,7 +48,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">24小时快讯</div>
                 <div class="panel-body">
-                     <iframe id="weibo" style="width:360px; height:544px;" frameborder="0" scrolling="no" src="//service.weibo.com/widget/widget_blog.php?uid=3292942135"></iframe>  
+                     <a class="twitter-timeline" href="https://twitter.com/meng535101602?ref_src=twsrc%5Etfw">Tweets by meng535101602</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
                 </div>
             </div>
 
