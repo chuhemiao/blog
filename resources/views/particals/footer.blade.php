@@ -34,6 +34,7 @@
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="https://www.huobi.pro/" target="_blank">火币网</a>
                     <a href="http://k.quintar.com" target="_blank">金塔</a>
+                    <a href="https://www.bitask.org/" target="_blank">币问</a>
                 </div>
                 <div class="sponsors">
                     <a href="https://zaif.jp/" target="_blank">Zaif</a> 

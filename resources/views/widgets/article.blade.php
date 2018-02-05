@@ -46,17 +46,9 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-info">
-                <div class="panel-heading">合作专栏</div>
+                <div class="panel-heading">24小时快讯</div>
                 <div class="panel-body">
-                    <a href="http://www.nemchina.com/" class="thumbnail" target="_blank">
-                      <img src="https://cdn.btxiaobai.com/article/2017/11/22/ASb2iTJjfpmFatmNxuuOJHfwT1UuW3cHRie28Uea.png" alt="nemchina" width="250" height="100%">
-                    </a>
-                    <a href="https://bihu.com/" class="thumbnail" target="_blank">
-                      <img src="http://cdn.btxiaobai.com/article/2017/11/22/OOaxnuhv3EkdOJ1mzfcmL46yBQWcIqQ1lwEAQTJ8.png" alt="币乎社区" width="144" height="100%">
-                    </a>
-                    <a href="https://www.bitpoolex.com" class="thumbnail" target="_blank">
-                        <img src="https://cdn.btxiaobai.com/article/2017/12/18/EM2zopv4GRUQAFSVE5dxSul3B5iKpN0fz9075NA2.png" alt="ctpmall" width="250px" height="100%">
-                    </a>
+                     <iframe id="weibo" style="width:360px; height:544px;" frameborder="0" scrolling="no" src="http://v.t.sina.com.cn/widget/widget_blog.php?uid=3292942135"></iframe>  
                 </div>
             </div>
 
