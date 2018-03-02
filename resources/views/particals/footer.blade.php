@@ -29,11 +29,11 @@
                     @endif
                 </ul>
                 <div class="sponsors">
-                    <a href="http://www.jinse.com/member/23200" target="_blank">金色财经</a>
+                    <a href="https://btc.com/" target="_blank">区块浏览器</a>
                     <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="http://www.178bit.com/" target="_blank">口袋比特</a>
-                    <a href="https://www.huobi.pro/" target="_blank">火币网</a>
+                    <a href="https://www.huobi.pro/" target="_blank">火币</a>
                     <a href="http://quintar.com" target="_blank">金塔</a>
                     <a href="https://www.bitask.org/" target="_blank">币问</a>
                 </div>
@@ -47,8 +47,8 @@
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
                 </div>
                 <div class="sponsors">
-                    <a href="https://btc.com/" target="_blank">区块浏览器</a> 
-                    <a href="https://coinmarketcap.com/" target="_blank">币市宝典</a> 
+                    <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
+                    <a href="https://coinmarketcap.com/" target="_blank">币宝典</a>
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="http://www.8btc.com/" target="_blank">巴比特</a>
                     <a href="http://chainb.com" target="_blank">铅笔</a>
