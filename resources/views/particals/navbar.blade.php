@@ -35,15 +35,7 @@
                 </li>
 
                 <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style='min-width:100%'>{{ lang('Market Price') }}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" style='min-width:100%'>
-                        <li><a href="{{ url('/coinmarket/marketall') }}" target="_blank">{{ lang('Quotes') }}</a></li>
-                        <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">ADA</a></li>
                 <li><a href="{{ url('/ada/') }}" target="_blank">ADA</a></li>
                 <li><a href="{{ url('/iota/') }}" target="_blank">{{ lang('IOTA') }}</a></li>
                 <li><a href="{{ url('/xem/') }}" target="_blank">{{ lang('Xems') }}</a></li>
