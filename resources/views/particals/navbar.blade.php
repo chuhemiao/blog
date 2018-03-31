@@ -35,7 +35,7 @@
                 </li>
 
                 <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
-                <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">ADA</a></li>
+                <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
                 <li><a href="{{ url('/ada/') }}" target="_blank">ADA</a></li>
                 <li><a href="{{ url('/iota/') }}" target="_blank">{{ lang('IOTA') }}</a></li>
                 <li><a href="{{ url('/xem/') }}" target="_blank">{{ lang('Xems') }}</a></li>
