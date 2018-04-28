@@ -30,7 +30,7 @@
                 </ul>
                 <div class="sponsors">
                     <a href="https://btc.com/" target="_blank">区块浏览器</a>
-                    <a href="https://www.iotachina.com/" target="_blank">IOTA中国</a>
+                    <a href="http://www.bcfans.com/" target="_blank">区块链导航</a>
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="http://www.178bit.com/" target="_blank">口袋比特</a>
                     <a href="https://www.huobi.pro/" target="_blank">火币</a>
