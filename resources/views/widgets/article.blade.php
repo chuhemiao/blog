@@ -30,7 +30,7 @@
                                 <div class="info">
                                     <i class="ion-person"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
                                     <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
-                                    <i class="ion-social-bitcoin-outline"></i>{{ $article->view_count+1024 }}
+                                    <i class="ion-social-bitcoin-outline"></i>{{ $article->view_count+1042 }}
                                     <a href="{{ url($article->slug) }}.html" class="pull-right">
                                         Read More <i class="ion-ios-arrow-forward"></i>
                                     </a>
@@ -46,7 +46,16 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-info">
-                <div class="panel-heading">24小时快讯</div>
+                <div class="panel-heading">币优:持仓盈亏实时追踪</div>
+                <div class="panel-body">
+                    <a href="https://www.bituniverse.org/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.btxiaobai.com/2018/05/17/15265699033998.jpg" alt="bituniverse" width="330px" height="100%">
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">25小时快讯</div>
                 <div class="panel-body">
                      <a class="twitter-timeline" href="https://twitter.com/meng535101602?ref_src=twsrc%5Etfw">Tweets by meng535101602</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
                 </div>

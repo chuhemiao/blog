@@ -38,7 +38,7 @@
                     <a href="https://www.bitask.org/" target="_blank">币问</a>
                 </div>
                 <div class="sponsors">
-                    <a href="https://zaif.jp/" target="_blank">Zaif</a> 
+                    <a href="http://www.xicaijing.com/" target="_blank">烯财经</a>
                     <a href="https://gate.io/signup/647923" target="_blank">GATE</a>
                     <a href="https://vip.zb.com/activity/joinbtc?tuijianid=aac973789ed3b8646ec13fb1096234f2" target="_blank">ZB</a>
                     <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 

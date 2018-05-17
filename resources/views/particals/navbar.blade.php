@@ -20,35 +20,14 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">{{ lang('Articles') }}</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ url('/iota/everyweek') }}" style='min-width:100%'>{{ lang('Bite Point') }}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" style='min-width:100%'>
-                      <li><a href="{{ url('discussion') }}">{{ lang('Discussions') }}</a></li>
-                      <li><a href="{{ url('/iota/everyweek') }}">{{ lang('Every Week Day') }}</a></li>
-                      <li><a href="{{ url('/iota/bitetech') }}">{{ lang('Bite Tech') }}</a></li>
-                      <li><a href="{{ url('/iota/bitebasic') }}">{{ lang('Bite Basic') }}</a></li>
-                      <li><a href="{{ url('/ico/') }}" target="_blank">{{ lang('ICO') }}</a></li>
-
-                    </ul>
-                </li>
-
+                <li><a href="{{ url('/iota/everyweek') }}">{{ lang('Every Week Day') }}</a></li>
+                <li><a href="{{ url('/iota/bitebasic') }}">{{ lang('Bite Basic') }}</a></li>
                 <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
                 <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
                 <li><a href="{{ url('/ada/') }}" target="_blank">ADA</a></li>
                 <li><a href="{{ url('/iota/') }}" target="_blank">{{ lang('IOTA') }}</a></li>
                 <li><a href="{{ url('/xem/') }}" target="_blank">{{ lang('Xems') }}</a></li>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" style='min-width:100%'>{{ lang('Wallet Ore') }}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" style='min-width:100%'>
-                        <li><a href="{{ url('/iota/wallet') }}" target="_blank">{{ lang('Wallet') }}</a></li>
-                        <li><a href="{{ url('/iota/ore') }}" target="_blank">{{ lang('Ore') }}</a></li>
-                    </ul>
-                </li>
                 
             </ul>
 

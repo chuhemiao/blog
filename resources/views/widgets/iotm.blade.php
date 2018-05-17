@@ -30,7 +30,7 @@
                         <div class="info">
                             <i class="ion-person"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
                             <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
-                            <i class="ion-social-bitcoin-outline"></i>{{ $article->view_count+1024 }}
+                            <i class="ion-social-bitcoin-outline"></i>{{ $article->view_count+1042 }}
                             <a href="{{ url($article->slug) }}.html" class="pull-right">
                                 Read More <i class="ion-ios-arrow-forward"></i>
                             </a>
