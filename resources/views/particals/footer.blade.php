@@ -35,7 +35,7 @@
                     <a href="http://www.178bit.com/" target="_blank">口袋比特</a>
                     <a href="https://www.vvbtc.com/" target="_blank">vvbtc</a>
                     <a href="http://quintar.com" target="_blank">金塔</a>
-                    <a href="https://www.bitask.org/" target="_blank">币问</a>
+
                 </div>
                 <div class="sponsors">
                     <a href="http://www.xicaijing.com/" target="_blank">烯财经</a>
@@ -45,6 +45,7 @@
                     <a href="https://www.bitfinex.com/" target="_blank">Bitfinex</a>
                     <a href="https://www.binance.com/?ref=10895002/" target="_blank">Binance</a>
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
+                    <a href="https://www.bitask.org/" target="_blank">币问</a>
                 </div>
                 <div class="sponsors">
                     <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
