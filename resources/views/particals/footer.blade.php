@@ -33,7 +33,7 @@
                     <a href="http://www.bcfans.com/" target="_blank">区块链导航</a>
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="http://www.178bit.com/" target="_blank">口袋比特</a>
-                    <a href="https://www.huobi.pro/" target="_blank">火币</a>
+                    <a href="https://www.vvbtc.com/" target="_blank">vvbtc</a>
                     <a href="http://quintar.com" target="_blank">金塔</a>
                     <a href="https://www.bitask.org/" target="_blank">币问</a>
                 </div>
