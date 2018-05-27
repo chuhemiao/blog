@@ -51,8 +51,7 @@
                     <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币宝典</a>
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
-                    <a href="http://www.8btc.com/" target="_blank">巴比特</a>
-                    <a href="http://chainb.com" target="_blank">铅笔</a>
+                    <a href="http://www.qu75.com" target="_blank">75区块链</a>
                     <a href="http://www.hemabit.com" target="_blank">河马</a>
                     <a href="http://chainknow.com/" target="_blank">知链</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
