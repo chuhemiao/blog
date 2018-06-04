@@ -42,7 +42,7 @@
                     <a href="https://gate.io/signup/647923" target="_blank">GATE</a>
                     <a href="https://vip.zb.com/activity/joinbtc?tuijianid=aac973789ed3b8646ec13fb1096234f2" target="_blank">ZB</a>
                     <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
-                    <a href="https://www.bitfinex.com/" target="_blank">Bitfinex</a>
+                    <a href="http://www.allcmc.com/" target="_blank">allcmc</a>
                     <a href="https://www.binance.com/?ref=10895002/" target="_blank">Binance</a>
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
                     <a href="https://www.bitask.org/" target="_blank">币问</a>
