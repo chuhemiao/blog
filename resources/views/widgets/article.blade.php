@@ -50,7 +50,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">比特三言,三言两语来聊币</div>
                 <div class="panel-body">
-                    <a href="https://www.bituniverse.org/" class="thumbnail" target="_blank">
+                    <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
                         <img src="https://cdn.btxiaobai.com/2018/07/03/WechatIMG3678.png" alt="比特三言,三言两语来聊币" width="330px" height="100%">
                     </a>
                 </div>
@@ -81,7 +81,12 @@
                                 <p>
                                     <?php
 
-                                    echo $v['content'] ;
+                                    $arr=explode("】",$v['content']);
+                                    $data['title']=$arr[0].' 】<br/>';
+                                    $data['content']=$arr[1];
+                                    $data['title']=substr_replace($data['title'], '比特币小白', 3, 6);
+
+                                    echo $data['title'].$data['content'] ;
 
                                     ?> </p>
                             </div>
