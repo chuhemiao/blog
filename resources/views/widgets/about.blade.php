@@ -63,6 +63,21 @@
                 </div>
               </div>
 
+              <div class="panel panel-info">
+                <div class="panel-heading" role="tab" id="headingFive">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      友链置换
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="panel-body">
+                    <p>本站目前置换大于等于本站流量的网站或者内容优质更新频繁的新站，请您合作之前发送百度统计/谷歌统计数据到邮件（chuhemiao@gmail.com）</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
         </div>
     </div>

@@ -34,7 +34,9 @@ class ArticleController extends Controller
         // 轮播
         $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 
-        return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list'));
+        $ret_hour = $this->hour(22);
+
+        return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list','ret_hour'));
     }
 
     /**
@@ -50,5 +52,18 @@ class ArticleController extends Controller
 //        $article->content = collect(json_decode($article->content))->get('html');
         // var_dump($article);die;
         return view('article.show', compact('article'));
+    }
+
+    public function hour($list){
+        $url = 'https://api.jinse.com/live/list?limit='.$list;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $curlRes = curl_exec($ch);
+        curl_close($ch);
+        $json=json_decode($curlRes, true);
+        return $json;
     }
 }
