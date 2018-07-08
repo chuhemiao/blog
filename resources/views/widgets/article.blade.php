@@ -88,7 +88,7 @@
                                     $data['content']=@$arr[1];
                                     $data['title']=substr_replace($data['title'], '比特币小白', 3, 6);
                                     echo $data['title'].$data['content'];
-//                                    var_dump($data);die;
+                                    //var_dump($data);die;
 
                                     ?> </p>
                             </div>
