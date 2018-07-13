@@ -45,7 +45,7 @@
                     <a href="http://www.allcmc.com/" target="_blank">allcmc</a>
                     <a href="https://www.binance.com/?ref=10895002/" target="_blank">Binance</a>
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
-                    <a href="https://www.bitask.org/" target="_blank">币问</a>
+                    <a href="https://www.bituniverse.org/" target="_blank">币优</a>
                 </div>
                 <div class="sponsors">
                     <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
