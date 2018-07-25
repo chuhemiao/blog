@@ -113,7 +113,7 @@ class ArticleRepository
 
         $article = $this->model->where('slug', $slug)->firstOrFail();
 
-        $article->increment('view_count');
+        $article->increment('view_count',rand(5,30));
 
         $this->visitor->log($article->id);
 

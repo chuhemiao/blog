@@ -124,7 +124,7 @@
 
         .timeline-centered .timeline-entry .timeline-entry-inner {
             position: relative;
-            margin-left: -20px;
+            margin-left: -6px;
         }
 
         .timeline-centered .timeline-entry .timeline-entry-inner:before, .timeline-centered .timeline-entry .timeline-entry-inner:after {
@@ -172,8 +172,8 @@
             background: #fff;
             color: #737881;
             display: block;
-            width: 40px;
-            height: 40px;
+            width: 15px;
+            height: 15px;
             -webkit-background-clip: padding-box;
             -moz-background-clip: padding;
             background-clip: padding-box;
@@ -223,7 +223,7 @@
             position: relative;
             background: #f5f5f6;
             padding: 1em;
-            margin-left: 60px;
+            margin-left: 25px;
             -webkit-background-clip: padding-box;
             -moz-background-clip: padding;
             background-clip: padding-box;
