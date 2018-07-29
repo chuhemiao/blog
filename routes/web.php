@@ -103,6 +103,21 @@ Route::get('sitemap.xml', function()
     foreach ($posts as $post)
     {
         $post->slug = 'https://www.btxiaobai.com/'.$post->slug.'.html';
+
+        $sitemap_posts->add($post->slug, $post->updated_at,'1','weekly');
+    }
+    // show sitemap
+    return $sitemap_posts->render('xml');
+});
+
+Route::get('addbaidu', function () {
+
+
+    /* creating rss feed with our most recent 20 posts */
+    $posts = \DB::table('articles')->orderBy('created_at', 'desc')->take(10)->get();
+
+    foreach ($posts as $post)
+    {
         $urls = array($post->slug);
         $api = 'http://data.zz.baidu.com/urls?appid=1571073467972034&token=G54l9hsFiFIO4f6I&type=realtime';
         $ch = curl_init();
@@ -114,12 +129,13 @@ Route::get('sitemap.xml', function()
             CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
         );
         curl_setopt_array($ch, $options);
-        curl_exec($ch);
-        $sitemap_posts->add($post->slug, $post->updated_at,'1','weekly');
+        $result= curl_exec($ch);
     }
-    // show sitemap
-    return $sitemap_posts->render('xml');
+
+    return $result;
+
 });
+
 // xem
 Route::get('xem', 'XemController@index');
 // ico
