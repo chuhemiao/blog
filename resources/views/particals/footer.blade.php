@@ -39,7 +39,7 @@
                 </div>
                 <div class="sponsors">
                     <a href="http://www.xicaijing.com/" target="_blank">烯财经</a>
-                    <a href="https://gate.io/signup/647923" target="_blank">GATE</a>
+                    <a href="https://www.bitool.cn/" target="_blank">币兔网</a>
                     <a href="https://vip.zb.com/activity/joinbtc?tuijianid=aac973789ed3b8646ec13fb1096234f2" target="_blank">ZB</a>
                     <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
                     <a href="http://www.allcmc.com/" target="_blank">allcmc</a>

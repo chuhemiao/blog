@@ -103,6 +103,18 @@ Route::get('sitemap.xml', function()
     foreach ($posts as $post)
     {
         $post->slug = 'https://www.btxiaobai.com/'.$post->slug.'.html';
+        $urls = array($post->slug);
+        $api = 'http://data.zz.baidu.com/urls?appid=1571073467972034&token=G54l9hsFiFIO4f6I&type=realtime';
+        $ch = curl_init();
+        $options =  array(
+            CURLOPT_URL => $api,
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => implode("\n", $urls),
+            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+        );
+        curl_setopt_array($ch, $options);
+        curl_exec($ch);
         $sitemap_posts->add($post->slug, $post->updated_at,'1','weekly');
     }
     // show sitemap
@@ -128,7 +140,7 @@ Route::get('rss.xml', function () {
    $feed = App::make("feed");
 
    /* creating rss feed with our most recent 20 posts */
-   $posts = \DB::table('articles')->orderBy('created_at', 'desc')->take(20)->get();
+   $posts = \DB::table('articles')->orderBy('created_at', 'desc')->take(10)->get();
 
    /* set your feed's title, description, link, pubdate and language */
    $feed->title = "比特币小白";
@@ -143,6 +155,7 @@ Route::get('rss.xml', function () {
 
    foreach ($posts as $post)
    {
+
        $feed->add($post->title, 'chuhemiao', URL::to($post->slug), $post->created_at, $post->meta_description, $post->meta_description);
    }
 
