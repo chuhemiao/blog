@@ -48,13 +48,18 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-info">
-                <div class="panel-heading">比特三言,三言两语来聊币</div>
+                <div class="panel-heading">合作伙伴</div>
                 <div class="panel-body">
                     <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
                         <img src="https://cdn.btxiaobai.com/2018/07/03/WechatIMG3678.png" alt="比特三言,三言两语来聊币" width="330px" height="100%">
                     </a>
+
+                    <a href="https://bsatoshi.com/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.bsatoshi.com/images/bsatoshi_dac.png" alt="币聪财经-全球首款DAC媒体平台" width="330px" height="100%">
+                    </a>
                 </div>
             </div>
+
 
             <div class="panel panel-info">
                 <div class="panel-heading"><?php echo date('m-d',time()); ?>&nbsp;|&nbsp; 25小时快讯</div>

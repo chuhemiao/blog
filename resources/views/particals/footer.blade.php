@@ -29,6 +29,16 @@
                     @endif
                 </ul>
                 <div class="sponsors">
+                    <a href="http://www.ecbec.com.cn/" target="_blank">币聪财经</a>
+                    <a href="http://www.btsanyan.com/" target="_blank">比特三言</a>
+                    <a href="https://www.bsatoshi.love/" target="_blank">笺信DAPP</a>
+                    <a href="http://www.dailybtc.cn/" target="_blank">比特币日报</a>
+                    <a href="https://www.investinblockchain.com/" target="_blank">Invest</a>
+
+
+
+                </div>
+                <div class="sponsors">
                     <a href="http://www.ecbec.com.cn/" target="_blank">区块链开发</a>
                     <a href="http://www.bcfans.com/" target="_blank">区块链导航</a>
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
