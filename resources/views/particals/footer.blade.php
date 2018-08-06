@@ -29,7 +29,7 @@
                     @endif
                 </ul>
                 <div class="sponsors">
-                    <a href="http://www.ecbec.com.cn/" target="_blank">币聪财经</a>
+                    <a href="https://bsatoshi.com/" target="_blank">币聪财经</a>
                     <a href="http://www.btsanyan.com/" target="_blank">比特三言</a>
                     <a href="https://www.bsatoshi.love/" target="_blank">笺信DAPP</a>
                     <a href="http://www.dailybtc.cn/" target="_blank">比特币日报</a>
