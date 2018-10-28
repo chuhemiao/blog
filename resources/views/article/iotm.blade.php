@@ -3,9 +3,9 @@
 @section('content')
 
     @component('particals.jumbotron')
-        <h3>{{ config('blog.article.title') }}</h3>
+        <h3>比特币小白25H快讯</h3>
 
-        <h6>{{ config('blog.article.description') }}</h6>
+        {{--<h6>{{ config('blog.article.description') }}</h6>--}}
     @endcomponent
     
     @include('widgets.iotm')

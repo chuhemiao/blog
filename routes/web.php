@@ -136,8 +136,9 @@ Route::get('addbaidu', function () {
 
 });
 
-// xem
+// shell news
 Route::get('xem', 'XemController@index');
+Route::get('xem/shell', 'XemController@shell');
 // ico
 Route::get('ico', 'IcoController@index');
 // medium

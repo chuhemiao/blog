@@ -111,7 +111,7 @@ return [
     'Vols'                 => '成交量（24h）',
     'Buys'                 => '买一',
     'Sells'                => '卖一',
-    'Xems'                 => '新经币',
+    'Xems'                 => '25H快讯',
     'IOTA'                 => 'IOTA',
     'ICO'                  => '每日热点',
     'Every Week Day'       => '每周币看',

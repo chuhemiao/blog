@@ -43,7 +43,6 @@
                     <a href="http://www.bcfans.com/" target="_blank">区块链导航</a>
                     <a href="http://news.tangwen.org" target="_blank">汤问资讯</a>
                     <a href="http://www.178bit.com/" target="_blank">口袋比特</a>
-                    <a href="https://www.vvbtc.com/" target="_blank">vvbtc</a>
                     <a href="http://quintar.com" target="_blank">金塔</a>
 
                 </div>
@@ -51,18 +50,15 @@
                     <a href="http://www.xicaijing.com/" target="_blank">烯财经</a>
                     <a href="https://www.bitool.cn/" target="_blank">币兔网</a>
                     <a href="https://vip.zb.com/activity/joinbtc?tuijianid=aac973789ed3b8646ec13fb1096234f2" target="_blank">ZB</a>
-                    <a href="http://www.bit2100.com/" target="_blank">Bit2100</a> 
                     <a href="http://www.allcmc.com/" target="_blank">allcmc</a>
                     <a href="https://www.binance.com/?ref=10895002/" target="_blank">Binance</a>
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
-                    <a href="https://www.bituniverse.org/" target="_blank">币优</a>
                 </div>
                 <div class="sponsors">
                     <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币宝典</a>
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="http://www.qu75.com" target="_blank">75区块链</a>
-                    <a href="http://www.hemabit.com" target="_blank">河马</a>
                     <a href="http://chainknow.com/" target="_blank">知链</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
                 </div>
