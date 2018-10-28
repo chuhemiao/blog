@@ -52,7 +52,7 @@ class XemController extends Controller
         $array=array();
         foreach (array_reverse($rs['result']) as $key => $value) {
 
-//            if(strtotime($value['createTime']) > strtotime($d->created_at)){
+            if(strtotime($value['createTime']) > strtotime($d->created_at)){
                 $array['title']= $value['title'];
                 $slug = $this->generateRandomString();
                 $array['slug']= $slug;
@@ -73,7 +73,7 @@ class XemController extends Controller
 
                 $return=DB::table('articles')->insertGetId($array);
 
-//            }
+            }
         }
     }
     //生成随机字符串
