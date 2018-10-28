@@ -52,7 +52,7 @@ class XemController extends Controller
         $array=array();
         foreach (array_reverse($rs['result']) as $key => $value) {
 
-            if(strtotime($value['createTime']) > strtotime($d->created_at)){
+//            if(strtotime($value['createTime']) > strtotime($d->created_at)){
                 $array['title']= $value['title'];
                 $slug = $this->generateRandomString();
                 $array['slug']= $slug;
@@ -72,11 +72,8 @@ class XemController extends Controller
                 $array['created_at']=  date("Y-m-d H:i:s",time()) ;
 
                 $return=DB::table('articles')->insertGetId($array);
-                if($return){
-                    $url = 'https://www.btxiaobai.com/'.$slug.'html';
-                    $this->addBaidu($url);
-                }
-            }
+
+//            }
         }
     }
     //生成随机字符串
