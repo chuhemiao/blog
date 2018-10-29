@@ -6,7 +6,7 @@
 
                   <div class="panel-heading">头条看点</div>
                   <div class="panel-body">
-                   @forelse($articles as $article)
+                   @forelse($everyday_articles as $article)
                     <div class="media">
                         @if($article->page_image)
                         <a class="media-left" href="{{ url($article->slug) }}.html">

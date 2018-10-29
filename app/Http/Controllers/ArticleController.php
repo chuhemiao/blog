@@ -28,13 +28,15 @@ class ArticleController extends Controller
         //最热
         $hot_articles = $this->article->getHotArticle();
         //每日热点
-        $everyday_articles = $this->article->getHotBasicArticle(5,0,5);
+        $everyday_articles = $this->article->getHotBasicArticle(1,0,20);
         // 评测
         $bitcoin_pingce = $this->article->getHotBasicArticle(4,0,5);
         // 轮播
         $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 
         $ret_hour = $this->hour(22);
+
+//        dd($everyday_articles);
 
         return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list','ret_hour'));
     }
