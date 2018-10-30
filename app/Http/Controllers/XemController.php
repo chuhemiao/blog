@@ -80,6 +80,11 @@ class XemController extends Controller
                 $array['created_at']=  date("Y-m-d H:i:s",time()) ;
 
                 $return=DB::table('articles')->insertGetId($array);
+                $baidu_arr = [
+                  'https://www.btxiaobai.com/'.$slug.'.html',
+                ];
+
+                $this->addBaidu($baidu_arr);
 
             }
         }
@@ -136,7 +141,7 @@ class XemController extends Controller
 
     public function addBaidu($urls)
     {
-        $api = 'http://data.zz.baidu.com/urls?appid=1571073467972034&token=G54l9hsFiFIO4f6I&type=realtime';
+        $api = 'http://data.zz.baidu.com/urls?site=https://www.btxiaobai.com&token=veiJlvUY2TjvVdHc';
         $ch = curl_init();
         $options =  array(
             CURLOPT_URL => $api,
