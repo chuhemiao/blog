@@ -35,10 +35,10 @@ class HomeController extends Controller
     {
         $key = trim($request->get('q'));
 
-        $articles = $this->article->search($key);
+        $everyday_articles = $this->article->search($key);
         $ret_hour = $this->hour(22);
 
-        return view('search', compact('articles','ret_hour'));
+        return view('search', compact('everyday_articles','ret_hour'));
     }
 
     public function hour($list){
