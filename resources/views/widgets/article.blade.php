@@ -9,13 +9,13 @@
                    @forelse($everyday_articles as $article)
                     <div class="media">
                         @if($article->page_image)
-                        <a class="media-left" href="{{ url($article->slug) }}.html">
+                        <a class="media-left" href="{{ url($article->slug) }}" target="_blank">
                             <img alt="{{ $article->slug }}" src="{{ $article->page_image }}" data-holder-rendered="true">
                         </a>
                         @endif
                         <div class="media-body">
                             <h6 class="media-heading">
-                                <a href="{{ url($article->slug) }}.html">
+                                <a href="{{ url($article->slug) }}"  target="_blank">
                                     {{ $article->title }}
                                 </a>
                             </h6>
@@ -24,7 +24,7 @@
                             {{--</div>--}}
                             <div class="extra">
                                 @foreach($article->tags as $tag)
-                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}">
+                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}"  target="_blank">
                                     <div class="label"><i class="ion-pricetag"></i>{{ $tag->tag }}</div>
                                 </a>
                                 @endforeach
@@ -33,7 +33,7 @@
                                     <i class="ion-person"></i>{{ $article->user->name or 'null' }}&nbsp;,&nbsp;
                                     <i class="ion-clock"></i>{{ $article->published_at->diffForHumans() }}&nbsp;,&nbsp;
                                     <i class="ion-social-bitcoin-outline"></i>{{ $article->view_count+1042 }}
-                                    <a href="{{ url($article->slug) }}.html" class="pull-right">
+                                    <a href="{{ url($article->slug) }}" class="pull-right">
                                         Read More <i class="ion-ios-arrow-forward"></i>
                                     </a>
                                 </div>
@@ -66,8 +66,7 @@
                 <div class="timeline-centered">
 
                     <?php
-                        foreach ($ret_hour['list'][0]['lives'] as $k=>$v){
-
+                        foreach ($articles as $k=>$v){
                     ?>
 
                     <article class="timeline-entry">
@@ -83,19 +82,13 @@
 
                             <div class="timeline-label">
 
+                                <a href="{{ url($article->slug) }}"  target="_blank">
                                 <p>
-                                    <?php
-
-                                    $data = [];
-
-                                    $arr=explode("】",$v['content']);
-                                    $data['title']=$arr[0].' 】<br/>';
-                                    $data['content']=@$arr[1];
-                                    $data['title']=substr_replace($data['title'], '比特币小白', 3, 6);
-                                    echo $data['title'].$data['content'];
-                                    //var_dump($data);die;
-
-                                    ?> </p>
+                               <?php
+                                    echo '【'.$v->title.'】'.'<br/>'.$v->meta_description;
+                                ?>
+                                </p>
+                                </a>
                             </div>
                         </div>
 

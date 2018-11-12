@@ -36,7 +36,7 @@ class ArticleController extends Controller
 
         $ret_hour = $this->hour(22);
 
-//        dd($everyday_articles);
+//        dd($articles);
 
         return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list','ret_hour'));
     }
