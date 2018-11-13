@@ -33,8 +33,7 @@ class ArticleController extends Controller
         // 轮播
         $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 
-
-        //dd($everyday_articles);
+        dd($articles);
 
         return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list'));
     }
