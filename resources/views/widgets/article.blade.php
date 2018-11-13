@@ -19,9 +19,9 @@
                                     {{ $article->title }}
                                 </a>
                             </h6>
-                            {{--<div class="description">--}}
-                                {{--{{ $article->meta_description }}--}}
-                            {{--</div>--}}
+                            <div class="description">
+                                {{ $article->meta_description }}
+                            </div>
                             <div class="extra">
                                 @foreach($article->tags as $tag)
                                 <a href="{{ url('tag', ['tag' => $tag->tag]) }}"  target="_blank">
@@ -82,7 +82,7 @@
 
                             <div class="timeline-label">
 
-                                <a href="{{ url($article->slug) }}"  target="_blank">
+                                <a href="{{ url($v->slug) }}"  target="_blank">
                                 <p>
                                <?php
                                     echo '【'.$v->title.'】'.'<br/>'.$v->meta_description;
