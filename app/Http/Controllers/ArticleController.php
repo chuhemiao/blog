@@ -22,22 +22,19 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //$articles = $this->article->page(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'));
+        $everyday_articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),1);
         $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),13);
         //最新
         $new_articles = $this->article->getNewArticle();
         //最热
         $hot_articles = $this->article->getHotArticle();
-        //每日热点
-        $everyday_articles = $this->article->getHotBasicArticle(1,0,20);
         // 评测
         $bitcoin_pingce = $this->article->getHotBasicArticle(13,0,5);
         // 轮播
         $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 
-        //$ret_hour = $this->hour(22);
 
-        //dd($articles);
+        //dd($everyday_articles);
 
         return view('article.index', compact('articles','hot_articles','new_articles','everyday_articles','bitcoin_pingce','carousel_list'));
     }
