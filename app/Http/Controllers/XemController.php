@@ -25,6 +25,8 @@ class XemController extends Controller
     public function index()
     {
         $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),13);
+        dd($articles);
+
         return view('article.iotm', compact('articles'));
     }
 
