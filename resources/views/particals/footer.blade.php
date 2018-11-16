@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="height:250px">
     <div class="container text-center">
         <div class="row content">
             <div class="col-md-4 col-md-offset-4">
@@ -62,10 +62,16 @@
                     <a href="http://chainknow.com/" target="_blank">知链</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
                 </div>
+                <div class="sponsors">
+                    {{--<div class="title">CDN 支持</div>--}}
+                    <a href="https://www.upyun.com/"><img width="150" src="https://cdn.bsatoshi.com/img/upyun_logo5.png">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="copy-right text-center">
-        <span>{!! config('blog.footer.meta') !!}</a>
+        <span>{!! config('blog.footer.meta') !!}</span>
     </div>
 </footer>
