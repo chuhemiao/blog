@@ -55,10 +55,10 @@
                     <a href="https://www.epay.com/?ref=748479" target="_blank">易派支付</a>
                 </div>
                 <div class="sponsors">
-                    <a href="http://www.btweek.com/" target="_blank">区块链周刊</a>
+                    <a href="https://www.qkl123.com/" target="_blank">QKL123</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币宝典</a>
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
-                    <a href="http://www.qu75.com" target="_blank">75区块链</a>
+                    {{--<a href="http://www.qu75.com" target="_blank">75区块链</a>--}}
                     <a href="http://chainknow.com/" target="_blank">知链</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
                 </div>

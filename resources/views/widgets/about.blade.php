@@ -13,7 +13,7 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
-                    比特币小白，专注对数字币新闻与区块链技术传播，让更多的人了解到区块链、认识数字币，关注我们，让你不在是区块链的小白。
+                    比特币小白，币聪旗下产品，专注对数字币新闻与区块链技术传播，让更多的人了解到区块链、认识数字币，关注我们，让你不在是区块链的小白。
                   </div>
                 </div>
               </div>
