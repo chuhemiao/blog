@@ -74,6 +74,16 @@ class ArticleRepository
         return $this->model->orderBy('created_at','desc')->where('category_id','=',$category_id)->offset($offset)->limit($limit)->get();
     }
 
+    //app内容
+
+    public function getAppArticle($perPage = 10, $page,$sort = 'desc', $sortColumn = 'created_at',$category_id)
+    {
+        $this->model = $this->checkAuthScope();
+
+        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort) ->paginate($perPage, ['*'], 'page', $page);;
+    }
+
+
 
     /**
      * Get the article record without draft scope.

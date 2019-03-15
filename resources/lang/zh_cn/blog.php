@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'Articles'    => '币咨询',
-    'Article'    => '币咨询',
+    'Articles'    => '精选',
+    'Article'    => '精选',
     'Discussions' => '币安利',
     'Discussion' => '币安利',
     'Follow'      => '关注',
@@ -114,10 +114,10 @@ return [
     'Xems'                 => '25H快讯',
     'IOTA'                 => 'IOTA',
     'ICO'                  => '每日热点',
-    'Every Week Day'       => '每周币看',
-    'Bite Point'           => '币看点',
-    'Bite Tech'            => '币技术',
-    'Bite Basic'           => '币基础',
+    'Every Week Day'       => '早晚报',
+    'Bite Point'           => '深度',
+    'Bite Tech'            => '行情',
+    'Bite Basic'           => '小白百科',
     'Wallet'               => '钱包推荐',
     'Wallet Ore'           => '钱包&挖矿',
     'Ore'                  => '挖矿',

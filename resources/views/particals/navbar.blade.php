@@ -21,12 +21,13 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">{{ lang('Articles') }}</a></li>
                 <li><a href="{{ url('/xem/') }}" target="_blank">{{ lang('Xems') }}</a></li>
+                <li><a href="{{ url('/iota/ore') }}">{{ lang('Bite Tech') }}</a></li>
                 <li><a href="{{ url('/iota/everyweek') }}">{{ lang('Every Week Day') }}</a></li>
+                <li><a href="{{ url('/iota/bitetech') }}">{{ lang('Bite Point') }}</a></li>
                 <li><a href="{{ url('/iota/bitebasic') }}">{{ lang('Bite Basic') }}</a></li>
                 <li><a href="{{ url('link') }}" target="_blank">{{ lang('Coinmarkets') }}</a></li>
                 <li><a href="{{ url('/coinmarket/coinmarketcap') }}" target="_blank">{{ lang('Market Price') }}</a></li>
-                <li><a href="https://ethbug.com/" target="_blank">Ethbug</a></li>
-                <li><a href="http://www.bsatoshi.love/" target="_blank">笺信</a></li>
+                <li><a href="{{ url('/iota/wallet') }}" target="_blank">Dapp</a></li>
 
                 
             </ul>

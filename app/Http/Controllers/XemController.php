@@ -89,6 +89,32 @@ class XemController extends Controller
             }
         }
     }
+    //彩票
+
+    public function cdapp()
+    {
+
+        $pageSize = $_GET['pageSize'] ? $_GET['pageSize'] : 0;
+
+        $columnId = $_GET['columnId'] ? $_GET['columnId'] :  13 ;
+
+        $articles = $this->article->getAppArticle(6, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),$columnId);
+
+
+        $ret_data =   json_decode(json_encode($articles),true);
+
+        foreach ($ret_data['data'] as $key => $value){
+            $ret_data['data'][$key]['cover']  = $value['page_image'];
+            $ret_data['data'][$key]['comments_count']  = $value['view_count'];
+            $ret_data['data'][$key]['post_id']  = $value['id'];
+            $ret_data['data'][$key]['author_name']  = 'chuhemiao';
+            $ret_data['data'][$key]['article_type']  = $value['category_id'];
+        }
+
+        return $ret_data['data'];
+
+    }
+
 
 
     //文章接口
@@ -171,6 +197,40 @@ class XemController extends Controller
         );
         curl_setopt_array($ch, $options);
         $result= curl_exec($ch);
+        return $result;
+    }
+
+    /*
+    * CURL请求数据
+    * @param sting $url 请求的url地址
+    * @param string $mode get|post 请求
+    * @param string $params 必须是字符串 json|xml|http_build_query过的
+    * @param int $timeout 请求超时时间 默认10秒
+   */
+
+    private static function sendByCurl($url, $mode, $params = '', $timeout = 100){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); //设置超时时间
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); //返回原生输出
+
+        if ($mode == 'post') {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+            curl_setopt($ch, CURLOPT_POST, true); //发送一个常规的POST请求
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $params); //全部数据使用HTTP协议中的"POST"操作来发送
+        }else{
+            $url .= (strpos($url, '?') === false ? '?' : '&') . http_build_query($params); //如果是get,则会对url进行添加param参数
+        }
+        curl_setopt($ch, CURLOPT_URL, $url); // 需要获取的URL地址
+        $result = curl_exec($ch);
+
+        $errno = curl_errno($ch);
+        if ($errno) {
+            return array(
+                'errno' => $errno,
+                'error' => curl_error($ch),
+            );
+        }
+        curl_close($ch);
         return $result;
     }
 

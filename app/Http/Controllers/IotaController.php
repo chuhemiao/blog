@@ -76,7 +76,7 @@ class IotaController extends Controller
      */
     public function ore()
     {
-        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),9);
+        $articles = $this->article->getCateLog(config('blog.article.number'), config('blog.article.sort'), config('blog.article.sortColumn'),14);
         return view('article.iotm', compact('articles'));
     }
 

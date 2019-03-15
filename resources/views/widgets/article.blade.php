@@ -48,12 +48,24 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-info">
-                <div class="panel-heading">合作伙伴</div>
+                <div class="panel-heading">扫码下载</div>
                 <div class="panel-body">
                     <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
-                        <img src="https://cdn.btxiaobai.com/2018/07/03/WechatIMG3678.png" alt="比特三言,三言两语来聊币" width="330px" height="100%">
+                        <img src="https://cdn.bsatoshi.com/2019/03/15/15526371601260.jpg" alt="扫码进入币聪笺信小程序" width="330px" height="100%">
                     </a>
 
+                    <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.bsatoshi.com/2019/03/15/15526371601260.jpg" alt="扫码进入币聪笺信小程序" width="330px" height="100%">
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">合作伙伴</div>
+                <div class="panel-body">
+                    <a href="https://ethbug.com/" class="thumbnail" target="_blank">
+                        <img src="https://cdn.bsatoshi.com/2019/03/15/ethbug.png" alt="以太坊BUG，ethbug" width="330px" height="100%">
+                    </a>
                     <a href="https://bsatoshi.com/" class="thumbnail" target="_blank">
                         <img src="https://cdn.bsatoshi.com/images/bsatoshi_dac.png" alt="币聪财经-全球首款DAC媒体平台" width="330px" height="100%">
                     </a>
