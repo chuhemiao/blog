@@ -120,10 +120,14 @@ class XemController extends Controller
     {
         header('Access-Control-Allow-Origin:*');
         $slug = $_GET['postId'] ? $_GET['postId'] : 0;
-        $article = $this->article->getBySlug($slug);
-        $ret_data =   json_decode(json_encode($article),true);
-        return $ret_data['content'];
+        $ret_article = DB::table('articles')
+            ->where('id',$slug)
+            ->first();
 
+        $ret_article =   json_decode(json_encode($ret_article),true);
+
+        DB::table('articles')->increment('view_count',rand(5,30));
+        return $ret_article['content'];
     }
 
 

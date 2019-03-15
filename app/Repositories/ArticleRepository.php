@@ -130,6 +130,7 @@ class ArticleRepository
         return $article;
     }
 
+
     /**
      * Check the auth and the model without global scope when user is the admin.
      * 
