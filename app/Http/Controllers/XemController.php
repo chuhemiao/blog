@@ -93,7 +93,7 @@ class XemController extends Controller
 
     public function cdapp()
     {
-
+        header('Access-Control-Allow-Origin:*');
         $pageSize = $_GET['pageSize'] ? $_GET['pageSize'] : 0;
 
         $columnId = $_GET['columnId'] ? $_GET['columnId'] :  13 ;
@@ -118,6 +118,7 @@ class XemController extends Controller
     //app 文章详情接口
     public function cdetail()
     {
+        header('Access-Control-Allow-Origin:*');
         $slug = $_GET['postId'] ? $_GET['postId'] : 0;
         $article = $this->article->getBySlug($slug);
         $ret_data =   json_decode(json_encode($article),true);
