@@ -140,6 +140,7 @@ Route::get('addbaidu', function () {
 Route::get('xem', 'XemController@index');
 Route::get('xem/shell', 'XemController@shell');
 Route::get('xem/cdapp', 'XemController@cdapp');
+Route::get('xem/cdetail', 'XemController@cdetail');
 Route::get('xem/addArticle', 'XemController@addArticle');
 // ico
 Route::get('ico', 'IcoController@index');

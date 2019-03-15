@@ -89,7 +89,7 @@ class XemController extends Controller
             }
         }
     }
-    //彩票
+    //app接口
 
     public function cdapp()
     {
@@ -112,6 +112,16 @@ class XemController extends Controller
         }
 
         return $ret_data['data'];
+
+    }
+
+    //app 文章详情接口
+    public function cdetail()
+    {
+        $slug = $_GET['postId'] ? $_GET['postId'] : 0;
+        $article = $this->article->getBySlug($slug);
+        $ret_data =   json_decode(json_encode($article),true);
+        return $ret_data['content'];
 
     }
 
