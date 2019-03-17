@@ -130,6 +130,37 @@ class XemController extends Controller
         return $ret_article['content'];
     }
 
+    public function cdScroll()
+    {
+        header('Access-Control-Allow-Origin:*');
+        // 轮播
+        $carousel_list = $this->article->getHotBasicArticle(10,0,5);
+
+        $carousel_list =   json_decode(json_encode($carousel_list),true);
+
+        return $carousel_list;
+    }
+    //快讯
+
+    public function cdHour()
+    {
+        header('Access-Control-Allow-Origin:*');
+        $pageSize = $_GET['pageSize'] ? $_GET['pageSize'] : 0;
+
+        $articles = $this->article->getAppArticle(10, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),13);
+
+        $ret_data =   json_decode(json_encode($articles),true);
+
+        foreach ($ret_data['data'] as $key => $value){
+            $ret_data['data'][$key]['content']  = json_decode($value['content'],true);
+        }
+
+
+        return $ret_data;
+
+    }
+
+
 
 
     //文章接口
