@@ -89,6 +89,81 @@ class XemController extends Controller
             }
         }
     }
+    //抓取文章
+
+    public function cdarticle()
+    {
+        $post = array(
+            'page'=>1,
+            'ts'=>time(),
+        );
+        $url  =  'https://www.chainnews.com/api/articles';
+        $rs = $this->http_data($url,$post,'get');
+        $rs = json_decode($rs,true);
+        $d=DB::table('articles')->orderBy("id",'desc')->first();
+        $array=array();
+        $arr_num = [15,14,13,6,7,1];
+        foreach (array_reverse($rs['results']) as $key => $value) {
+            if(strtotime($value['created_at']) > strtotime($d->created_at)){
+                $array['title']= $value['title'];
+                $slug = $this->generateRandomString();
+                $array['slug']= $slug;
+                $array['subtitle']= $value['digest'];
+                $array['category_id']= $arr_num[rand(0,5)];//13
+                $array['view_count']= rand(123,1000);
+                $array['user_id']= 1;
+                $array['page_image']= $value['cover_url'];
+                $array['last_user_id']= 1;
+                $data = [
+                    'raw'  => $value['content'].'<br/>来源：链闻',
+                    'html' => (new Markdowner)->convertMarkdownToHtml($value['content'].'<br/>来源：链闻')
+                ];
+                $array['content']= json_encode( $data);
+                $array['meta_description']= $value['digest'];
+                $array['published_at']=  date("Y-m-d H:i:s",strtotime($value['created_at']));
+                $array['created_at']=  date("Y-m-d H:i:s",time()) ;
+
+                DB::table('articles')->insertGetId($array);
+            }
+        }
+
+
+    }
+
+    public function http_data($url,Array $data,$method='get')
+    {
+        $time_out = 30;//超时时间
+
+        $data_query = http_build_query($data);
+        if('post' == strtolower($method))
+        {
+            $opts = array(
+                'http'=>array(
+                    'method'=>"POST",
+                    'timeout'=>$time_out,
+                    'header'=>"Content-type: application/x-www-form-urlencoded\r\n".
+                        "Content-length:".strlen($data_query)."\r\n",
+                    'content' => $data_query,
+                )
+            );
+            $format_url = $url;
+        }
+        else
+        {
+            $opts = array(
+                'http'=>array(
+                    'method'=>"GET",
+                    'timeout'=>$time_out,
+                )
+            );
+            $format_url = $url . (strpos($url,'?')===false ? ('?'.$data_query) : ('&' . $data_query));
+        }
+        $cxContext = stream_context_create($opts);
+        $response = file_get_contents($format_url, false, $cxContext);
+        return $response;
+    }
+
+
     //app接口
 
     public function cdapp()
@@ -268,6 +343,7 @@ class XemController extends Controller
         }
         curl_setopt($ch, CURLOPT_URL, $url); // 需要获取的URL地址
         $result = curl_exec($ch);
+
 
         $errno = curl_errno($ch);
         if ($errno) {

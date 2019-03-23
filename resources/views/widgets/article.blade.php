@@ -50,12 +50,12 @@
             <div class="panel panel-info">
                 <div class="panel-heading">扫码下载</div>
                 <div class="panel-body">
-                    <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
+                    <a href="https://cdn.bsatoshi.com/bsatoshi/app/bsatoshi_news_104.apk" class="thumbnail" target="_blank">
                         <img src="https://cdn.bsatoshi.com/2019/03/15/15526371601260.jpg" alt="扫码进入币聪笺信小程序" width="330px" height="100%">
                     </a>
 
-                    <a href="http://www.btsanyan.com/" class="thumbnail" target="_blank">
-                        <img src="https://cdn.bsatoshi.com/2019/03/15/15526371601260.jpg" alt="扫码进入币聪笺信小程序" width="330px" height="100%">
+                    <a href="https://cdn.bsatoshi.com/bsatoshi/app/bsatoshi_news_104.apk" class="thumbnail" target="_blank">
+                        <img src="https://cdn.bsatoshi.com/2019/03/23/download_and_104.png" alt="扫码下载比特币小白安卓版" width="330px" height="100%">
                     </a>
                 </div>
             </div>

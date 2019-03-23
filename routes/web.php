@@ -143,6 +143,7 @@ Route::get('xem/cdapp', 'XemController@cdapp');
 Route::get('xem/cdetail', 'XemController@cdetail');
 Route::get('xem/cdScroll', 'XemController@cdScroll');
 Route::get('xem/cdHour', 'XemController@cdHour');
+Route::get('xem/cdarticle', 'XemController@cdarticle');
 Route::get('xem/addArticle', 'XemController@addArticle');
 // ico
 Route::get('ico', 'IcoController@index');

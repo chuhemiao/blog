@@ -53,7 +53,7 @@ return [
     'footer' => [
         'github' => [
             'open' => true,
-            'url'  => 'https://github.com/chuhemiao',
+            'url'  => 'https://www.toutiao.com/c/user/50450823653/#mid=50448672317',
         ],
         'twitter' => [
             'open' => true,
@@ -61,11 +61,11 @@ return [
         ],
         'weibo' => [
             'open' => true,
-            'url'  => 'http://www.weibo.com/chuhemiao'
+            'url'  => 'http://www.weibo.com/bsatoshi'
         ],
         'telegram' => [
             'open' => true,
-            'url'  => 'https://t.me/joinchat/FlB-8A7mrjWqjV3s00bprA'
+            'url'  => 'https://www.facebook.com/btxiaobai/?ref=bookmarks'
         ],
         'meta' => '©比特币小白 2017.署名-非商业性使用-相同方式共享（BY-NC-SA 3.0 CN）京ICP备15026980号-5 <a rel="sitemap" href="/sitemap.xml">币站地图</a>&nbsp;&nbsp;<a rel="RSS" href="/rss.xml"><i class="ion-social-rss"></i></a> <br/>郑重声明：本站除标明"本站原创"外所有信息均搜集转载自互联网 版权归原作者所有 &nbsp;&nbsp;<a rel="about" href="/link/about">关于我们</a>',
     ],
