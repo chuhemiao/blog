@@ -130,6 +130,28 @@ class XemController extends Controller
 
     }
 
+    //排列组合
+
+    public function cNum()
+    {
+        for($a=1; $a<11; $a++){
+            for( $b=1 ; $b<11; $b++){
+                    if($b==$a) continue;
+                    for($c=1; $c<11; $c++){
+                        if($c==$b || $c==$a) continue;
+                        for($d=1; $d<11; $d++){
+                            if($d==$c || $d==$a || $d==$b) continue;
+                            for($e=1; $e<11; $e++){
+                                if($e==$d || $e==$a || $e==$b || $e==$c) continue;
+                                        $Stringstr = $a.'+'.$b.'+'.$c.'+'.$d.'+'.$e;
+                                        echo $Stringstr.'<br/>';
+                            }
+                        }
+                    }
+                }
+        }
+    }
+
     public function http_data($url,Array $data,$method='get')
     {
         $time_out = 30;//超时时间
