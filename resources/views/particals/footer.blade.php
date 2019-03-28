@@ -58,7 +58,7 @@
                     <a href="https://www.qkl123.com/" target="_blank">QKL123</a>
                     <a href="https://coinmarketcap.com/" target="_blank">币宝典</a>
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
-                    {{--<a href="http://chainknow.com/" target="_blank">知链</a>--}}
+                    <a href="https://www.btcwinex.com/" target="_blank">Btcwinex</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
                     <a href="https://www.chainnews.com" target="_blank">链闻</a>
 

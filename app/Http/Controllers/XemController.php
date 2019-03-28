@@ -134,6 +134,7 @@ class XemController extends Controller
 
     public function cNum()
     {
+        $i=0;
         for($a=1; $a<11; $a++){
             for( $b=1 ; $b<11; $b++){
                     if($b==$a) continue;
@@ -143,13 +144,16 @@ class XemController extends Controller
                             if($d==$c || $d==$a || $d==$b) continue;
                             for($e=1; $e<11; $e++){
                                 if($e==$d || $e==$a || $e==$b || $e==$c) continue;
+                                        //$num = $a+$b+$c+$d+$e;
                                         $Stringstr = $a.'+'.$b.'+'.$c.'+'.$d.'+'.$e;
-                                        echo $Stringstr.'<br/>';
+                                        $i++;
+                                        echo $Stringstr.'<br/>'.'+';
                             }
                         }
                     }
                 }
         }
+        echo $i;
     }
 
     public function http_data($url,Array $data,$method='get')
