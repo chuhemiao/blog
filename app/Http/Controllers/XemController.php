@@ -110,7 +110,7 @@ class XemController extends Controller
                 $array['slug']= $slug;
                 $array['subtitle']= $value['digest'];
                 $array['category_id']= $arr_num[rand(0,5)];//13
-                $array['view_count']= rand(123,1000);
+                $array['view_count']= rand(123,3000);
                 $array['user_id']= 1;
                 $array['page_image']= $value['cover_url'];
                 $array['last_user_id']= 1;
@@ -122,7 +122,7 @@ class XemController extends Controller
                 $array['meta_description']= $value['digest'];
                 $array['published_at']=  date("Y-m-d H:i:s",strtotime($value['created_at']));
                 $array['created_at']=  date("Y-m-d H:i:s",time()) ;
-                dd($array);
+                //dd($array);
 
                 DB::table('articles')->insertGetId($array);
 //            }
