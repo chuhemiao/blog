@@ -307,7 +307,7 @@ class XemController extends Controller
                 $array['last_user_id']= 1;
                 $content  = $value['desc'].'<br/><br/>原文地址：'.'https://www.8btc.com/article/'.$value['id'];
                 $data = [
-                    'raw'  => $value['desc'],
+                    'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
                     'html' => (new Markdowner)->convertMarkdownToHtml($content)
                 ];
 
