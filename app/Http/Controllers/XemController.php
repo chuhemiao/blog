@@ -104,7 +104,7 @@ class XemController extends Controller
         $array=array();
         $arr_num = [15,14,13,6,7,1];
         foreach (array_reverse($rs['results']) as $key => $value) {
-            if(strtotime($value['created_at']) > strtotime($d->created_at)){
+//            if(strtotime($value['created_at']) > strtotime($d->created_at)){
                 $array['title']= $value['title'];
                 $slug = $this->generateRandomString();
                 $array['slug']= $slug;
@@ -122,9 +122,10 @@ class XemController extends Controller
                 $array['meta_description']= $value['digest'];
                 $array['published_at']=  date("Y-m-d H:i:s",strtotime($value['created_at']));
                 $array['created_at']=  date("Y-m-d H:i:s",time()) ;
+                dd($array);
 
                 DB::table('articles')->insertGetId($array);
-            }
+//            }
         }
 
 
