@@ -291,7 +291,8 @@ class XemController extends Controller
         foreach (array_reverse($res_data['list']) as $key => $value) {
 
                 $array['title']= $value['title'];
-                $array['slug']= 'https://www.8btc.com/article/'.$value['id'];
+                $slug = $this->generateRandomString();
+                $array['slug']= $slug;
                 $array['subtitle']= $value['title'];
                 $array['category_id']= '1';//巴比特文章
                 $array['view_count']= rand(123,1024);
@@ -304,18 +305,19 @@ class XemController extends Controller
                 }
                 $array['page_image']= $page_img_url;
                 $array['last_user_id']= 1;
+                $content  = $value['desc'].'<br/><br/>原文地址：'.'https://www.8btc.com/article/'.$value['id'];
                 $data = [
                     'raw'  => $value['desc'],
-                    'html' => (new Markdowner)->convertMarkdownToHtml($value['desc'])
+                    'html' => (new Markdowner)->convertMarkdownToHtml($content)
                 ];
 
                 $array['content']= json_encode( $data);
                 $array['meta_description']= $value['desc'];
                 $array['published_at']=  date("Y-m-d H:i:s",$value['post_date']);
                 $array['created_at']=  date("Y-m-d H:i:s",time()) ;
-
+//             dd($array);
                 $return=DB::table('articles')->insertGetId($array);
-               // dd($return);
+
         };
     }
 

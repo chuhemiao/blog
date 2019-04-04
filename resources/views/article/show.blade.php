@@ -27,6 +27,7 @@
 
             <parse content="{{ json_decode($article->content)->raw }}"></parse>
 
+
             @if($article->is_original)
                 <div class="publishing alert alert-dismissible alert-info">
                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -43,7 +44,25 @@
                         initialized></div>
                 </div>
                 @endif
-            </div>
+
+                {{--推荐阅读文章--}}
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="margin-bottom: 15px;">推荐阅读</div>
+                    <div class="panel-body">
+                        <?php
+                        foreach ($new_articles as $k=>$v){
+                        ?>
+                        <a href="<?php echo $v->slug; ?>" style="text-align: center;float:left"  target="_blank">
+                            <h6><?php echo $v->title; ?></h6>
+                        </a><br/><br/>
+
+                        <?php
+                        }
+                        ?>
+
+                    </div>
+
+                </div>
         </div>
     </div>
 

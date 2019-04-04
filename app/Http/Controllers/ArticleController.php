@@ -49,10 +49,12 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $article = $this->article->getBySlug($slug);
+        //最新
+        $new_articles = $this->article->getNewArticle();
 
 //        $article->content = collect(json_decode($article->content))->get('html');
         // var_dump($article);die;
-        return view('article.show', compact('article'));
+        return view('article.show', compact('article','new_articles'));
     }
 
     public function hour($list){
