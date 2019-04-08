@@ -157,38 +157,7 @@ class XemController extends Controller
         echo $i;
     }
 
-    public function http_data($url,Array $data,$method='get')
-    {
-        $time_out = 30;//超时时间
 
-        $data_query = http_build_query($data);
-        if('post' == strtolower($method))
-        {
-            $opts = array(
-                'http'=>array(
-                    'method'=>"POST",
-                    'timeout'=>$time_out,
-                    'header'=>"Content-type: application/x-www-form-urlencoded\r\n".
-                        "Content-length:".strlen($data_query)."\r\n",
-                    'content' => $data_query,
-                )
-            );
-            $format_url = $url;
-        }
-        else
-        {
-            $opts = array(
-                'http'=>array(
-                    'method'=>"GET",
-                    'timeout'=>$time_out,
-                )
-            );
-            $format_url = $url . (strpos($url,'?')===false ? ('?'.$data_query) : ('&' . $data_query));
-        }
-        $cxContext = stream_context_create($opts);
-        $response = file_get_contents($format_url, false, $cxContext);
-        return $response;
-    }
 
 
     //app接口
@@ -321,6 +290,74 @@ class XemController extends Controller
         };
     }
 
+    public function  addBsj()
+    {
+
+        $params=[
+            'limit'=>20,
+            'cursor'=>time(),
+        ];
+
+        $url  =  'https://cong-api.xcong.com/apiv1/dashboard/chosen_page';
+
+        $rs = $this->sendByCurl($url,'get',$params,'10');
+        $rs = json_decode($rs,true);
+
+        $array=array();
+        foreach (array_reverse($rs['data']['items']) as $key => $value) {
+
+            $url_detail = 'https://xcong.com/articles/'.$value['resource']['id'];
+
+            $article_content = $this->_getUrlContent($url_detail);
+            //匹配详情内容
+            $pattern = '/<div class="article-content">(.+?)<\/div>/is';
+            preg_match($pattern, $article_content, $match);
+
+            $array['title']= $value['resource']['title'];
+            $slug = $this->generateRandomString();
+            $array['slug']= $slug;
+            $array['subtitle']= $value['resource']['title'];
+            $array['category_id']= '1';//巴比特文章
+            $array['view_count']= rand(123,1024);
+            $array['user_id']= 1;
+            $num = rand(27,292);
+            if($num<150){
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpeg';
+            }else{
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpg';
+            }
+            $array['page_image']= $page_img_url;
+            $array['last_user_id']= 1;
+            $content  = $match[1].'<br/><br/>原文地址：'.'https://xcong.com/articles/'.$value['resource']['id'];
+            $data = [
+                'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
+                'html' => (new Markdowner)->convertMarkdownToHtml($content)
+            ];
+
+            $array['content']= json_encode( $data);
+            $array['meta_description']= $value['resource']['content_short'];
+            $array['published_at']=  date("Y-m-d H:i:s",$value['resource']['display_time']);
+            $array['created_at']=  date("Y-m-d H:i:s",time()) ;
+            $return=DB::table('articles')->insertGetId($array);
+        };
+    }
+
+    /**
+     * 从给定的url获取html内容
+     *
+     * @param string $url
+     * @return string
+     */
+    function _getUrlContent($url){
+        $handle = fopen($url, "r");
+        if($handle){
+            $content = stream_get_contents($handle,1024*1024);
+            return $content;
+        }else{
+            return false;
+        }
+    }
+
     //生成随机字符串
 
     public function generateRandomString($length = 10) {
@@ -348,6 +385,39 @@ class XemController extends Controller
         curl_setopt_array($ch, $options);
         $result= curl_exec($ch);
         return $result;
+    }
+
+    public function http_data($url,Array $data,$method='get')
+    {
+        $time_out = 30;//超时时间
+
+        $data_query = http_build_query($data);
+        if('post' == strtolower($method))
+        {
+            $opts = array(
+                'http'=>array(
+                    'method'=>"POST",
+                    'timeout'=>$time_out,
+                    'header'=>"Content-type: application/x-www-form-urlencoded\r\n".
+                        "Content-length:".strlen($data_query)."\r\n",
+                    'content' => $data_query,
+                )
+            );
+            $format_url = $url;
+        }
+        else
+        {
+            $opts = array(
+                'http'=>array(
+                    'method'=>"GET",
+                    'timeout'=>$time_out,
+                )
+            );
+            $format_url = $url . (strpos($url,'?')===false ? ('?'.$data_query) : ('&' . $data_query));
+        }
+        $cxContext = stream_context_create($opts);
+        $response = file_get_contents($format_url, false, $cxContext);
+        return $response;
     }
 
     /*

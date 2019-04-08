@@ -20,6 +20,7 @@
         "league/fractal": "^0.14.0",
         "league/html-to-markdown": "^4.2",
         "overtrue/wechat": "~3.1",
+        "owner888/phpspider": "^2.1",
         "predis/predis": "^1.1",
         "roumen/feed": "^2.10",
         "roumen/sitemap": "^2.6",
