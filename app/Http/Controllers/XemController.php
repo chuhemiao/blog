@@ -169,7 +169,7 @@ class XemController extends Controller
 
         $columnId = $_GET['columnId'] ? $_GET['columnId'] :  13 ;
 
-        $articles = $this->article->getAppArticle(6, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),$columnId);
+        $articles = $this->article->getAppArticle(15, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),$columnId);
 
 
         $ret_data =   json_decode(json_encode($articles),true);
@@ -179,7 +179,27 @@ class XemController extends Controller
             $ret_data['data'][$key]['comments_count']  = $value['view_count'];
             $ret_data['data'][$key]['post_id']  = $value['id'];
             $ret_data['data'][$key]['author_name']  = 'chuhemiao';
-            $ret_data['data'][$key]['article_type']  = $value['category_id'];
+            //$ret_data['data'][$key]['article_type']  = $value['category_id'];
+            switch($value['category_id']){
+                case 1:
+                    $ret_data['data'][$key]['article_type'] = '精选';
+                    break;
+                case 14:
+                    $ret_data['data'][$key]['article_type'] = '行情';
+                    break;
+                case 7:
+                    $ret_data['data'][$key]['article_type'] = '百科';
+                    break;
+                case 6:
+                    $ret_data['data'][$key]['article_type'] = '深度';
+                    break;
+                case 5:
+                    $ret_data['data'][$key]['article_type'] = '早晚报';
+                    break;
+                default:
+                    $ret_data['data'][$key]['article_type'] = '快讯';
+                    break;
+            }
         }
 
         return $ret_data['data'];
@@ -195,10 +215,41 @@ class XemController extends Controller
             ->where('id',$slug)
             ->first();
 
+        $ret_content = [];
+
         $ret_article =   json_decode(json_encode($ret_article),true);
 
         DB::table('articles')->increment('view_count',rand(5,30));
-        return $ret_article['content'];
+
+        foreach ($ret_article as $k => $v){
+            $ret_content[] = $v;
+        }
+        $ret =  json_decode($ret_content[7],true);
+        $ret['title'] = $ret_article['title'];
+        $ret['page_image'] = $ret_article['page_image'];
+
+        switch($ret_article['user_id']){
+            case 1:
+                $ret['source'] = '比特币小白';
+                break;
+            case 14:
+                $ret['source'] = '币聪';
+                break;
+            case 7:
+                $ret['source'] = 'IIB';
+                break;
+            case 6:
+                $ret['source'] = 'chuhemiao';
+                break;
+            case 5:
+                $ret['source'] = '金色';
+                break;
+            default:
+                $ret['source'] = '比特币小白';
+                break;
+        }
+        $ret['created_at'] = $ret_article['created_at'];
+        return json_encode($ret);
     }
 
     public function cdScroll()
@@ -218,7 +269,7 @@ class XemController extends Controller
         header('Access-Control-Allow-Origin:*');
         $pageSize = $_GET['pageSize'] ? $_GET['pageSize'] : 0;
 
-        $articles = $this->article->getAppArticle(10, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),13);
+        $articles = $this->article->getAppArticle(20, $pageSize,config('blog.article.sort'), config('blog.article.sortColumn'),13);
 
         $ret_data =   json_decode(json_encode($articles),true);
 
