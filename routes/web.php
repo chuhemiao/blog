@@ -146,6 +146,9 @@ Route::get('xem/cdHour', 'XemController@cdHour');
 Route::get('xem/cdarticle', 'XemController@cdarticle');
 Route::get('xem/cNum', 'XemController@cNum');
 Route::get('xem/addBsj', 'XemController@addBsj');
+Route::get('xem/cdTranslate', 'XemController@cdTranslate');
+Route::get('xem/addBtc', 'XemController@add8Btc');
+
 
 Route::get('xem/addArticle', 'XemController@addArticle');
 // ico

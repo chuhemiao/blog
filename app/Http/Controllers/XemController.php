@@ -89,7 +89,7 @@ class XemController extends Controller
             }
         }
     }
-    //抓取文章
+    //抓取链闻文章
 
     public function cdarticle()
     {
@@ -282,10 +282,103 @@ class XemController extends Controller
 
     }
 
+    public function cdTranslate($namespace = null)
+    {
+
+        // 设置请求数据
+        static $guid = '';
+        $uid = uniqid ( "", true );
+
+        $data = $namespace;
+        $data .= $_SERVER ['REQUEST_TIME'];     // 请求那一刻的时间戳
+        $data .= $_SERVER ['HTTP_USER_AGENT'];  // 获取访问者在用什么操作系统
+        $data .= $_SERVER ['SERVER_ADDR'];      // 服务器IP
+        $data .= $_SERVER ['SERVER_PORT'];      // 端口号
+        $data .= $_SERVER ['REMOTE_ADDR'];      // 远程IP
+        $data .= $_SERVER ['REMOTE_PORT'];      // 端口信息
+
+        $hash = strtoupper ( hash ( 'ripemd128', $uid . $guid . md5 ( $data ) ) );
+        $guid = '{' . substr ( $hash, 0, 8 ) . '-' . substr ( $hash, 8, 4 ) . '-' . substr ( $hash, 12, 4 ) . '-' . substr ( $hash, 16, 4 ) . '-' . substr ( $hash, 20, 12 ) . '}';
+
+        return $guid;
+
+
+    }
+
+    function getReqSign($params /* 关联数组 */, $appkey /* 字符串*/)
+    {
+        // 1. 字典升序排序
+        ksort($params);
+
+        // 2. 拼按URL键值对
+        $str = '';
+        foreach ($params as $key => $value)
+        {
+            if ($value !== '')
+            {
+                $str .= $key . '=' . urlencode($value) . '&';
+            }
+        }
+
+        // 3. 拼接app_key
+        $str .= 'app_key=' . $appkey;
+
+        // 4. MD5运算+转换大写，得到请求签名
+        $sign = strtoupper(md5($str));
+        return $sign;
+    }
+
+    function doHttpPost($url, $params)
+    {
+        $curl = curl_init();
+
+        $response = false;
+        do
+        {
+            // 1. 设置HTTP URL (API地址)
+            curl_setopt($curl, CURLOPT_URL, $url);
+
+            // 2. 设置HTTP HEADER (表单POST)
+            $head = array(
+                'Content-Type: application/x-www-form-urlencoded'
+            );
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $head);
+
+            // 3. 设置HTTP BODY (URL键值对)
+            $body = http_build_query($params);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+
+            // 4. 调用API，获取响应结果
+            curl_setopt($curl, CURLOPT_HEADER, false);
+            curl_setopt($curl, CURLOPT_NOBODY, false);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            $response = curl_exec($curl);
+            if ($response === false)
+            {
+                $response = false;
+                break;
+            }
+
+            $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+            if ($code != 200)
+            {
+                $response = false;
+                break;
+            }
+        } while (0);
+
+        curl_close($curl);
+        return $response;
+    }
 
 
 
-    //文章接口
+
+
+    //文章巴比特接口
 
     public function  addArticle()
     {
@@ -341,6 +434,8 @@ class XemController extends Controller
         };
     }
 
+    //抓取小聪文章
+
     public function  addBsj()
     {
 
@@ -350,6 +445,59 @@ class XemController extends Controller
         ];
 
         $url  =  'https://cong-api.xcong.com/apiv1/dashboard/chosen_page';
+
+        $rs = $this->sendByCurl($url,'get',$params,'10');
+        $rs = json_decode($rs,true);
+
+        $array=array();
+        foreach (array_reverse($rs['data']['items']) as $key => $value) {
+
+            $url_detail = 'https://xcong.com/articles/'.$value['resource']['id'];
+
+            $article_content = $this->_getUrlContent($url_detail);
+            //匹配详情内容
+            $pattern = '/<div class="article-content">(.+?)<\/div>/is';
+            preg_match($pattern, $article_content, $match);
+
+            $array['title']= $value['resource']['title'];
+            $slug = $this->generateRandomString();
+            $array['slug']= $slug;
+            $array['subtitle']= $value['resource']['title'];
+            $array['category_id']= '1';//巴比特文章
+            $array['view_count']= rand(123,1024);
+            $array['user_id']= 1;
+            $num = rand(27,292);
+            if($num<150){
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpeg';
+            }else{
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpg';
+            }
+            $array['page_image']= $page_img_url;
+            $array['last_user_id']= 1;
+            $content  = $match[1].'<br/><br/>原文地址：'.'https://xcong.com/articles/'.$value['resource']['id'];
+            $data = [
+                'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
+                'html' => (new Markdowner)->convertMarkdownToHtml($content)
+            ];
+
+            $array['content']= json_encode( $data);
+            $array['meta_description']= $value['resource']['content_short'];
+            $array['published_at']=  date("Y-m-d H:i:s",$value['resource']['display_time']);
+            $array['created_at']=  date("Y-m-d H:i:s",time()) ;
+            $return=DB::table('articles')->insertGetId($array);
+        };
+    }
+    //旧版本巴特币接口文章
+
+    public function  add8Btc()
+    {
+
+        $params=[
+//            'limit'=>20,
+            'newPost'=>1,
+        ];
+
+        $url  =  'http://v1.8btc.com/sitemap';
 
         $rs = $this->sendByCurl($url,'get',$params,'10');
         $rs = json_decode($rs,true);
