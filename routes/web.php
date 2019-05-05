@@ -110,6 +110,8 @@ Route::get('sitemap.xml', function()
     return $sitemap_posts->render('xml');
 });
 
+
+
 Route::get('addbaidu', function () {
 
 
