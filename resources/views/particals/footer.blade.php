@@ -59,6 +59,7 @@
                     <a href="http://www.feixiaohao.com/" target="_blank">非小号</a>
                     <a href="https://www.7234.cn/" target="_blank">链世界</a>
                     <a href="https://www.chainnews.com" target="_blank">链闻</a>
+                    <a href="https://www.bkiex.com/" target="_blank">币卡</a>
                     <a href="https://www.btcwinex.com/" target="_blank">Btcwinex</a>
                 </div>
                 <div class="sponsors">

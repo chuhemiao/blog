@@ -89,6 +89,8 @@ class XemController extends Controller
             }
         }
     }
+
+
     //抓取链闻文章
 
     public function cdarticle()
@@ -499,13 +501,15 @@ class XemController extends Controller
 
         $url  =  'http://v1.8btc.com/sitemap';
 
-        $rs = $this->sendByCurl($url,'get',$params,'10');
+        $rs = $this->http_data($url,$params,'get');
         $rs = json_decode($rs,true);
+
+        dd($rs);
 
         $array=array();
         foreach (array_reverse($rs['data']['items']) as $key => $value) {
 
-            $url_detail = 'https://xcong.com/articles/'.$value['resource']['id'];
+            $url_detail = 'http://v1.8btc.com/'.$value['resource']['id'];
 
             $article_content = $this->_getUrlContent($url_detail);
             //匹配详情内容
@@ -527,7 +531,7 @@ class XemController extends Controller
             }
             $array['page_image']= $page_img_url;
             $array['last_user_id']= 1;
-            $content  = $match[1].'<br/><br/>原文地址：'.'https://xcong.com/articles/'.$value['resource']['id'];
+            $content  = $match[1].'<br/><br/>原文地址：'.'http://v1.8btc.com/'.$value['resource']['id'];
             $data = [
                 'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
                 'html' => (new Markdowner)->convertMarkdownToHtml($content)
@@ -538,7 +542,7 @@ class XemController extends Controller
             $array['published_at']=  date("Y-m-d H:i:s",$value['resource']['display_time']);
             $array['created_at']=  date("Y-m-d H:i:s",time()) ;
             $return=DB::table('articles')->insertGetId($array);
-        };
+        }
     }
 
     /**
