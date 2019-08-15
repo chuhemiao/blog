@@ -286,6 +286,10 @@ class XemController extends Controller
 
     public function cdTranslate($namespace = null)
     {
+        $xx = '2';
+        $a = $xx ?: [];
+
+        echo $a;
 
         // 设置请求数据
         static $guid = '';
@@ -385,7 +389,7 @@ class XemController extends Controller
     public function  addArticle()
     {
 
-        $url = 'https://app.blockmeta.com/w1/news/list?num=12';
+        $url = 'https://webapi.8btc.com/bbt_api/news/list?num=15';
         $ch = curl_init();
 
         $header=array(
@@ -402,8 +406,10 @@ class XemController extends Controller
 
         $res_data = json_decode($curlRes, true);
 
+        //dd($res_data['data']['list']);
+
         $array=array();
-        foreach (array_reverse($res_data['list']) as $key => $value) {
+        foreach (array_reverse($res_data['data']['list']) as $key => $value) {
 
                 $array['title']= $value['title'];
                 $slug = $this->generateRandomString();
@@ -446,7 +452,7 @@ class XemController extends Controller
             'cursor'=>time(),
         ];
 
-        $url  =  'https://cong-api.xcong.com/apiv1/dashboard/chosen_page';
+        $url  =  'https://www.xcong.com/news/1005678';
 
         $rs = $this->sendByCurl($url,'get',$params,'10');
         $rs = json_decode($rs,true);
