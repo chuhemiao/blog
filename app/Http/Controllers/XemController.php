@@ -30,63 +30,50 @@ class XemController extends Controller
 
     public function shell()
     {
-        $post = array(
-            'page'=>1,
-            'pageSize'=>10
+        $params = array(
+            'first_page'=>true,
+            'limit'=>10,
+            'cursor'=>'',
+            'channel' =>'xiaocong-channel'
         );
-        $url = 'http://mapi.quintar.com/marketCenter/message/messageList';
-        $post=json_encode($post);
-        $curl = curl_init();
-        $header=array(
-            "Accept: application/json",
-            "Content-Type: application/json;charset=utf-8"
-        );
-        curl_setopt($curl,CURLOPT_HTTPHEADER,$header);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $post);
-        curl_setopt($curl, CURLOPT_URL, $url);
-        $rs = curl_exec($curl);
+        $url = 'https://api.jianyuweb.com/apiv1/content/lives';
+        $rs  = $this->sendByCurl($url,'get',$params,'20');
+
         $rs = json_decode($rs,true);
-        $d=DB::table('articles')->orderBy("id",'desc')->first();
         $array=array();
-        foreach (array_reverse($rs['result']) as $key => $value) {
-
-            if(strtotime($value['createTime']) > strtotime($d->created_at)){
-                $ret_title = explode('|',$value['title']);
-                $array['title']= '比特币小白--'.$ret_title[1];
-                $slug = $this->generateRandomString();
-                $array['slug']= $slug;
-                $array['subtitle']= $value['title'];
-                $array['category_id']= '13';//13
-                $array['view_count']= rand(123,1000);
-                $array['user_id']= 1;
-                $num = rand(27,292);
-                if($num<150){
-                    $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpeg';
-                }else{
-                    $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpg';
-                }
-                $array['page_image']= $page_img_url;
-                $array['last_user_id']= 1;
-                $data = [
-                    'raw'  => $value['content'],
-                    'html' => (new Markdowner)->convertMarkdownToHtml($value['content'])
-                ];
-
-                $array['content']= json_encode( $data);
-                $array['meta_description']= mb_substr($value['content'],0,124,'utf-8');
-                $array['published_at']=  date("Y-m-d H:i:s",strtotime($value['createTime']));
-                $array['created_at']=  date("Y-m-d H:i:s",time()) ;
-
-                $return=DB::table('articles')->insertGetId($array);
-                $baidu_arr = [
-                  'https://www.btxiaobai.com/'.$slug.'.html',
-                ];
-
-                $this->addBaidu($baidu_arr);
-
+        foreach (array_reverse($rs['data']['items']) as $key => $value) {
+            $array['title'] = $value['title'];
+            $slug = $this->generateRandomString();
+            $array['slug'] = $slug;
+            $array['subtitle'] = $value['title'];
+            $array['category_id'] = '13';//13
+            $array['view_count'] = rand(123, 1000);
+            $array['user_id'] = 1;
+            $num = rand(27, 292);
+            if ($num < 150) {
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/' . $num . '.jpeg';
+            } else {
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/' . $num . '.jpg';
             }
+            $array['page_image'] = $page_img_url;
+            $array['last_user_id'] = 1;
+
+            $data = [
+                'raw' => strip_tags($value['content']),
+                'html' => (new Markdowner)->convertMarkdownToHtml(strip_tags($value['content']))
+            ];
+
+            $array['content'] = json_encode($data);
+            $array['meta_description'] = mb_substr($value['content'], 0, 124, 'utf-8');
+            $array['published_at'] = date("Y-m-d H:i:s", $value['display_time']);
+            $array['created_at'] = date("Y-m-d H:i:s", time());
+
+            $return = DB::table('articles')->insertGetId($array);
+            $baidu_arr = [
+                'https://www.btxiaobai.com/' . $slug . '.html',
+            ];
+            $this->addBaidu($baidu_arr);
+
         }
     }
 
