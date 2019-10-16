@@ -270,6 +270,245 @@ class XemController extends Controller
         return $ret_data;
 
     }
+    //  收信接口
+
+    public function receiveLetter()
+    {
+        header('Access-Control-Allow-Origin:*');
+
+
+
+        if($_GET['receive_letter_email'] ==''){
+            $array = [
+                'code'=>1,
+                'data'=>'',
+                'msg'=>'邮箱不能为空'
+            ];
+            return  json_encode($array);
+        }
+
+        $array_type = [];
+
+        $array_type['receive_letter_email'] = $_GET['receive_letter_email'];
+        $array_type['receive_address_province'] = $_GET['receive_address_province'];
+        $array_type['receive_address_detail'] = $_GET['receive_address_detail'];
+        $array_type['receive_city'] = $_GET['receive_city'];
+        $array_type['contact_infor'] = $_GET['contact_infor'];
+        $array_type['lover_letter'] = $_GET['lover_letter'];
+        $array_type['status'] = $_GET['status']  ?  1 : 0;
+
+        $return = DB::table('jianxin_write')->insertGetId($array_type);
+
+        if(!$return){
+            $array = [
+                'code'=>$return,
+                'data'=>'',
+                'msg'=>'发信失败'
+            ];
+            return json_encode($array);
+        }
+        $array = [
+            'code'=>$return,
+            'data'=>'',
+            'msg'=>'提交成功，请等待上门揽信'
+        ];
+
+        return json_encode($array);
+
+    }
+
+    // 发信接口
+
+    public function sendLetter()
+    {
+        header('Access-Control-Allow-Origin:*');
+
+        if($_GET['send_letter_email'] ==''){
+            $array = [
+                'code'=>1,
+                'data'=>'',
+                'msg'=>'邮箱不能为空'
+            ];
+            return  json_encode($array);
+        }
+
+        $array_type = [];
+
+        $array_type['send_letter_email'] = $_GET['send_letter_email'];
+        $array_type['send_address_province'] = $_GET['send_address_province'];
+        $array_type['send_address_detail'] = $_GET['send_address_detail'];
+        $array_type['send_city'] = $_GET['send_city'];
+        $array_type['contact_infor'] = $_GET['contact_infor'];
+        $array_type['lover_letter'] = $_GET['lover_letter'];
+        $array_type['status'] = $_GET['status']  ?  1 : 0;
+
+        $return = DB::table('jianxin_send')->insertGetId($array_type);
+
+        if(!$return){
+            $array = [
+                'code'=>$return,
+                'data'=>'',
+                'msg'=>'收信失败'
+            ];
+            return json_encode($array);
+        }
+        $array = [
+            'code'=>$return,
+            'data'=>'',
+            'msg'=>'提交成功，请等待收信'
+        ];
+
+        return json_encode($array);
+
+
+    }
+    // 揽收数量接口
+
+    public function  getCountLetter()
+    {
+        header('Access-Control-Allow-Origin:*');
+
+
+        $ret_write = DB::table('jianxin_write')->select(DB::raw('count(*) as write_count'))
+            ->where('is_collect','<>' ,1)
+            ->groupBy('is_collect')
+            ->first();
+        $ret_send = DB::table('jianxin_send')->select(DB::raw('count(*) as send_count'))
+            ->where('is_send','<>' ,1)
+            ->groupBy('is_send')
+            ->first();
+
+        if($ret_write->write_count || $ret_send->send_count){
+            $array = [
+                'code'=>1,
+                'data'=>[
+                    'write_num' => $ret_write->write_count,
+                    'send_num' => $ret_send->send_count,
+                ],
+                'msg'=>'返回当前收发信数据'
+            ];
+            return json_encode($array);
+        }
+    }
+
+
+    // 获取期货交易数据
+
+    public function qhData()
+    {
+
+        $params=[
+
+        ];
+        $url = 'http://www.shfe.com.cn/data/dailydata/kx/pm20191008.dat';
+
+        $rs  = $this->sendByCurl($url,'get',$params,'20');
+
+        $ret_data =   json_decode($rs,true);
+
+
+        foreach ($ret_data['o_cursor'] as $key => $v){
+            if(strpos($v['INSTRUMENTID'],'all')){
+                // 当前分类是输入哪个
+                $array_type = [];
+                $array_type['product_name'] = $v['PRODUCTNAME'];
+                $array_type['created_at'] = $ret_data['report_date'];
+                if($v['RANK'] < 0){
+                    $array_type['company_name'] = '1';
+                }else{
+                    $array_type['company_name'] = '2';
+                }
+                $array_type['cj_1'] = $v['CJ1'];
+                $array_type['cj1_chg'] = $v['CJ1_CHG'];
+                $array_type['cj_2'] = $v['CJ2'];
+                $array_type['cj2_chg'] = $v['CJ2_CHG'];
+                $array_type['cj_3'] = $v['CJ3'];
+                $array_type['cj3_chg'] = $v['CJ3_CHG'];
+                $array_type['instrumentid'] = $v['INSTRUMENTID'];
+                $array_type['productsortno'] = $v['PRODUCTSORTNO'];
+                $return = DB::table('qihuo_company_type')->insertGetId($array_type);
+                if($return){
+                   echo "插入数据成功";
+                }else{
+                    echo "插入数据失败";
+                }
+            }else{
+                // 当前分类是输入哪个
+                $array = [];
+                $array['productsortno'] = $v['PRODUCTSORTNO'] ? $v['PRODUCTSORTNO'] : 0;
+                $array['product_rank'] = $v['RANK'] ? $v['RANK'] : -1 ;
+                $array['created_at'] = $ret_data['report_date'];
+                $array['cj1'] = $v['CJ1'] ? $v['CJ1']:0;
+                $array['cj1_chg'] = $v['CJ1_CHG'] ? $v['CJ1_CHG'] : 0 ;
+                $array['cj2'] = $v['CJ2'] ? $v['CJ2'] : 0 ;
+                $array['cj2_chg'] = $v['CJ2_CHG'] ? $v['CJ2_CHG'] : 0 ;
+                $array['cj3'] = $v['CJ3'] ? $v['CJ3'] : 0;
+                $array['cj3_chg'] = $v['CJ3_CHG'] ? $v['CJ3_CHG'] : 0;
+                $array['participantid1'] =  $v['PARTICIPANTID1'] ?  $v['PARTICIPANTID1'] : 0 ;
+                $array['participantid2'] = $v['PARTICIPANTID2'] ? $v['PARTICIPANTID2'] : 0 ;
+                $array['participantid3'] = $v['PARTICIPANTID3'] ? $v['PARTICIPANTID3'] :0;
+                $array['participantabbr1'] = $v['PARTICIPANTABBR1'] ? $v['PARTICIPANTABBR1'] : 0 ;
+                $array['participantabbr2'] = $v['PARTICIPANTABBR2'] ? $v['PARTICIPANTABBR2'] : 0 ;
+                $array['participantabbr3'] = $v['PARTICIPANTABBR3'] ? $v['PARTICIPANTABBR3'] : 0 ;
+                $array['instrumentid'] = $v['INSTRUMENTID'] ? $v['INSTRUMENTID'] :0;
+                $array['productname'] = $v['PRODUCTNAME'];
+                $return = DB::table('qihuo_data_rank')->insertGetId($array);
+                if($return){
+                    echo "插入数据成功222";
+                }else{
+                    echo "插入数据失败222";
+                }
+            }
+        }
+    }
+    // 日交易快讯 shfe
+
+    public function qhHourData()
+    {
+
+        $params=[
+
+        ];
+        $url = 'http://www.shfe.com.cn/data/dailydata/kx/kx20191008.dat';
+
+        $rs  = $this->sendByCurl($url,'get',$params,'20');
+
+        $ret_data =   json_decode($rs,true);
+
+        foreach ($ret_data['o_curinstrument'] as $key => $v){
+                // 当前分类是输入哪个
+                if($v['ORDERNO2'] <= 0 ){
+                    $array_type = [];
+                    $array_type['created_at'] = $ret_data['report_date'];
+                    $array_type['productsortno'] = $v['PRODUCTSORTNO'] ? $v['PRODUCTSORTNO']:0;
+                    $array_type['productid'] = $v['PRODUCTID'] ? $v['PRODUCTID']:0;
+                    $array_type['deliverymonth'] = $v['DELIVERYMONTH'] ? $v['DELIVERYMONTH'] : 0 ;
+                    $array_type['presettlementprice'] = $v['PRESETTLEMENTPRICE'] ? $v['PRESETTLEMENTPRICE'] : 0 ;
+                    $array_type['openprice'] = $v['OPENPRICE'] ? $v['OPENPRICE'] : 0 ;
+                    $array_type['highestprice'] = $v['HIGHESTPRICE'] ? $v['HIGHESTPRICE'] : 0 ;
+                    $array_type['lowestprice'] = $v['LOWESTPRICE'] ? $v['LOWESTPRICE'] : 0 ;
+                    $array_type['closeprice'] = $v['CLOSEPRICE'] ? $v['CLOSEPRICE'] : 0 ;
+                    $array_type['settlementprice'] = $v['SETTLEMENTPRICE'] ? $v['SETTLEMENTPRICE'] : 0 ;
+                    $array_type['zd1_chg'] = $v['ZD1_CHG'] ? $v['ZD1_CHG'] : 0 ;
+                    $array_type['zd2_chg'] = $v['ZD2_CHG'] ? $v['ZD2_CHG'] : 0 ;
+                    $array_type['volume'] = $v['VOLUME'] ? $v['VOLUME'] : 0 ;
+                    $array_type['openinterest'] = $v['OPENINTEREST'] ? $v['OPENINTEREST'] : 0 ;
+                    $array_type['openinterestchg'] = $v['OPENINTERESTCHG'] ? $v['OPENINTERESTCHG'] : 0 ;
+                    $array_type['orderno2'] = $v['ORDERNO2'] ? $v['ORDERNO2'] : 0 ;
+                    $array_type['orderno'] = $v['ORDERNO'] ? $v['ORDERNO'] : 0 ;
+                    $array_type['productname'] = $v['PRODUCTNAME'] ? $v['PRODUCTNAME'] : 0 ;
+
+                    $return = DB::table('qihuo_data_kx')->insertGetId($array_type);
+                    if($return){
+                        echo "插入数据成功";
+                    }else{
+                        echo "插入数据失败";
+                    }
+                }
+
+        }
+    }
+
 
     public function cdTranslate($namespace = null)
     {
@@ -563,6 +802,35 @@ class XemController extends Controller
             $randomString .= $characters[rand(0, strlen($characters) - 1)];
         }
         return $randomString;
+    }
+
+    // excel 郑州数据
+
+    public function getExcelCzce()
+    {
+
+
+
+        $params = [
+            'dayQuotes.variety'=> 'all',
+            'dayQuotes.trade_type'=> 0,
+            'year'=> 2019,
+            'month'=> '9',
+            'day'=> '08'
+        ];
+
+        $t_url = 'http://www.dce.com.cn/publicweb/quotesdata/dayQuotesCh.html';
+
+
+        $rs = $this->http_data($t_url,$params,'get');
+
+        //匹配详情内容
+        $pattern = '/<div class="dataArea">(.+?)<\/div>/is';
+        preg_match($pattern, $rs, $match);
+
+        print_r($match);
+
+
     }
 
     //提交到百度

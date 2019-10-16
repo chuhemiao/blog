@@ -150,8 +150,18 @@ Route::get('xem/cNum', 'XemController@cNum');
 Route::get('xem/addBsj', 'XemController@addBsj');
 Route::get('xem/cdTranslate', 'XemController@cdTranslate');
 Route::get('xem/addBtc', 'XemController@add8Btc');
-Route::get('xem/wpPost', 'XemController@wpPostInsert');
+// 期货数据
 
+Route::get('xem/qhData', 'XemController@qhData');
+Route::get('xem/qhHourData', 'XemController@qhHourData');
+Route::get('xem/getExcelCzce', 'XemController@getExcelCzce');
+
+
+// 笺信
+
+Route::get('xem/receiveLetter', 'XemController@receiveLetter');
+Route::get('xem/sendLetter', 'XemController@sendLetter');
+Route::get('xem/getCountLetter', 'XemController@getCountLetter');
 
 Route::get('xem/addArticle', 'XemController@addArticle');
 // ico
