@@ -278,7 +278,7 @@ class XemController extends Controller
 
 
 
-        if(!$_GET['receive_letter_email'] && !$_GET['receive_address_province'] && !$_GET['send_address_detail']){
+        if(!$_GET['receive_letter_email'] && !$_GET['receive_address_province'] && !$_GET['receive_address_detail']){
             $array = [
                 'code'=>1,
                 'data'=>'',
@@ -287,9 +287,9 @@ class XemController extends Controller
             return  json_encode($array);
         }
 
-        $detail_arr  =  explode(',',$_GET['send_address_detail']);
+        $detail_arr  =  explode(',',$_GET['receive_address_detail']);
 
-        $detail_str = $detail_arr[0].'-'.$detail_arr[1].'-'.$detail_arr[2];
+        $detail_str = $detail_arr[0].$detail_arr[1].$detail_arr[2];
 
         $array_type = [];
 
@@ -300,6 +300,7 @@ class XemController extends Controller
         $array_type['contact_infor'] = $_GET['contact_infor'];
         $array_type['lover_letter'] = $_GET['lover_letter'];
         $array_type['status'] = $_GET['status']  ?  1 : 0;
+        $array_type['created_at'] = date('Y-m-d H:i:s',time());
 
         $return = DB::table('jianxin_write')->insertGetId($array_type);
 
@@ -338,7 +339,7 @@ class XemController extends Controller
 
         $detail_arr  =  explode(',',$_GET['send_address_detail']);
 
-        $detail_str = $detail_arr[0].'-'.$detail_arr[1].'-'.$detail_arr[2];
+        $detail_str = $detail_arr[0].$detail_arr[1].$detail_arr[2];
 
         $array_type = [];
 
@@ -349,6 +350,7 @@ class XemController extends Controller
         $array_type['contact_infor'] = $_GET['contact_infor'];
         $array_type['lover_letter'] = $_GET['lover_letter'];
         $array_type['status'] = $_GET['status']  ?  1 : 0;
+        $array_type['created_at'] = date('Y-m-d H:i:s',time());
 
         $return = DB::table('jianxin_send')->insertGetId($array_type);
 
