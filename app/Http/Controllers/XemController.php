@@ -278,20 +278,24 @@ class XemController extends Controller
 
 
 
-        if($_GET['receive_letter_email'] ==''){
+        if(!$_GET['receive_letter_email'] && !$_GET['receive_address_province'] && !$_GET['send_address_detail']){
             $array = [
                 'code'=>1,
                 'data'=>'',
-                'msg'=>'邮箱不能为空'
+                'msg'=>'参数不能为空'
             ];
             return  json_encode($array);
         }
+
+        $detail_arr  =  explode(',',$_GET['send_address_detail']);
+
+        $detail_str = $detail_arr[0].'-'.$detail_arr[1].'-'.$detail_arr[2];
 
         $array_type = [];
 
         $array_type['receive_letter_email'] = $_GET['receive_letter_email'];
         $array_type['receive_address_province'] = $_GET['receive_address_province'];
-        $array_type['receive_address_detail'] = $_GET['receive_address_detail'];
+        $array_type['receive_address_detail'] = $detail_str;
         $array_type['receive_city'] = $_GET['receive_city'];
         $array_type['contact_infor'] = $_GET['contact_infor'];
         $array_type['lover_letter'] = $_GET['lover_letter'];
@@ -323,20 +327,24 @@ class XemController extends Controller
     {
         header('Access-Control-Allow-Origin:*');
 
-        if($_GET['send_letter_email'] ==''){
+        if(!$_GET['send_letter_email'] && !$_GET['send_address_province'] && !$_GET['send_address_detail']){
             $array = [
                 'code'=>1,
                 'data'=>'',
-                'msg'=>'邮箱不能为空'
+                'msg'=>'参数不能为空'
             ];
             return  json_encode($array);
         }
+
+        $detail_arr  =  explode(',',$_GET['send_address_detail']);
+
+        $detail_str = $detail_arr[0].'-'.$detail_arr[1].'-'.$detail_arr[2];
 
         $array_type = [];
 
         $array_type['send_letter_email'] = $_GET['send_letter_email'];
         $array_type['send_address_province'] = $_GET['send_address_province'];
-        $array_type['send_address_detail'] = $_GET['send_address_detail'];
+        $array_type['send_address_detail'] = $detail_str;
         $array_type['send_city'] = $_GET['send_city'];
         $array_type['contact_infor'] = $_GET['contact_infor'];
         $array_type['lover_letter'] = $_GET['lover_letter'];
@@ -378,6 +386,7 @@ class XemController extends Controller
             ->groupBy('is_send')
             ->first();
 
+
         if($ret_write->write_count || $ret_send->send_count){
             $array = [
                 'code'=>1,
@@ -388,7 +397,18 @@ class XemController extends Controller
                 'msg'=>'返回当前收发信数据'
             ];
             return json_encode($array);
+        }else{
+            $array = [
+                'code'=>1,
+                'data'=>[
+                    'write_num' => 0,
+                    'send_num' => 0,
+                ],
+                'msg'=>'发信数据'
+            ];
+            return json_encode($array);
         }
+
     }
 
 
