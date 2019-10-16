@@ -379,22 +379,19 @@ class XemController extends Controller
         header('Access-Control-Allow-Origin:*');
 
 
-        $ret_write = DB::table('jianxin_write')->select(DB::raw('count(*) as write_count'))
-            ->where('is_collect','<>' ,1)
-            ->groupBy('is_collect')
-            ->first();
-        $ret_send = DB::table('jianxin_send')->select(DB::raw('count(*) as send_count'))
-            ->where('is_send','<>' ,1)
-            ->groupBy('is_send')
-            ->first();
+        $ret_write = DB::table('jianxin_write')
+            ->where('is_collect','=' ,0)
+            ->get();
+        $ret_send = DB::table('jianxin_send')
+            ->where('is_send','=' ,1)
+            ->get();
 
-
-        if($ret_write->write_count || $ret_send->send_count){
+        if(count($ret_write) > 0 || count($ret_send)>0 ){
             $array = [
                 'code'=>1,
                 'data'=>[
-                    'write_num' => $ret_write->write_count,
-                    'send_num' => $ret_send->send_count,
+                    'write_num' => count($ret_write),
+                    'send_num' => count($ret_send),
                 ],
                 'msg'=>'返回当前收发信数据'
             ];
