@@ -119,6 +119,50 @@ class XemController extends Controller
 
 
     }
+    // coindesk
+
+    public function cdCoindesk()
+    {
+        $post = array(
+            'page'=>1,
+            'cn_type'=>1,
+        );
+        $url  =  'http://api.coindeskchinese.com/article/list';
+        $rs = $this->http_data($url,$post,'post');
+        $rs = json_decode($rs,true);
+        $array=array();
+        $arr_num = [15,14,13,6,7,1];
+        //dd($rs);
+        foreach (array_reverse($rs['data']['items']) as $key => $value) {
+            $array['title']= $value['title'];
+            $slug = $this->generateRandomString();
+            $array['slug']= $slug;
+            $array['subtitle']= $value['summary'];
+            $array['category_id']= $arr_num[rand(0,5)];//13
+            $array['view_count']= rand(1232,30000);
+            $array['user_id']= 1;
+            $num = rand(27, 292);
+            if ($num < 150) {
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/' . $num . '.jpeg';
+            } else {
+                $page_img_url = 'https://cdn.bsatoshi.com/25hour/' . $num . '.jpg';
+            }
+            $array['page_image']= $page_img_url;
+            $array['last_user_id']= 1;
+            $data = [
+                'raw'  => $value['content_str'].'<br/>来源：coindesk',
+                'html' => (new Markdowner)->convertMarkdownToHtml($value['content_str'].'<br/>来源：coindesk')
+            ];
+            $array['content']= json_encode( $data);
+            $array['meta_description']= $value['summary'];
+            $array['published_at']=  date("Y-m-d H:i:s",time());
+            $array['created_at']=  date("Y-m-d H:i:s",time()) ;
+
+            DB::table('articles')->insertGetId($array);
+        }
+
+
+    }
 
     //排列组合
 
@@ -627,119 +671,6 @@ class XemController extends Controller
 
 
 
-
-
-    //文章巴比特接口
-
-    public function  addArticle()
-    {
-
-        $url = 'https://webapi.8btc.com/bbt_api/news/list?num=15';
-        $ch = curl_init();
-
-        $header=array(
-            "Accept: application/json",
-            "Content-Type: application/json;charset=utf-8"
-        );
-        curl_setopt($ch,CURLOPT_HTTPHEADER,$header);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $curlRes = curl_exec($ch);
-        curl_close($ch);
-
-        $res_data = json_decode($curlRes, true);
-
-        //dd($res_data['data']['list']);
-
-        $array=array();
-        foreach (array_reverse($res_data['data']['list']) as $key => $value) {
-
-                $array['title']= $value['title'];
-                $slug = $this->generateRandomString();
-                $array['slug']= $slug;
-                $array['subtitle']= $value['title'];
-                $array['category_id']= '1';//巴比特文章
-                $array['view_count']= rand(123,1024);
-                $array['user_id']= 1;
-                $num = rand(27,292);
-                if($num<150){
-                    $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpeg';
-                }else{
-                    $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpg';
-                }
-                $array['page_image']= $page_img_url;
-                $array['last_user_id']= 1;
-                $content  = $value['desc'].'<br/><br/>原文地址：'.'https://www.8btc.com/article/'.$value['id'];
-                $data = [
-                    'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
-                    'html' => (new Markdowner)->convertMarkdownToHtml($content)
-                ];
-
-                $array['content']= json_encode( $data);
-                $array['meta_description']= $value['desc'];
-                $array['published_at']=  date("Y-m-d H:i:s",$value['post_date']);
-                $array['created_at']=  date("Y-m-d H:i:s",time()) ;
-//             dd($array);
-                $return=DB::table('articles')->insertGetId($array);
-
-        };
-    }
-
-    //抓取小聪文章
-
-    public function  addBsj()
-    {
-
-        $params=[
-            'limit'=>20,
-            'cursor'=>time(),
-        ];
-
-        $url  =  'https://www.xcong.com/news/1005678';
-
-        $rs = $this->sendByCurl($url,'get',$params,'10');
-        $rs = json_decode($rs,true);
-
-        $array=array();
-        foreach (array_reverse($rs['data']['items']) as $key => $value) {
-
-            $url_detail = 'https://xcong.com/articles/'.$value['resource']['id'];
-
-            $article_content = $this->_getUrlContent($url_detail);
-            //匹配详情内容
-            $pattern = '/<div class="article-content">(.+?)<\/div>/is';
-            preg_match($pattern, $article_content, $match);
-
-            $array['title']= $value['resource']['title'];
-            $slug = $this->generateRandomString();
-            $array['slug']= $slug;
-            $array['subtitle']= $value['resource']['title'];
-            $array['category_id']= '1';//巴比特文章
-            $array['view_count']= rand(123,1024);
-            $array['user_id']= 1;
-            $num = rand(27,292);
-            if($num<150){
-                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpeg';
-            }else{
-                $page_img_url = 'https://cdn.bsatoshi.com/25hour/'.$num.'.jpg';
-            }
-            $array['page_image']= $page_img_url;
-            $array['last_user_id']= 1;
-            $content  = $match[1].'<br/><br/>原文地址：'.'https://xcong.com/articles/'.$value['resource']['id'];
-            $data = [
-                'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
-                'html' => (new Markdowner)->convertMarkdownToHtml($content)
-            ];
-
-            $array['content']= json_encode( $data);
-            $array['meta_description']= $value['resource']['content_short'];
-            $array['published_at']=  date("Y-m-d H:i:s",$value['resource']['display_time']);
-            $array['created_at']=  date("Y-m-d H:i:s",time()) ;
-            $return=DB::table('articles')->insertGetId($array);
-        };
-    }
     //旧版本巴特币接口文章
 
     public function  add8Btc()
