@@ -98,7 +98,7 @@ Route::get('sitemap.xml', function()
     $sitemap_posts->setCache('laravel.sitemap-posts', 3600);
 
     // add items
-    $posts = DB::table('articles')->orderBy('created_at', 'desc')->get();
+    $posts = DB::table('articles')->orderBy('created_at', 'desc')->offset(1)->limit(20)->get();
 
     foreach ($posts as $post)
     {

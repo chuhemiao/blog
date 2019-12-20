@@ -5,6 +5,5 @@
 
     @include('widgets.article')
 
-    {{ $articles->links('pagination.default') }}
 
 @endsection

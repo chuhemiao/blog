@@ -287,7 +287,7 @@
         ]); ?>
     </script>
     @if(config('blog.google.open'))
-    <script>
+    <!-- <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -295,27 +295,11 @@
 
         ga('create', '{{ config('blog.google.id') }}', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script> -->
     @endif
 
     @yield('styles')
 
-<!-- GrowingIO Analytics code version 2.1 -->
-    <!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
-
-    <script type='text/javascript'>
-        !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
-        gio('init','88b950f75af3dbc8', {});
-
-        //custom page code begin here
-
-        //custom page code end here
-
-        gio('send');
-
-    </script>
-
-    <!-- End GrowingIO Analytics code version: 2.1 -->
 
 </head>
 <body>
@@ -366,13 +350,7 @@
         s.parentNode.insertBefore(bp, s);
     })();
     </script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-4071771803476867",
-            enable_page_level_ads: true
-        });
-    </script>
+    
     <script>
     $(function() {
         showNotice();

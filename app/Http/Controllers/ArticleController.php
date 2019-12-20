@@ -30,7 +30,7 @@ class ArticleController extends Controller
         $hot_articles = $this->article->getHotArticle();
 
         // 评测
-        $everyday_articles = $this->article->getHotBasicArticle(1,0,13);
+        $everyday_articles = $this->article->getHotBasicArticle(1,0,16);
         // 轮播
         $carousel_list = $this->article->getHotBasicArticle(10,0,5);
 

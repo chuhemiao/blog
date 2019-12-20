@@ -80,7 +80,7 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort) ->paginate($perPage, ['*'], 'page', $page);;
+        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort) ->paginate($perPage, ['*'], 'page', $page);
     }
 
 
