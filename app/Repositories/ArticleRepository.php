@@ -40,7 +40,7 @@ class ArticleRepository
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate(1,$number);
+        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate($number);
     }
 
     // 获取最新文章
