@@ -25,7 +25,7 @@ class ArticleController extends ApiController
      */
     public function index()
     {
-        return $this->respondWithPaginator($this->article->page(40), new ArticleTransformer);
+        return $this->respondWithPaginator($this->article->page(), new ArticleTransformer);
     }
 
     /**
