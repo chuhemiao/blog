@@ -36,11 +36,11 @@ class ArticleRepository
     }
 
     //获取分类
-    public function getCateLog($number = 10, $sort = 'desc', $sortColumn = 'created_at',$category_id)
+    public function getCateLog($number = 15, $sort = 'desc', $sortColumn = 'created_at',$category_id)
     {
         $this->model = $this->checkAuthScope();
 
-        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate($number);
+        return $this->model->where('category_id','=',$category_id)->orderBy($sortColumn, $sort)->paginate(1,$number);
     }
 
     // 获取最新文章
