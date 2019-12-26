@@ -671,39 +671,34 @@ class XemController extends Controller
 
 
 
-    //旧版本巴特币接口文章
+    //xiaomao jia
 
     public function  add8Btc()
     {
 
         $params=[
-//            'limit'=>20,
-            'newPost'=>1,
+            'page'=>$_GET['page'],
         ];
 
-        $url  =  'http://v1.8btc.com/sitemap';
+        $url  =  'http://www.xiaomaojia.com/wp-json/wp/v2/posts';
+
 
         $rs = $this->http_data($url,$params,'get');
         $rs = json_decode($rs,true);
 
-        dd($rs);
+        //dd($rs);
+        $arr_num = [15,14,13,6,7,1];
 
         $array=array();
-        foreach (array_reverse($rs['data']['items']) as $key => $value) {
+        foreach (array_reverse($rs['data']) as $key => $value) {
 
-            $url_detail = 'http://v1.8btc.com/'.$value['resource']['id'];
 
-            $article_content = $this->_getUrlContent($url_detail);
-            //匹配详情内容
-            $pattern = '/<div class="article-content">(.+?)<\/div>/is';
-            preg_match($pattern, $article_content, $match);
-
-            $array['title']= $value['resource']['title'];
+            $array['title']= $value['title']['rendered'];
             $slug = $this->generateRandomString();
             $array['slug']= $slug;
-            $array['subtitle']= $value['resource']['title'];
-            $array['category_id']= '1';//巴比特文章
-            $array['view_count']= rand(123,1024);
+            $array['subtitle']= $value['excerpt']['rendered'];
+            $array['category_id']= $arr_num[rand(0,5)];//巴比特文章
+            $array['view_count']= rand(1754,18945);
             $array['user_id']= 1;
             $num = rand(27,292);
             if($num<150){
@@ -713,19 +708,28 @@ class XemController extends Controller
             }
             $array['page_image']= $page_img_url;
             $array['last_user_id']= 1;
-            $content  = $match[1].'<br/><br/>原文地址：'.'http://v1.8btc.com/'.$value['resource']['id'];
             $data = [
-                'raw'  => (new Markdowner)->convertMarkdownToHtml($content),
-                'html' => (new Markdowner)->convertMarkdownToHtml($content)
+                'raw'  => (new Markdowner)->convertMarkdownToHtml($value['content']['rendered']),
+                'html' => (new Markdowner)->convertMarkdownToHtml($value['content']['rendered'])
             ];
 
             $array['content']= json_encode( $data);
-            $array['meta_description']= $value['resource']['content_short'];
-            $array['published_at']=  date("Y-m-d H:i:s",$value['resource']['display_time']);
+            $array['meta_description']= $value['excerpt']['rendered'];
+            $array['published_at']=  $value['date'];
             $array['created_at']=  date("Y-m-d H:i:s",time()) ;
             $return=DB::table('articles')->insertGetId($array);
         }
     }
+
+    // 获取毫秒
+
+    function msectime()
+    {
+        list($msec, $sec) = explode(' ', microtime());
+        $msectime = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+        return $msectime;
+    }
+
 
     /**
      * 从给定的url获取html内容
