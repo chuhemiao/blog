@@ -150,7 +150,7 @@ Route::get('xem/cdCoindesk', 'XemController@cdCoindesk');
 Route::get('xem/cNum', 'XemController@cNum');
 Route::get('xem/addBsj', 'XemController@addBsj');
 Route::get('xem/cdTranslate', 'XemController@cdTranslate');
-Route::get('xem/addBtc', 'XemController@add8Btc');
+Route::get('xem/addDailybtc', 'XemController@addDailybtc');
 // 期货数据
 
 Route::get('xem/qhData', 'XemController@qhData');

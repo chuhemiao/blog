@@ -673,7 +673,7 @@ class XemController extends Controller
 
     //xiaomao jia
 
-    public function  add8Btc()
+    public function  addDailybtc()
     {
 
         $params=[
@@ -690,7 +690,7 @@ class XemController extends Controller
         $arr_num = [15,14,13,6,7,1];
 
         $array=array();
-        foreach (array_reverse($rs['data']) as $key => $value) {
+        foreach (array_reverse($rs) as $key => $value) {
 
 
             $array['title']= $value['title']['rendered'];
@@ -708,9 +708,18 @@ class XemController extends Controller
             }
             $array['page_image']= $page_img_url;
             $array['last_user_id']= 1;
+            // 去除末尾的广告
+            $content = str_replace('http://www.xiaomaojia.com/ex/dragonex.html','https://www.dailybtc.cn/category/anasys/',$value['content']['rendered']) ;
+            if($content){
+                $content_res = str_replace('http://www.xiaomaojia.com/ex/binance.html','https://www.dailybtc.cn/special/defi-dapp/',$content) ;
+                $content_ret = str_replace('http://www.xiaomaojia.com/ex/gateio.html','https://www.dailybtc.cn/category/coin-intro/',$content_res) ;
+            }else{
+                $content_ret = $value['content']['rendered'];
+            }
+           
             $data = [
-                'raw'  => (new Markdowner)->convertMarkdownToHtml($value['content']['rendered']),
-                'html' => (new Markdowner)->convertMarkdownToHtml($value['content']['rendered'])
+                'raw'  => (new Markdowner)->convertMarkdownToHtml($content_ret),
+                'html' => (new Markdowner)->convertMarkdownToHtml($content_ret)
             ];
 
             $array['content']= json_encode( $data);
