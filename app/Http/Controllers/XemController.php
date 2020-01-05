@@ -47,7 +47,7 @@ class XemController extends Controller
             $array['slug'] = $slug;
             $array['subtitle'] = $value['title'];
             $array['category_id'] = '13';//13
-            $array['view_count'] = rand(123, 1000);
+            $array['view_count'] = rand(2135, 42948);
             $array['user_id'] = 1;
             $num = rand(27, 292);
             if ($num < 150) {
@@ -68,11 +68,14 @@ class XemController extends Controller
             $array['published_at'] = date("Y-m-d H:i:s", $value['display_time']);
             $array['created_at'] = date("Y-m-d H:i:s", time());
 
+
             $return = DB::table('articles')->insertGetId($array);
+
             $baidu_arr = [
-                'https://www.btxiaobai.com/' . $slug . '.html',
+                'https://www.btxiaobai.com/' . $slug ,
             ];
             $this->addBaidu($baidu_arr);
+
 
         }
     }
@@ -114,6 +117,10 @@ class XemController extends Controller
                 //dd($array);
 
                 DB::table('articles')->insertGetId($array);
+                $baidu_arr = [
+                    'https://www.btxiaobai.com/' . $slug ,
+                ];
+                $this->addBaidu($baidu_arr);
 //            }
         }
 
@@ -159,6 +166,10 @@ class XemController extends Controller
             $array['created_at']=  date("Y-m-d H:i:s",time()) ;
 
             DB::table('articles')->insertGetId($array);
+            $baidu_arr = [
+                'https://www.btxiaobai.com/' . $slug ,
+            ];
+            $this->addBaidu($baidu_arr);
         }
 
 
@@ -698,7 +709,7 @@ class XemController extends Controller
             $array['slug']= $slug;
             $array['subtitle']= $value['excerpt']['rendered'];
             $array['category_id']= $arr_num[rand(0,5)];//巴比特文章
-            $array['view_count']= rand(1754,18945);
+            $array['view_count']= rand(1754,38945);
             $array['user_id']= 1;
             $num = rand(27,292);
             if($num<150){
@@ -727,6 +738,11 @@ class XemController extends Controller
             $array['published_at']=  $value['date'];
             $array['created_at']=  date("Y-m-d H:i:s",time()) ;
             $return=DB::table('articles')->insertGetId($array);
+            $baidu_arr = [
+                'https://www.btxiaobai.com/' . $slug ,
+            ];
+            $this->addBaidu($baidu_arr);
+
         }
     }
 
